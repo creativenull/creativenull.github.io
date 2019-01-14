@@ -1,9 +1,12 @@
 {
   "name": "portfolio-vuepress",
   "version": "1.0.0",
-  "main": "index.js",
   "license": "MIT",
-  "dependencies": {
-    "vuepress": "^0.14.8"
+  "scripts": {
+    "blog:dev": "vuepress dev blog",
+    "blog:build": "vuepress build blog"
+  },
+  "devDependencies": {
+    "vuepress": "^1.0.0-alpha.30"
   }
 }
