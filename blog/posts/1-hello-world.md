@@ -8,3 +8,6 @@ isPost: true
 
 # Hello World
 So let's start with a hello world project.
+
+---
+<Footer/>
