@@ -1,7 +1,7 @@
 <template>
   <div class="posts" v-if="posts.length != 0">
     <div class="post" v-for="post in posts">
-      <router-link v-bind:to="post.permalink">
+      <router-link :to="post.permalink">
         <h1 class="title">{{ post.title }}</h1>
       </router-link>
       <p class="date">{{ post.date }}</p>
