@@ -1,6 +1,6 @@
 <template>
   <div class="footer">
-    <span class="footer-content">Copyright &copy; Arnold Chand | Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a></span>
+    <span class="footer-content">Copyright &copy; Arnold Chand (thecreativenobody) | Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a></span>
   </div>
 </template>
 
@@ -10,7 +10,7 @@
 }
 
 .footer-content {
-  font-size: 0.8em;
-  font-style: italic;
+  font-size: 0.85em;
+  color: #777;
 }
 </style>
