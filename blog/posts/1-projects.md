@@ -2,7 +2,7 @@
 title: Hello World - Projects
 description: This post is to introduce a bunch of projects I've done during my academic years at Andrews University and Western Michigan University...
 date: Jan 22, 2019
-permalink: /posts/2019/01/22/1-projects.html
+permalink: /posts/2019/01/22/projects.html
 isPost: true
 ---
 
