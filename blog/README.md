@@ -1,7 +1,0 @@
----
-home: true
----
-
----
-<PostsList/>
-<Footer/>
