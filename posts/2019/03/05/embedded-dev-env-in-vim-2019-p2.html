@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Embedded development environment in Vim (2019) - Part 2 | Arnold Chand</title>
+    <meta name="description" content="This is the second part of a two-part series on setting up vim for embedded development. This continues where we left off and start our build process using &#96;cmake&#96;.">
+    
+    
+    <link rel="preload" href="/assets/css/0.styles.d7aad3fc.css" as="style"><link rel="preload" href="/assets/js/app.7b05a379.js" as="script"><link rel="preload" href="/assets/js/2.b7f4fef0.js" as="script"><link rel="preload" href="/assets/js/14.a7227ec4.js" as="script"><link rel="preload" href="/assets/js/8.685a6c59.js" as="script"><link rel="preload" href="/assets/js/7.994a5350.js" as="script"><link rel="preload" href="/assets/js/9.b6726a3f.js" as="script"><link rel="preload" href="/assets/js/3.67f82d6d.js" as="script"><link rel="prefetch" href="/assets/js/10.a9c243c8.js"><link rel="prefetch" href="/assets/js/11.d8a0be98.js"><link rel="prefetch" href="/assets/js/12.f002c381.js"><link rel="prefetch" href="/assets/js/13.4b9f6bc8.js"><link rel="prefetch" href="/assets/js/15.2ef4602b.js"><link rel="prefetch" href="/assets/js/16.a33ce009.js"><link rel="prefetch" href="/assets/js/4.34b648ac.js"><link rel="prefetch" href="/assets/js/5.edd488cb.js"><link rel="prefetch" href="/assets/js/6.f5fc9389.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.d7aad3fc.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Arnold Chand</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/about.html" class="nav-link">About</a></div><div class="nav-item"><a href="/posts/" class="nav-link router-link-active">Posts</a></div><div class="nav-item"><a href="https://github.com/thecreativenobody" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://linkedin.com/in/arnoldjchand" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><nav class="nav-links"><div class="nav-item"><a href="/about.html" class="nav-link">About</a></div><div class="nav-item"><a href="/posts/" class="nav-link router-link-active">Posts</a></div><div class="nav-item"><a href="https://github.com/thecreativenobody" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  Github
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div><div class="nav-item"><a href="https://linkedin.com/in/arnoldjchand" target="_blank" rel="noopener noreferrer" class="nav-link external">
+  LinkedIn
+  <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div> <!----></nav>  <!----> </aside> <main class="page"> <div class="content default"><div class="post-props"><h1 class="post-title">Embedded development environment in Vim (2019) - Part 2</h1> <div class="post-meta-props"><span class="post-meta-date">Posted on Mar 5, 2019</span> | <span class="post-meta-author">By Arnold Chand</span></div></div> <div class="tip custom-block"><p class="custom-block-title">Info</p> <p>If you haven't read the first part, <a href="https://thecreativenobody.github.io/posts/2019/02/08/embedded-dev-env-in-vim-2019-p1.html" target="_blank" rel="noopener noreferrer">click here<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a> to read that first before you read part two.</p></div> <p>Last time, I showed you the plugins I used and setup their settings in a .vimrc (for vim) or init.vim (for nvim) file. This second part will guide you through setting up <code>cmake</code> and making sure our Langauge Server/Client is able to work properly with our custom compiler.</p> <h2 id="build-custom-toolchain"><a href="#build-custom-toolchain" aria-hidden="true" class="header-anchor">#</a> Build custom toolchain</h2> <p>Since we're building our program to be run in a microcontroller, we need a dedicated toolchain to compile our program. The microcontroller I am using is the TI TM4C129EXL ARM microcontroller. And since GCC has ARM support we can use GCC to compile out program. To upload the program we will use the UniFlash tool provided by TI. Unfortunately, we won't be able to debug for this specific microcontroller (I haven't found a working solution yet) but but debugging any other
+microcontroller OpenOCD is a great tool to enable that, however I won't be covering that in this guide - maybe part 3?</p> <p>First, we'll have to create a toolchain file that we can tell <code>cmake</code> to use instead of our default installed toolchain. But before we can do that, we'll need to download the ARM GCC toolchain from developer.arm.com. Then create our environment, I'll keep the compilers and projects seperate, since I am using a Linux distro (Manjaro) I will assume you are using the same or are familiar on how to call programs in the terminal/console. Here is how our workspace will look like, you can make this workspace anywhere in your PC - I have it in a folder inside my Home directory (~/embedded):</p> <div class="language- extra-class"><pre class="language-text"><code>.
+├── compilers
+└── projects
+
+</code></pre></div><p>Download and extract the compiler from ARM - lucky for us we don't need to compile since binary sources are available. If you prefer a clicky <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads" target="_blank" rel="noopener noreferrer">link<svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a>:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Enter into compilers directory</span>
+<span class="token function">cd</span> compilers
+<span class="token function">wget</span> https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
+
+<span class="token comment"># Extract the file</span>
+<span class="token function">tar</span> xjfv gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
+
+<span class="token comment"># Remove tar bz2 file</span>
+<span class="token function">rm</span> gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2
+
+<span class="token function">cd</span> <span class="token punctuation">..</span>
+</code></pre></div><p>Create new project, I used an example file from TI to get the startup and link script to work for TM4C. So we will also need to download TivaWare - which came with Code Composer Studio. I copied mine from where I installed it into the current project:</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Create new project</span>
+<span class="token function">cd</span> projects
+<span class="token function">mkdir</span> blinky
+<span class="token function">cd</span> blinky
+
+<span class="token comment"># Copy linker and startup script from example file</span>
+<span class="token function">cp</span> <span class="token variable">$HOME</span>/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.ld TM4C129ENCPDT.ld
+<span class="token function">cp</span> <span class="token variable">$HOME</span>/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/startup_gcc.c <span class="token keyword">.</span>
+
+<span class="token comment"># Copy the blink program to test it out</span>
+<span class="token function">mkdir</span> src
+<span class="token function">cp</span> <span class="token variable">$HOME</span>/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.c src/main.c
+</code></pre></div><p>Create src folder where all our source files will go inside. We'll also need to create the CMakeLists.txt file along with a toolchain file since we want to use a custom <code>gcc</code> instead of the machine installed one.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># CMakeLists and toolchain files</span>
+<span class="token function">touch</span> CMakeLists.txt toolchain.cmake
+</code></pre></div><p>Let's start with the toolchain.cmake file.</p> <div class="language- extra-class"><pre class="language-text"><code># ---
+# toolchain.cmake
+# ---
+
+set(CMAKE_SYSTEM_NAME Generic)
+set(CMAKE_SYSTEM_PROCESSOR ARM)
+
+set(ARM_GCC_PATH $ENV{EMBEDDED_ROOT}/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin)
+
+set(CMAKE_C_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)
+set(CMAKE_CXX_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-g++)
+set(CMAKE_ASM_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)
+
+# tells CMake not to try to link executables during its internal checks
+# things are not going to link properly without a linker script
+set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)
+
+set(CMAKE_OBJCOPY ${ARM_GCC_PATH}/arm-none-eabi-objcopy)
+set(CMAKE_OBJDUMP ${ARM_GCC_PATH}/arm-none-eabi-objdump)
+set(CMAKE_SIZE ${ARM_GCC_PATH}/arm-none-eabi-size)
+set(CMAKE_DEBUGGER ${ARM_GCC_PATH}/arm-none-eabi-gdb)
+set(CMAKE_CPPFILT ${ARM_GCC_PATH}/arm-none-eabi-c++filt)
+</code></pre></div><p>And now we add content in CMakeLists.txt file. I copied the compiler and linker flags from Code Composer Studio and how they compile the program for TM4C microcontroller.</p> <div class="language- extra-class"><pre class="language-text"><code># ---
+# CMakeLists.txt
+# ---
+
+cmake_minimum_required(VERSION 3.10)
+
+project(blinky)
+set(PROJECT_TARGET ${PROJECT_NAME}.out)
+set(PROJECT_PART TM4C129ENCPDT)
+
+file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.c)
+
+# Startup and linker file provided by Tiva
+enable_language(ASM)
+set(STARTUP_FILE startup_gcc.c)
+set(LINKER_SCRIPT ${PROJECT_PART}.ld)
+
+# Bin file to create
+add_executable(${PROJECT_TARGET} ${STARTUP_FILE} ${SOURCES})
+
+# Tivaware includes and libraries
+set(TIVAWARE_PATH $ENV{HOME}/ti/tivaware_c_series_2_1_4_178)
+target_include_directories(${PROJECT_TARGET} PUBLIC ${TIVAWARE_PATH})
+target_link_libraries(${PROJECT_TARGET} ${TIVAWARE_PATH}/driverlib/gcc/libdriver.a)
+
+# Linker flags
+set_target_properties(${PROJECT_TARGET} PROPERTIES LINK_FLAGS
+	&quot;-mthumb \
+	-march=armv7e-m \
+	-mcpu=cortex-m4 \
+	-mfloat-abi=hard \
+	-mfpu=fpv4-sp-d16 \
+	-nostartfiles \
+	-static \
+	-Wl,-T,${PROJECT_SOURCE_DIR}/${LINKER_SCRIPT} \
+	-Wl,--gc-sections&quot;)
+
+# Compiler flags
+target_compile_options(${PROJECT_TARGET} PUBLIC
+	-g
+	-mthumb
+	-mcpu=cortex-m4
+	-mfpu=fpv4-sp-d16
+	-mfloat-abi=hard
+	-mabi=aapcs
+	-Os
+	-ffunction-sections
+	-fdata-sections
+	-MD
+	-std=c99
+	-Wall
+	-pedantic
+	-DPART_${PROJECT_PART}
+	-DTARGET_IS_TM4C129_RA1
+	-Dgcc
+	-c)
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+</code></pre></div><p>Now I must mention that this was a quick simple way of getting embedded development setup for vim, there are some parts I will explain that will need a bit of manual modification for this to work for your environment. For our simple blink program, all we needed was the <code>libdriver</code> library that came with TivaWare. I simple linked it from where I had my TivaWare installed on my machine which is show above as <code>TIVAWARE_PATH</code>.</p> <p>Finally, everything is assembled and ready for us to compile our program. Let's create a new folder where all the build files will go into, and change our directory into it.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">mkdir</span> build
+<span class="token function">cd</span> build
+</code></pre></div><p>Now we want to tell <code>cmake</code> to build the files, but we want it to use the toolchain file we created instead of <code>cmake</code> looking in the machine installed <code>gcc</code>. And once that is successful we can compile our project by calling <code>make</code> after that.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># inside the build/ directory</span>
+cmake -DCMAKE_TOOLCHAIN_FILE<span class="token operator">=</span><span class="token punctuation">..</span>/toolchain.cmake <span class="token punctuation">..</span>
+-- The C compiler identification is GNU 7.2.1
+-- The CXX compiler identification is GNU 7.2.1
+-- Check <span class="token keyword">for</span> working C compiler: ~/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc
+-- Check <span class="token keyword">for</span> working C compiler: ~/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - <span class="token keyword">done</span>
+-- Detecting C compile features
+-- Detecting C compile features - <span class="token keyword">done</span>
+-- Check <span class="token keyword">for</span> working CXX compiler: ~/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++
+-- Check <span class="token keyword">for</span> working CXX compiler: ~/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - <span class="token keyword">done</span>
+-- Detecting CXX compile features
+-- Detecting CXX compile features - <span class="token keyword">done</span>
+-- The ASM compiler identification is GNU
+-- Found assembler: ~/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc
+-- Configuring <span class="token keyword">done</span>
+-- Generating <span class="token keyword">done</span>
+-- Build files have been written to: ~/embedded/guide-tutorial/projects/blinky/build
+
+<span class="token comment"># finally, call make to compile the program</span>
+<span class="token function">make</span>
+Scanning dependencies of target blinky.out
+<span class="token punctuation">[</span> 33%<span class="token punctuation">]</span> Building C object CMakeFiles/blinky.out.dir/startup_gcc.c.obj
+<span class="token punctuation">[</span> 66%<span class="token punctuation">]</span> Building C object CMakeFiles/blinky.out.dir/src/main.c.obj
+<span class="token punctuation">[</span>100%<span class="token punctuation">]</span> Linking C executable blinky.out
+<span class="token punctuation">[</span>100%<span class="token punctuation">]</span> Built target blinky.out
+</code></pre></div><p>If everything went well, then we will have a <code>blinky.out</code> in our <code>build/</code> directory! Congratulate yourself for getting this far!</p> <p>Now all that remains is that we are able to open up vim and try to get auto-completion and syntax/error checking working. If you remember from the first part, we had LangaugeClient-neovim as our LSP client to run <code>clangd</code> which is a Langauge Server that will run in the background providing diagnostics and auto-completion just like an IDE. But in order for <code>clangd</code> to provide us IDE-like features we need to provide it with a
+<code>compile_commands.json</code> file that cmake built for us in the <code>build/</code> directory.</p> <p>Since we need this file in the root of our project, we could copy the file our to the root and have that solved. The downside to that is when we add new files and recompile our program we end up with the old <code>compile_commands.json</code> file in the root, which we will need to update again manually. The best approach to this is to symbolically link <code>compile_commands.json</code> to the root, so when it updates then we don't need to worry about manually copying the file to the root.</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># in the root of project - blinky/</span>
+<span class="token function">ln</span> -s build/compile_commands.json <span class="token keyword">.</span>
+</code></pre></div><p>Open <code>src/main.c</code> in vim and start using the type any of the function that are available. As you type you should be able to get a list of options auto-completion will prompt for completion. You can go to the definition of a function declared by hovering over the function and pressing <code>&lt;F5&gt;</code> to show the LSP options and typing 'definition'. You can make a key binding for each LSP option. Here is my updated <code>init.vim</code> with individual key bindings.</p> <div class="language-vim extra-class"><pre class="language-vim"><code>nnoremap <span class="token operator">&lt;</span>F5<span class="token operator">&gt;</span> <span class="token punctuation">:</span><span class="token keyword">call</span> <span class="token function">LanguageClient_contextMenu</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>CR<span class="token operator">&gt;</span>
+nnoremap <span class="token operator">&lt;</span>leader<span class="token operator">&gt;</span><span class="token builtin">gd</span> <span class="token punctuation">:</span><span class="token keyword">call</span> LanguageClient#<span class="token function">textDocument_definition</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>CR<span class="token operator">&gt;</span>
+nnoremap <span class="token operator">&lt;</span>leader<span class="token operator">&gt;</span>gf <span class="token punctuation">:</span><span class="token keyword">call</span> LanguageClient#<span class="token function">textDocument_formatting</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>CR<span class="token operator">&gt;</span>
+nnoremap <span class="token operator">&lt;</span>leader<span class="token operator">&gt;</span><span class="token keyword">gr</span> <span class="token punctuation">:</span><span class="token keyword">call</span> LanguageClient#<span class="token function">textDocument_rename</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">&lt;</span>CR<span class="token operator">&gt;</span>
+</code></pre></div><p>This concludes the 2nd part of the series - Embedded development environment in Vim - I would like to revist this in the future and keep it up-to-date as much as possible. I hope you enjoyed this guide.</p> <div class="post-footer"><hr> <div><h3>About me</h3> <p>I am a electrical engineer who is passionate about embedded and IoT systems. I love to write code and enjoy solving tough problems.</p></div> <hr> <div class="footer"><span class="footer-content">Copyright © Arnold Chand (thecreativenobody) | Powered by <a href="https://vuepress.vuejs.org" target="_blank">VuePress</a></span></div></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.7b05a379.js" defer></script><script src="/assets/js/2.b7f4fef0.js" defer></script><script src="/assets/js/14.a7227ec4.js" defer></script><script src="/assets/js/8.685a6c59.js" defer></script><script src="/assets/js/7.994a5350.js" defer></script><script src="/assets/js/9.b6726a3f.js" defer></script><script src="/assets/js/3.67f82d6d.js" defer></script>
+  </body>
+</html>
