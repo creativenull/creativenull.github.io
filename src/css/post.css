@@ -49,7 +49,12 @@
 }
 
 .app-post pre {
-  @apply font-jetbrains leading-loose text-sm p-2;
+  @apply text-sm rounded-md p-8 shadow-lg shadow-gray-700 filter invert border border-gray-700;
+  @apply dark:(shadow-none invert-0 border-gray-700);
+}
+
+.app-post pre code {
+  @apply font-jetbrains leading-loose;
 }
 
 @screen md {
