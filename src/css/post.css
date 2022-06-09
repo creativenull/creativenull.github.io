@@ -41,11 +41,11 @@
 }
 
 .app-post a {
-  @apply transition-color duration-300 text-blue-400 font-bold;
+  @apply transition-color duration-300 text-blue-700 font-bold dark:text-blue-400;
 }
 
 .app-post a:hover {
-  @apply underline text-green-500;
+  @apply underline text-green-400 dark:(underline text-green-500);
 }
 
 .app-post pre {
