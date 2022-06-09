@@ -1,0 +1,24 @@
+{
+  "name": "@example/minimal",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "devDependencies": {
+    "@types/lodash.truncate": "^4.4.7",
+    "astro": "^1.0.0-beta.40",
+    "prettier": "^2.6.2",
+    "prettier-plugin-astro": "^0.0.12",
+    "vite-plugin-windicss": "^1.8.4",
+    "windicss": "^3.5.4"
+  },
+  "dependencies": {
+    "@astrojs/solid-js": "^0.1.4",
+    "lodash.truncate": "^4.4.2",
+    "solid-js": "^1.4.3"
+  }
+}

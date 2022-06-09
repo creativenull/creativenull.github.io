@@ -1,0 +1,52 @@
+{
+  "projectlocal": {
+    "nvim-lsp": {
+      "tsserver": true,
+      "astro": {
+        "settings": {
+          "astro": {
+            "typescript": {
+              "enabled": true,
+              "diagnostics": { "enabled": true },
+              "hover": { "enabled": true },
+              "completions": { "enabled": true },
+              "definitions": { "enabled": true },
+              "documentSymbols": { "enabled": true },
+              "codeActions": { "enabled": true },
+              "rename": { "enabled": true },
+              "signatureHelp": { "enabled": true },
+              "semanticTokens": { "enabled": true }
+            },
+            "css": {
+              "enabled": true,
+              "hover": { "enabled": true },
+              "completions": { "enabled": true, "emmet": true },
+              "documentColors": { "enabled": true },
+              "documentSymbols": { "enabled": true }
+            },
+            "html": {
+              "enabled": true,
+              "hover": { "enabled": true },
+              "completions": { "enabled": true, "emmet": true },
+              "tagComplete": { "enabled": true },
+              "documentSymbols": { "enabled": true }
+            },
+            "format": {
+              "indentFrontmatter": true,
+              "newLineAfterFrontmatter": true
+            }
+          }
+        }
+      }
+    },
+    "globalVars": {
+      "ale_fixers": {
+        "javascript": ["prettier"],
+        "javascriptreact": ["prettier"],
+        "typescript": ["prettier"],
+        "typescriptreact": ["prettier"],
+        "astro": ["prettier"]
+      }
+    }
+  }
+}
