@@ -1,25 +1,20 @@
 ---
 import AppDarkMode from "./AppDarkMode"
 
-const path = Astro.canonicalURL.pathname;
-let links = [];
-
-if (path !== '/') {
-  links.push({
+let links = [
+  {
     href: "/",
     name: "Home",
-  });
-} else {
-  links.push({
+  },
+  {
     href: "/posts",
     name: "Posts",
-  });
-}
-
-links.push({
-  href: "https://github.com/creativenull",
-  name: "Github",
-});
+  },
+  {
+    href: "https://github.com/creativenull",
+    name: "Github",
+  },
+];
 ---
 
 <div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
