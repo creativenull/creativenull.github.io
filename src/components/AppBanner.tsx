@@ -1,5 +1,4 @@
 import { createSignal } from "solid-js";
-import { useDarkMode } from "../store/darkmode";
 
 const appBannerStyle = {
   width: "100%",
@@ -8,7 +7,6 @@ const appBannerStyle = {
 
 export default function AppBanner() {
   const [toggleColors, setToggleColors] = createSignal(true);
-  const [isDark, _] = useDarkMode();
 
   function toggleStyling() {
     if (toggleColors()) {
@@ -21,8 +19,7 @@ export default function AppBanner() {
   return (
     <div
       style={appBannerStyle}
-      class="flex flex-col justify-center items-center bg-dark-900"
-      classList={{ "shadow-lg shadow-dark-50": !isDark() }}
+      class="flex flex-col justify-center items-center bg-dark-900 shadow-lg shadow-dark-50 dark:shadow-none"
     >
       <div
         onMouseEnter={toggleStyling}
