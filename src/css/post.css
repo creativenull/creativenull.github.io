@@ -1,0 +1,92 @@
+.app-post h1,
+.app-post h2,
+.app-post h3,
+.app-post h4,
+.app-post h5,
+.app-post h6 {
+  @apply mx-4 my-10;
+}
+
+.app-post h1 {
+  @apply text-3xl;
+}
+
+.app-post h2 {
+  @apply text-2xl;
+}
+
+.app-post h3 {
+  @apply text-xl;
+}
+
+.app-post h4 {
+  @apply text-lg;
+}
+
+.app-post h5 {
+  @apply text-base;
+}
+
+.app-post h6 {
+  @apply text-sm;
+}
+
+.app-post p,
+.app-post li {
+  @apply leading-loose text-xl mx-6;
+}
+
+.app-post p {
+  @apply leading-loose text-xl mx-6 my-4;
+}
+
+.app-post a {
+  @apply transition-color duration-300 text-blue-400 font-bold;
+}
+
+.app-post a:hover {
+  @apply underline text-green-500;
+}
+
+.app-post pre {
+  @apply font-jetbrains leading-loose text-sm p-2;
+}
+
+@screen md {
+  .app-post h1,
+  .app-post h2,
+  .app-post h3,
+  .app-post h4,
+  .app-post h5,
+  .app-post h6 {
+    @apply font-normal my-12;
+  }
+
+  .app-post h1 {
+    @apply text-6xl;
+  }
+
+  .app-post h2 {
+    @apply text-5xl;
+  }
+
+  .app-post h3 {
+    @apply text-4xl;
+  }
+
+  .app-post h4 {
+    @apply text-3xl;
+  }
+
+  .app-post h5 {
+    @apply text-2xl;
+  }
+
+  .app-post h6 {
+    @apply text-xl;
+  }
+
+  .app-post pre {
+    @apply text-lg;
+  }
+}
