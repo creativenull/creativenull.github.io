@@ -1,0 +1,25 @@
+---
+import AppLink from "@components/AppLink"
+
+const currentYear = new Date(Date.now()).getFullYear();
+---
+
+<div class="frontpage-divider"></div>
+
+<div class="app-footer flex justify-center items-center px-4">
+  <span>
+    2020 - {currentYear} Arnold Chand (creativenull) | Made with ♥️ 
+    <AppLink href="https://astro.build">astro.build</AppLink> + <AppLink href="https://www.solidjs.com">solidjs</AppLink>
+  </span>
+</div>
+
+<style>
+  .app-footer {
+    height: 100px;
+  }
+
+  .frontpage-divider {
+    height: 1px;
+    background-image: linear-gradient(to left, transparent, #4a4a4a 50%, transparent);
+  }
+</style>
