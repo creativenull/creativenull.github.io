@@ -23,7 +23,7 @@ export default function Posts(props: PostsProps) {
               <AppLink href={post.url}>{post.frontmatter.title}</AppLink>
             </h1>
             <div class="post-attr font-bold">
-              {config.author} / {post.frontmatter.date}
+              {config.author}, {post.frontmatter.date}
             </div>
             <p class="post-desc leading-loose md:text-xl text-lg">
               {truncate(post.frontmatter.description, truncateOptions)}
