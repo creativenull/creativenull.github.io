@@ -1,0 +1,37 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import AppHeader from "@components/AppHeader.astro";
+import AppFooter from "@components/AppFooter.astro";
+import AppBanner from "@components/AppBanner";
+import { DarkModeProvider } from "../store/darkmode"
+
+export interface FrontPageProps {
+  title: string;
+}
+
+const { title } = Astro.props as FrontPageProps;
+---
+
+<BaseLayout {title}>
+  <div class="min-h-screen">
+    <DarkModeProvider client:load>
+      <AppHeader client:load />
+      <AppBanner client:load />
+    </DarkModeProvider>
+
+    <div class="frontpage-divider"></div>
+
+    <div class="px-4 py-4 mx-auto md:(w-3/4 px-0 py-6) lg:w-1/2">
+      <slot />
+    </div>
+  </div>
+
+  <AppFooter />
+</BaseLayout>
+
+<style>
+  .frontpage-divider {
+    height: 1px;
+    background-image: linear-gradient(to left, transparent, #4a4a4a 50%, transparent);
+  }
+</style>
