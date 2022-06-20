@@ -15,7 +15,7 @@ const { title } = Astro.props as FrontPageProps;
 <BaseLayout {title}>
   <div class="min-h-screen">
     <DarkModeProvider client:load>
-      <AppHeader client:load />
+      <AppHeader />
       <AppBanner client:load />
     </DarkModeProvider>
 
