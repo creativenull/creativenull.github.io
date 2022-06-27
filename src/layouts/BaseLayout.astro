@@ -14,7 +14,8 @@ const { title } = Astro.props as BaseProps;
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <slot name="meta" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <meta name="theme-color" content="#1E3A8A" />
     <title>{title} - {config.siteName}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
