@@ -4,6 +4,7 @@ import solid from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
+  outDir: "./docs",
   integrations: [solid()],
   vite: {
     plugins: [WindiCSS()]
