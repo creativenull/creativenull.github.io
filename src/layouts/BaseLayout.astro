@@ -1,5 +1,7 @@
 ---
 import { config } from "@config";
+import "virtual:windi.css";
+import "virtual:windi-devtools";
 
 export interface BaseProps {
   title: string;
@@ -29,11 +31,6 @@ const { title } = Astro.props as BaseProps;
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <script>
-      import "virtual:windi.css";
-      import "virtual:windi-devtools";
-    </script>
   </head>
   <body class="dark:(text-light-50 bg-dark-800) text-dark-900 bg-light-900">
     <div class="font-noto font-extralight">
