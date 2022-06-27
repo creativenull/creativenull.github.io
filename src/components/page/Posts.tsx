@@ -22,10 +22,10 @@ export default function Posts(props: PostsProps) {
             <h1 class="post-title md:text-3xl text-xl">
               <AppLink href={post.url}>{post.frontmatter.title}</AppLink>
             </h1>
-            <div class="post-attr font-bold">
+            <div class="post-attr font-bold text-xs md:text-base">
               {config.author}, {post.frontmatter.date}
             </div>
-            <p class="post-desc leading-loose md:text-xl text-lg">
+            <p class="post-desc leading-loose md:text-xl text-md">
               {truncate(post.frontmatter.description, truncateOptions)}
             </p>
           </div>
