@@ -35,3 +35,17 @@ const { title } = Astro.props as FrontPageProps;
     background-image: linear-gradient(to left, transparent, #4a4a4a 50%, transparent);
   }
 </style>
+
+<style is:global>
+  .frontpage-banner {
+    width: 100%;
+    @apply py-16;
+  }
+
+  @screen md {
+    .frontpage-banner {
+      height: 350px;
+      @apply p-2;
+    }
+  }
+</style>
