@@ -35,10 +35,8 @@ const { title } = Astro.props as BaseProps;
       import "virtual:windi-devtools";
     </script>
   </head>
-  <body>
-    <div
-      class="dark:(text-light-50 bg-dark-800) text-dark-900 bg-light-900 font-noto font-extralight"
-    >
+  <body class="dark:(text-light-50 bg-dark-800) text-dark-900 bg-light-900">
+    <div class="font-noto font-extralight">
       <slot />
     </div>
   </body>

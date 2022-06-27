@@ -1,4 +1,5 @@
 import { createSignal } from "solid-js";
+import { config } from "@config"
 
 const appBannerStyle = {
   width: "100%",
@@ -30,16 +31,16 @@ export default function AppBanner() {
           class="transition-color duration-500"
           classList={{ "text-light-900": toggleColors(), "text-blue-600": !toggleColors() }}
         >
-          Creative
+          {config.siteBannerConfig.primaryTitleText}
         </span>
         <span
           class="transition-color duration-500"
           classList={{ "text-light-900": !toggleColors(), "text-blue-600": toggleColors() }}
         >
-          Null
+          {config.siteBannerConfig.secondaryTitleText}
         </span>
       </div>
-      <span class="text-xs text-light-50 md:text-lg">Random engineering notes, blog, etc</span>
+      <span class="text-xs text-light-50 md:text-lg">{config.siteSubtitle}</span>
     </div>
   );
 }
