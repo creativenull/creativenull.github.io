@@ -9,32 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&family=Noto+Sans:ital,wght@0,200;0,700;1,200;1,700&family=Righteous&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerPolicy="no-referrer">
 
   
 
-  <link rel="stylesheet" href="/assets/asset.11d9dd1a.css" /><style>astro-root, astro-fragment { display: contents; }</style><script type="module" src="/entry.eda76b57.js"></script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("1oJqH0", {name:"AppDarkMode",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("/entry.db763d26.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
-  const [{ DarkModeProvider: Component }, { default: hydrate }] = await Promise.all([import("/entry.8d415139.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-</head>
+  <link rel="stylesheet" href="/assets/b07fff74.dd094918.css" />
+<link rel="stylesheet" href="/assets/19a61d25.0af593eb.css" /><script type="module" src="/hoisted.7ab89dfa.js"></script></head>
   <body class="dark:text-light-50 dark:bg-dark-800 text-dark-900 bg-light-900">
     <div class="font-noto font-extralight">
       <div class="min-h-screen">
-    <astro-root ssr uid="Z1HwpqU"><astro-fragment><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
+    <astro-island uid="41OOS" component-url="/darkmode.165258fa.js" component-export="DarkModeProvider" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
   <nav class="h-full flex items-center justify-center">
     <a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/">
         Home
@@ -46,9 +30,9 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
   </nav>
 
   <div class="pr-4">
-    <astro-root ssr uid="1oJqH0"><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-root>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()};var a;{const l={0:t=>t,1:t=>JSON.parse(t,n),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,n)),5:t=>new Set(JSON.parse(t,n)),6:t=>BigInt(t),7:t=>new URL(t)},n=(t,r)=>{if(t===""||!Array.isArray(r))return r;const[s,i]=r;return s in l?l[s](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(a=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement?.closest("astro-island[ssr]"))return;const r=this.querySelectorAll("astro-slot"),s={},i=this.querySelectorAll("template[data-astro-template]");for(const e of i)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("data-astro-template")||"default"]=e.innerHTML,e.remove());for(const e of r)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("name")||"default"]=e.innerHTML);const o=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),n):{};this.hydrator(this)(this.Component,o,s,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,s)=>{s.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url"));const r=JSON.parse(this.getAttribute("opts"));Astro[this.getAttribute("client")](async()=>{const s=this.getAttribute("renderer-url"),[i,{default:o}]=await Promise.all([import(this.getAttribute("component-url")),s?import(s):()=>()=>{}]),e=this.getAttribute("component-export")||"default";if(!e.includes("."))this.Component=i[e];else{this.Component=i;for(const c of e.split("."))this.Component=this.Component[c]}return this.hydrator=o,this.hydrate},r,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},a.observedAttributes=["props"],a))}</script><astro-island uid="1oJqH0" component-url="/AppDarkMode.042124e1.js" component-export="default" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;AppDarkMode&quot;,&quot;value&quot;:true}" await-children=""><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-island>
   </div>
-</div></astro-fragment></astro-root>
+</div></astro-slot></astro-island>
 
     <h1 class="underline text-3xl px-4 my-10 md:text-6xl md:text-center md:my-12 lg:w-3/4 lg:mx-auto">
       About github contributions graph
@@ -56,53 +40,62 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
 
     <div class="app-post pb-4 mx-auto md:w-3/4 md:px-0 md:pb-6 lg:w-1/2">
       <p>Lately, I’ve been working a lot of contributions on Github. Well not a lot, but majority of my time is pushing my commits
-to my repo. Whether they are from work or just my hobby projects.</p><p>While I have been pushing these commits, I’ve observed that my contributions graph on my profile pages have a lot of light
+to my repo. Whether they are from work or just my hobby projects.</p>
+<p>While I have been pushing these commits, I’ve observed that my contributions graph on my profile pages have a lot of light
 green tiles - indicating that there are commits done on that day, but very few. This interested me, in the way that I’ve been
 working the whole day making changes and commiting them to the repo but see that in total there have been an average of
-10 - 12 commits per day.</p><p>So I decided to do a quick search on how Github contribution graphs work. First, I started with the official Github
+10 - 12 commits per day.</p>
+<p>So I decided to do a quick search on how Github contribution graphs work. First, I started with the official Github
 help page where it explains how Github adds to the graph, depending on your commits to (in short summary): <code>master</code> branch,
 <code>gh-pages</code> branch, done to a repo not a fork, linked with your email on Github. With this information, I deceided to see
-if any other blogs or website have this covered. Unfortunately, there was not much information.</p><p>While the Github help page was very clear on how it would count your commits towards the graph, it does not mention
+if any other blogs or website have this covered. Unfortunately, there was not much information.</p>
+<p>While the Github help page was very clear on how it would count your commits towards the graph, it does not mention
 how many commits refer to the color of the graph. Nor do any articles that cover this feature on their post. I would remind
-you that this was just a simple search on and I did not really go deep in my search.</p><div class="bg-emerald-800 text-light-900 border-l border-l-10 border-emerald-900 py-2 md:my-8">
+you that this was just a simple search on and I did not really go deep in my search.</p>
+<div class="bg-emerald-800 text-light-900 border-l border-l-10 border-emerald-900 py-2 md:my-8">
   <p class="font-bold">Note</p>
   <p>See updated section below…</p>
-</div><p><del>So observing my commits per day, I have compiled a small table below to show you how many commits refer to the color
-of the graph.</del></p><table>
-<thead>
-<tr>
-<th>Commits per Day</th>
-<th>Graph Color</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><del>1 - 19</del></td>
-<td><del>Lightest Green</del></td>
-</tr>
-<tr>
-<td><del>20 - 39</del></td>
-<td><del>Light Green</del></td>
-</tr>
-<tr>
-<td><del>40 - 60</del></td>
-<td><del>Green</del></td>
-</tr>
-<tr>
-<td><del>61 and higher</del></td>
-<td><del>Dark Green</del></td>
-</tr>
-</tbody>
-</table><p>While not the best description on the color, I believe this would really help in knowing how many commits to do in order
-to reach the dark color.</p><h2 id="update-20200620">Update (2020/06/20)</h2><p>After looking through other user profiles on Github, it was evident that Github counts the color intensity by what
+</div>
+<p><del>So observing my commits per day, I have compiled a small table below to show you how many commits refer to the color
+of the graph.</del></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Commits per Day</th><th>Graph Color</th></tr></thead><tbody><tr><td><del>1 - 19</del></td><td><del>Lightest Green</del></td></tr><tr><td><del>20 - 39</del></td><td><del>Light Green</del></td></tr><tr><td><del>40 - 60</del></td><td><del>Green</del></td></tr><tr><td><del>61 and higher</del></td><td><del>Dark Green</del></td></tr></tbody></table>
+<p>While not the best description on the color, I believe this would really help in knowing how many commits to do in order
+to reach the dark color.</p>
+<h2 id="update-20200620">Update (2020/06/20)</h2>
+<p>After looking through other user profiles on Github, it was evident that Github counts the color intensity by what
 your maximum contributions are for one day over the course of a year, and then calculates those intensities accordingly.
 For example, if you made only 20 contributions for one over the course of a year timeline, then that will be assigned
 the most intense color. Whilst, contributing only one for a day with give you the least intense color.</p>
     </div>
-  </div><div class="frontpage-divider astro-DMOPS5DY"></div>
+  </div><div class="frontpage-divider astro-X4VM4NEM"></div>
 
-<div class="app-footer flex justify-center items-center px-4 astro-DMOPS5DY">
-  <span class="astro-DMOPS5DY">
+<div class="app-footer flex justify-center items-center px-4 astro-X4VM4NEM">
+  <span class="astro-X4VM4NEM">
     2020 - 2022 Arnold Chand (creativenull) | Made with ♥️ 
     <a data-hk="0-0" href="https://astro.build" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">solidjs</a>
   </span>

@@ -9,32 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&family=Noto+Sans:ital,wght@0,200;0,700;1,200;1,700&family=Righteous&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerPolicy="no-referrer">
 
   
 
-  <link rel="stylesheet" href="/assets/asset.11d9dd1a.css" /><style>astro-root, astro-fragment { display: contents; }</style><script type="module" src="/entry.eda76b57.js"></script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("1oJqH0", {name:"AppDarkMode",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("/entry.db763d26.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
-  const [{ DarkModeProvider: Component }, { default: hydrate }] = await Promise.all([import("/entry.8d415139.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-</head>
+  <link rel="stylesheet" href="/assets/b07fff74.dd094918.css" />
+<link rel="stylesheet" href="/assets/19a61d25.0af593eb.css" /><script type="module" src="/hoisted.7ab89dfa.js"></script></head>
   <body class="dark:text-light-50 dark:bg-dark-800 text-dark-900 bg-light-900">
     <div class="font-noto font-extralight">
       <div class="min-h-screen">
-    <astro-root ssr uid="Z1HwpqU"><astro-fragment><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
+    <astro-island uid="41OOS" component-url="/darkmode.165258fa.js" component-export="DarkModeProvider" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
   <nav class="h-full flex items-center justify-center">
     <a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/">
         Home
@@ -46,9 +30,9 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
   </nav>
 
   <div class="pr-4">
-    <astro-root ssr uid="1oJqH0"><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-root>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()};var a;{const l={0:t=>t,1:t=>JSON.parse(t,n),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,n)),5:t=>new Set(JSON.parse(t,n)),6:t=>BigInt(t),7:t=>new URL(t)},n=(t,r)=>{if(t===""||!Array.isArray(r))return r;const[s,i]=r;return s in l?l[s](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(a=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement?.closest("astro-island[ssr]"))return;const r=this.querySelectorAll("astro-slot"),s={},i=this.querySelectorAll("template[data-astro-template]");for(const e of i)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("data-astro-template")||"default"]=e.innerHTML,e.remove());for(const e of r)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("name")||"default"]=e.innerHTML);const o=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),n):{};this.hydrator(this)(this.Component,o,s,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,s)=>{s.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url"));const r=JSON.parse(this.getAttribute("opts"));Astro[this.getAttribute("client")](async()=>{const s=this.getAttribute("renderer-url"),[i,{default:o}]=await Promise.all([import(this.getAttribute("component-url")),s?import(s):()=>()=>{}]),e=this.getAttribute("component-export")||"default";if(!e.includes("."))this.Component=i[e];else{this.Component=i;for(const c of e.split("."))this.Component=this.Component[c]}return this.hydrator=o,this.hydrate},r,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},a.observedAttributes=["props"],a))}</script><astro-island uid="1oJqH0" component-url="/AppDarkMode.042124e1.js" component-export="default" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;AppDarkMode&quot;,&quot;value&quot;:true}" await-children=""><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-island>
   </div>
-</div></astro-fragment></astro-root>
+</div></astro-slot></astro-island>
 
     <h1 class="underline text-3xl px-4 my-10 md:text-6xl md:text-center md:my-12 lg:w-3/4 lg:mx-auto">
       Embedded development environment in Vim (2019) - Part 1
@@ -60,11 +44,17 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
   <p>This is a two part series on how my vim is setup for embedded systems development. The first part shows what vim
 plugins I use and how I have them setup, while part two will cover the cmake portion on setting up a build workflow
 and a template.</p>
-</div><p>There has been a lot of tutorials on setting up vim for a Python/JavaScript/Java/C/C++ environment, but I did not find a variety of tutorials on how to setup a C/C++ environment for embedded development. I did, however, find one great post <a href="http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">written by Alexey</a> where he did explain how to setup for one. Although his post does a great job explaining, there were still some things missing that I want to add for my embedded development environment. Things that I wanted to work for my setup:</p><ul>
+</div>
+<p>There has been a lot of tutorials on setting up vim for a Python/JavaScript/Java/C/C++ environment, but I did not find a variety of tutorials on how to setup a C/C++ environment for embedded development. I did, however, find one great post <a href="http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">written by Alexey</a> where he did explain how to setup for one. Although his post does a great job explaining, there were still some things missing that I want to add for my embedded development environment. Things that I wanted to work for my setup:</p>
+<ul>
 <li>Using <code>cmake</code> instead of <code>make</code>.</li>
 <li>Build a custom gcc toolchain for specific boards.</li>
 <li>Have an all-in-one solution package that features IDE-like tools like linting, auto-completion, goto definition, etc.</li>
-</ul><p>So after a bit of digging and a lot of frustration on how limited resources there were, I finally found some useful resources that I was able to put together and have it working. Here are my findings and how I was able to get myself up and running for my requirements. The development board I will be using is the TI TM4C129EXL microcontroller, but the steps on setup is very similiar for other microcontrollers like other TI, STM manufacturers. Here is a picture.</p><img class="mx-auto" width="100%" src="http://image.itmedia.co.jp/edn/articles/1509/27/ts150925_TI01.jpg"><p>So the things to install (this might differ since my setup is on a Linux system):</p><ul>
+</ul>
+<p>So after a bit of digging and a lot of frustration on how limited resources there were, I finally found some useful resources that I was able to put together and have it working. Here are my findings and how I was able to get myself up and running for my requirements. The development board I will be using is the TI TM4C129EXL microcontroller, but the steps on setup is very similiar for other microcontrollers like other TI, STM manufacturers. Here is a picture.</p>
+<img class="mx-auto" width="100%" src="http://image.itmedia.co.jp/edn/articles/1509/27/ts150925_TI01.jpg"/>
+<p>So the things to install (this might differ since my setup is on a Linux system):</p>
+<ul>
 <li><a href="https://neovim.io/">neovim</a> or <a href="https://www.vim.org/">vim8</a></li>
 <li><strong>vim-plug</strong> - plugin manager | <a href="https://github.com/junegunn/vim-plug">link</a></li>
 <li><strong>deoplete</strong> - auto-completion engine | <a href="https://github.com/Shougo/deoplete.nvim">link</a></li>
@@ -73,40 +63,47 @@ and a template.</p>
 <li><strong>clang</strong> - to get <code>clangd</code> which will be used as our LSP server backend | <a href="https://clang.llvm.org/">link</a></li>
 <li><strong>cmake</strong> - build tool | <a href="https://cmake.org/">link</a></li>
 <li><strong>arm-gcc-toolchain</strong> - C compiler for ARM boards | <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">link</a></li>
-</ul><h2 id="vim---install-plugins">Vim - install plugins</h2><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">plug#begin</span><span style="color: #C9D1D9">(</span><span style="color: #A5D6FF">&#39;~/.local/share/nvim/plugged&#39;</span><span style="color: #C9D1D9">)</span></span>
+</ul>
+<h2 id="vim---install-plugins">Vim - install plugins</h2>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">plug#begin</span><span style="color:#C9D1D9">(</span><span style="color:#A5D6FF">&#39;~/.local/share/nvim/plugged&#39;</span><span style="color:#C9D1D9">)</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E">&quot; Auto-completion</span></span>
-<span class="line"><span style="color: #FF7B72">Plug</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;Shougo/deoplete.nvim&#39;</span><span style="color: #C9D1D9">, { </span><span style="color: #A5D6FF">&#39;do&#39;</span><span style="color: #C9D1D9">: </span><span style="color: #A5D6FF">&#39;:UpdateRemotePlugins&#39;</span><span style="color: #C9D1D9"> }</span></span>
-<span class="line"><span style="color: #8B949E">&quot; Tab for auto-completion</span></span>
-<span class="line"><span style="color: #FF7B72">Plug</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;ervandew/supertab&#39;</span></span>
-<span class="line"><span style="color: #8B949E">&quot; Language client for a Language Server Protocol support</span></span>
-<span class="line"><span style="color: #FF7B72">Plug</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;autozimu/LanguageClient-neovim&#39;</span><span style="color: #C9D1D9">, { </span><span style="color: #A5D6FF">&#39;branch&#39;</span><span style="color: #C9D1D9">: </span><span style="color: #A5D6FF">&#39;next&#39;</span><span style="color: #C9D1D9">, </span><span style="color: #A5D6FF">&#39;do&#39;</span><span style="color: #C9D1D9">: </span><span style="color: #A5D6FF">&#39;bash install.sh&#39;</span><span style="color: #C9D1D9"> }</span></span>
-<span class="line"><span style="color: #8B949E">&quot; Fuzzy file finder</span></span>
-<span class="line"><span style="color: #FF7B72">Plug</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;junegunn/fzf&#39;</span></span>
+<span class="line"><span style="color:#8B949E">&quot; Auto-completion</span></span>
+<span class="line"><span style="color:#FF7B72">Plug</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;Shougo/deoplete.nvim&#39;</span><span style="color:#C9D1D9">, { </span><span style="color:#A5D6FF">&#39;do&#39;</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">&#39;:UpdateRemotePlugins&#39;</span><span style="color:#C9D1D9"> }</span></span>
+<span class="line"><span style="color:#8B949E">&quot; Tab for auto-completion</span></span>
+<span class="line"><span style="color:#FF7B72">Plug</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;ervandew/supertab&#39;</span></span>
+<span class="line"><span style="color:#8B949E">&quot; Language client for a Language Server Protocol support</span></span>
+<span class="line"><span style="color:#FF7B72">Plug</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;autozimu/LanguageClient-neovim&#39;</span><span style="color:#C9D1D9">, { </span><span style="color:#A5D6FF">&#39;branch&#39;</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">&#39;next&#39;</span><span style="color:#C9D1D9">, </span><span style="color:#A5D6FF">&#39;do&#39;</span><span style="color:#C9D1D9">: </span><span style="color:#A5D6FF">&#39;bash install.sh&#39;</span><span style="color:#C9D1D9"> }</span></span>
+<span class="line"><span style="color:#8B949E">&quot; Fuzzy file finder</span></span>
+<span class="line"><span style="color:#FF7B72">Plug</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;junegunn/fzf&#39;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">plug#end</span><span style="color: #C9D1D9">()</span></span>
+<span class="line"><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">plug#end</span><span style="color:#C9D1D9">()</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E">&quot; Plugin and Indent enable</span></span>
-<span class="line"><span style="color: #79C0FF">filetype</span><span style="color: #C9D1D9"> plugin indent on</span></span></code></pre><p>Next, we reload vim and execute command <code>:PlugInstall</code> to install the plugins, and reloading vim should load our plugins.</p><h3 id="plugin-configs-and-key-bindings">Plugin configs and key bindings</h3><p>Now we add our global configs for our plugins. We want to make sure deoplete starts by default, supertab has an issue where it will tab complete from the bottom-top (although this is a feature in supertab) I like my tab completion from the top-bottom. Next we add our config for LanguageClient-neovim, the LSP server I will be using is <code>clangd</code>. The only binding I use is the goto definition, but you can add other bindings for LanguageClient-neovim more can found on their github repo.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E">&quot; --- Deoplete Options ---</span></span>
-<span class="line"><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> g:deoplete#enable_at_startup</span><span style="color: #FF7B72">=</span><span style="color: #79C0FF">1</span></span>
+<span class="line"><span style="color:#8B949E">&quot; Plugin and Indent enable</span></span>
+<span class="line"><span style="color:#79C0FF">filetype</span><span style="color:#C9D1D9"> plugin indent on</span></span></code></pre>
+<p>Next, we reload vim and execute command <code>:PlugInstall</code> to install the plugins, and reloading vim should load our plugins.</p>
+<h3 id="plugin-configs-and-key-bindings">Plugin configs and key bindings</h3>
+<p>Now we add our global configs for our plugins. We want to make sure deoplete starts by default, supertab has an issue where it will tab complete from the bottom-top (although this is a feature in supertab) I like my tab completion from the top-bottom. Next we add our config for LanguageClient-neovim, the LSP server I will be using is <code>clangd</code>. The only binding I use is the goto definition, but you can add other bindings for LanguageClient-neovim more can found on their github repo.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E">&quot; --- Deoplete Options ---</span></span>
+<span class="line"><span style="color:#FF7B72">let</span><span style="color:#C9D1D9"> g:deoplete#enable_at_startup</span><span style="color:#FF7B72">=</span><span style="color:#79C0FF">1</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E">&quot; --- SuperTab Options --- </span></span>
-<span class="line"><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> g:SuperTabDefaultCompletionType</span><span style="color: #FF7B72">=</span><span style="color: #A5D6FF">&#39;&lt;C-n&gt;&#39;</span></span>
+<span class="line"><span style="color:#8B949E">&quot; --- SuperTab Options --- </span></span>
+<span class="line"><span style="color:#FF7B72">let</span><span style="color:#C9D1D9"> g:SuperTabDefaultCompletionType</span><span style="color:#FF7B72">=</span><span style="color:#A5D6FF">&#39;&lt;C-n&gt;&#39;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E">&quot; --- LanguageClient Options --- </span></span>
-<span class="line"><span style="color: #FF7B72">let</span><span style="color: #C9D1D9"> g:LanguageClient_serverCommands</span><span style="color: #FF7B72">=</span><span style="color: #C9D1D9">{</span></span>
-<span class="line"><span style="color: #C9D1D9">	</span><span style="color: #FF7B72">\</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;c&#39;</span><span style="color: #C9D1D9">: [</span><span style="color: #A5D6FF">&#39;clangd&#39;</span><span style="color: #C9D1D9">],</span></span>
-<span class="line"><span style="color: #C9D1D9">	</span><span style="color: #FF7B72">\</span><span style="color: #C9D1D9"> </span><span style="color: #A5D6FF">&#39;cpp&#39;</span><span style="color: #C9D1D9">: [</span><span style="color: #A5D6FF">&#39;clangd&#39;</span><span style="color: #C9D1D9">],</span></span>
-<span class="line"><span style="color: #C9D1D9">	</span><span style="color: #FF7B72">\</span><span style="color: #C9D1D9"> }</span></span>
+<span class="line"><span style="color:#8B949E">&quot; --- LanguageClient Options --- </span></span>
+<span class="line"><span style="color:#FF7B72">let</span><span style="color:#C9D1D9"> g:LanguageClient_serverCommands</span><span style="color:#FF7B72">=</span><span style="color:#C9D1D9">{</span></span>
+<span class="line"><span style="color:#C9D1D9">	</span><span style="color:#FF7B72">\</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;c&#39;</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">&#39;clangd&#39;</span><span style="color:#C9D1D9">],</span></span>
+<span class="line"><span style="color:#C9D1D9">	</span><span style="color:#FF7B72">\</span><span style="color:#C9D1D9"> </span><span style="color:#A5D6FF">&#39;cpp&#39;</span><span style="color:#C9D1D9">: [</span><span style="color:#A5D6FF">&#39;clangd&#39;</span><span style="color:#C9D1D9">],</span></span>
+<span class="line"><span style="color:#C9D1D9">	</span><span style="color:#FF7B72">\</span><span style="color:#C9D1D9"> }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E">&quot; LanguageClient bindings</span></span>
-<span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">F5</span><span style="color: #C9D1D9">&gt; :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient_contextMenu</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span>
-<span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">silent</span><span style="color: #C9D1D9">&gt; </span><span style="color: #79C0FF">gd</span><span style="color: #C9D1D9"> :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient#textDocument_definition</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>This should be it on the vim side of things. In the next part I will show my setup of cmake and a template I usually use for developing for the TM4C microcontroller - which is just a blank template from their website but very helpful. Stay tuned for more.</p>
+<span class="line"><span style="color:#8B949E">&quot; LanguageClient bindings</span></span>
+<span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">F5</span><span style="color:#C9D1D9">&gt; :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient_contextMenu</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">silent</span><span style="color:#C9D1D9">&gt; </span><span style="color:#79C0FF">gd</span><span style="color:#C9D1D9"> :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient#textDocument_definition</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span></code></pre>
+<p>This should be it on the vim side of things. In the next part I will show my setup of cmake and a template I usually use for developing for the TM4C microcontroller - which is just a blank template from their website but very helpful. Stay tuned for more.</p>
     </div>
-  </div><div class="frontpage-divider astro-DMOPS5DY"></div>
+  </div><div class="frontpage-divider astro-X4VM4NEM"></div>
 
-<div class="app-footer flex justify-center items-center px-4 astro-DMOPS5DY">
-  <span class="astro-DMOPS5DY">
+<div class="app-footer flex justify-center items-center px-4 astro-X4VM4NEM">
+  <span class="astro-X4VM4NEM">
     2020 - 2022 Arnold Chand (creativenull) | Made with ♥️ 
     <a data-hk="0-0" href="https://astro.build" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">solidjs</a>
   </span>

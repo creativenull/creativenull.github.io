@@ -9,32 +9,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&family=Noto+Sans:ital,wght@0,200;0,700;1,200;1,700&family=Righteous&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerPolicy="no-referrer">
 
   
 
-  <link rel="stylesheet" href="/assets/asset.11d9dd1a.css" /><style>astro-root, astro-fragment { display: contents; }</style><script type="module" src="/entry.eda76b57.js"></script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("1oJqH0", {name:"AppDarkMode",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("/entry.db763d26.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-<script type="module" data-astro-component-hydration>import setup from '/entry.316778ed.js';
-import 'data:text/javascript;charset=utf-8,//[no before-hydration script]';
-setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
-  const [{ DarkModeProvider: Component }, { default: hydrate }] = await Promise.all([import("/entry.8d415139.js"), import("/entry.855eb4bc.js")]);
-  return (el, children) => hydrate(el)(Component, {}, children, {"client":"load"});
-
-});
-</script>
-</head>
+  <link rel="stylesheet" href="/assets/b07fff74.dd094918.css" />
+<link rel="stylesheet" href="/assets/19a61d25.0af593eb.css" /><script type="module" src="/hoisted.7ab89dfa.js"></script></head>
   <body class="dark:text-light-50 dark:bg-dark-800 text-dark-900 bg-light-900">
     <div class="font-noto font-extralight">
       <div class="min-h-screen">
-    <astro-root ssr uid="Z1HwpqU"><astro-fragment><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
+    <astro-island uid="41OOS" component-url="/darkmode.165258fa.js" component-export="DarkModeProvider" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot><div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
   <nav class="h-full flex items-center justify-center">
     <a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/">
         Home
@@ -46,9 +30,9 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
   </nav>
 
   <div class="pr-4">
-    <astro-root ssr uid="1oJqH0"><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-root>
+    <style>astro-island,astro-slot{display:contents}</style><script>(self.Astro=self.Astro||{}).load=a=>{(async()=>await(await a())())()};var a;{const l={0:t=>t,1:t=>JSON.parse(t,n),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,n)),5:t=>new Set(JSON.parse(t,n)),6:t=>BigInt(t),7:t=>new URL(t)},n=(t,r)=>{if(t===""||!Array.isArray(r))return r;const[s,i]=r;return s in l?l[s](i):void 0};customElements.get("astro-island")||customElements.define("astro-island",(a=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=()=>{if(!this.hydrator||this.parentElement?.closest("astro-island[ssr]"))return;const r=this.querySelectorAll("astro-slot"),s={},i=this.querySelectorAll("template[data-astro-template]");for(const e of i)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("data-astro-template")||"default"]=e.innerHTML,e.remove());for(const e of r)!e.closest(this.tagName)?.isSameNode(this)||(s[e.getAttribute("name")||"default"]=e.innerHTML);const o=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),n):{};this.hydrator(this)(this.Component,o,s,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),window.removeEventListener("astro:hydrate",this.hydrate),window.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((r,s)=>{s.disconnect(),this.childrenConnectedCallback()}).observe(this,{childList:!0})}async childrenConnectedCallback(){window.addEventListener("astro:hydrate",this.hydrate),await import(this.getAttribute("before-hydration-url"));const r=JSON.parse(this.getAttribute("opts"));Astro[this.getAttribute("client")](async()=>{const s=this.getAttribute("renderer-url"),[i,{default:o}]=await Promise.all([import(this.getAttribute("component-url")),s?import(s):()=>()=>{}]),e=this.getAttribute("component-export")||"default";if(!e.includes("."))this.Component=i[e];else{this.Component=i;for(const c of e.split("."))this.Component=this.Component[c]}return this.hydrator=o,this.hydrate},r,this)}attributeChangedCallback(){this.hydrator&&this.hydrate()}},a.observedAttributes=["props"],a))}</script><astro-island uid="1oJqH0" component-url="/AppDarkMode.042124e1.js" component-export="default" renderer-url="/client.9dca26fa.js" props="{}" ssr="" client="load" before-hydration-url="data:text/javascript;charset=utf-8,//[no before-hydration script]" opts="{&quot;name&quot;:&quot;AppDarkMode&quot;,&quot;value&quot;:true}" await-children=""><button data-hk="0-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-island>
   </div>
-</div></astro-fragment></astro-root>
+</div></astro-slot></astro-island>
 
     <h1 class="underline text-3xl px-4 my-10 md:text-6xl md:text-center md:my-12 lg:w-3/4 lg:mx-auto">
       Embedded development environment in Vim (2019) - Part 2
@@ -58,150 +42,177 @@ setup("Z1HwpqU", {name:"DarkModeProvider",value: true}, async () => {
       <div class="bg-emerald-800 text-light-900 border-l border-l-10 border-emerald-900 py-2 md:my-8">
   <p class="font-bold">Note</p>
   <p>If you haven’t read the first part, <a href="/posts/1-setting-up-vim-for-embedded-development-p1">click here</a> to read that first before you read part two.</p>
-</div><p>Last time, I showed you the plugins I used and setup their settings in a .vimrc (for vim) or init.vim (for nvim) file. This second part will guide you through setting up <code>cmake</code> and making sure our Langauge Server/Client is able to work properly with our custom compiler.</p><h2 id="build-custom-toolchain">Build custom toolchain</h2><p>Since we’re building our program to be run in a microcontroller, we need a dedicated toolchain to compile our program. The microcontroller I am using is the TI TM4C129EXL ARM microcontroller. And since GCC has ARM support we can use GCC to compile out program. To upload the program we will use the UniFlash tool provided by TI. Unfortunately, we won’t be able to debug for this specific microcontroller (I haven’t found a working solution yet) but but debugging any other
-microcontroller OpenOCD is a great tool to enable that, however I won’t be covering that in this guide - maybe part 3?</p><p>First, we’ll have to create a toolchain file that we can tell <code>cmake</code> to use instead of our default installed toolchain. But before we can do that, we’ll need to download the ARM GCC toolchain from developer.arm.com. Then create our environment, I’ll keep the compilers and projects seperate, since I am using a Linux distro (Manjaro) I will assume you are using the same or are familiar on how to call programs in the terminal/console. Here is how our workspace will look like, you can make this workspace anywhere in your PC - I have it in a folder inside my Home directory (~/embedded):</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9">.</span></span>
-<span class="line"><span style="color: #c9d1d9">├── compilers</span></span>
-<span class="line"><span style="color: #c9d1d9">└── projects</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span></code></pre><p>Download and extract the compiler from ARM - lucky for us we don’t need to compile since binary sources are available. If you prefer a clicky <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">link</a>:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E"># Enter into compilers directory</span></span>
-<span class="line"><span style="color: #79C0FF">cd</span><span style="color: #C9D1D9"> compilers</span></span>
-<span class="line"><span style="color: #C9D1D9">wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
+</div>
+<p>Last time, I showed you the plugins I used and setup their settings in a .vimrc (for vim) or init.vim (for nvim) file. This second part will guide you through setting up <code>cmake</code> and making sure our Langauge Server/Client is able to work properly with our custom compiler.</p>
+<h2 id="build-custom-toolchain">Build custom toolchain</h2>
+<p>Since we’re building our program to be run in a microcontroller, we need a dedicated toolchain to compile our program. The microcontroller I am using is the TI TM4C129EXL ARM microcontroller. And since GCC has ARM support we can use GCC to compile out program. To upload the program we will use the UniFlash tool provided by TI. Unfortunately, we won’t be able to debug for this specific microcontroller (I haven’t found a working solution yet) but but debugging any other
+microcontroller OpenOCD is a great tool to enable that, however I won’t be covering that in this guide - maybe part 3?</p>
+<p>First, we’ll have to create a toolchain file that we can tell <code>cmake</code> to use instead of our default installed toolchain. But before we can do that, we’ll need to download the ARM GCC toolchain from developer.arm.com. Then create our environment, I’ll keep the compilers and projects seperate, since I am using a Linux distro (Manjaro) I will assume you are using the same or are familiar on how to call programs in the terminal/console. Here is how our workspace will look like, you can make this workspace anywhere in your PC - I have it in a folder inside my Home directory (~/embedded):</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#c9d1d9">.</span></span>
+<span class="line"><span style="color:#c9d1d9">├── compilers</span></span>
+<span class="line"><span style="color:#c9d1d9">└── projects</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span></code></pre>
+<p>Download and extract the compiler from ARM - lucky for us we don’t need to compile since binary sources are available. If you prefer a clicky <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">link</a>:</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E"># Enter into compilers directory</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#C9D1D9"> compilers</span></span>
+<span class="line"><span style="color:#C9D1D9">wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/7-2017q4/gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E"># Extract the file</span></span>
-<span class="line"><span style="color: #C9D1D9">tar xjfv gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
+<span class="line"><span style="color:#8B949E"># Extract the file</span></span>
+<span class="line"><span style="color:#C9D1D9">tar xjfv gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E"># Remove tar bz2 file</span></span>
-<span class="line"><span style="color: #C9D1D9">rm gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
+<span class="line"><span style="color:#8B949E"># Remove tar bz2 file</span></span>
+<span class="line"><span style="color:#C9D1D9">rm gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #79C0FF">cd</span><span style="color: #C9D1D9"> ..</span></span></code></pre><p>Create new project, I used an example file from TI to get the startup and link script to work for TM4C. So we will also need to download TivaWare - which came with Code Composer Studio. I copied mine from where I installed it into the current project:</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E"># Create new project</span></span>
-<span class="line"><span style="color: #79C0FF">cd</span><span style="color: #C9D1D9"> projects</span></span>
-<span class="line"><span style="color: #C9D1D9">mkdir blinky</span></span>
-<span class="line"><span style="color: #79C0FF">cd</span><span style="color: #C9D1D9"> blinky</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#C9D1D9"> ..</span></span></code></pre>
+<p>Create new project, I used an example file from TI to get the startup and link script to work for TM4C. So we will also need to download TivaWare - which came with Code Composer Studio. I copied mine from where I installed it into the current project:</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E"># Create new project</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#C9D1D9"> projects</span></span>
+<span class="line"><span style="color:#C9D1D9">mkdir blinky</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#C9D1D9"> blinky</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E"># Copy linker and startup script from example file</span></span>
-<span class="line"><span style="color: #C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.ld TM4C129ENCPDT.ld</span></span>
-<span class="line"><span style="color: #C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/startup_gcc.c </span><span style="color: #79C0FF">.</span></span>
+<span class="line"><span style="color:#8B949E"># Copy linker and startup script from example file</span></span>
+<span class="line"><span style="color:#C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.ld TM4C129ENCPDT.ld</span></span>
+<span class="line"><span style="color:#C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/startup_gcc.c </span><span style="color:#79C0FF">.</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E"># Copy the blink program to test it out</span></span>
-<span class="line"><span style="color: #C9D1D9">mkdir src</span></span>
-<span class="line"><span style="color: #C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.c src/main.c</span></span></code></pre><p>Create src folder where all our source files will go inside. We’ll also need to create the CMakeLists.txt file along with a toolchain file since we want to use a custom <code>gcc</code> instead of the machine installed one.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E"># CMakeLists and toolchain files</span></span>
-<span class="line"><span style="color: #C9D1D9">touch CMakeLists.txt toolchain.cmake</span></span></code></pre><p>Let’s start with the toolchain.cmake file.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9"># ---</span></span>
-<span class="line"><span style="color: #c9d1d9"># toolchain.cmake</span></span>
-<span class="line"><span style="color: #c9d1d9"># ---</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_SYSTEM_NAME Generic)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_SYSTEM_PROCESSOR ARM)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">set(ARM_GCC_PATH $ENV{EMBEDDED_ROOT}/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_C_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_CXX_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-g++)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_ASM_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># tells CMake not to try to link executables during its internal checks</span></span>
-<span class="line"><span style="color: #c9d1d9"># things are not going to link properly without a linker script</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_OBJCOPY ${ARM_GCC_PATH}/arm-none-eabi-objcopy)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_OBJDUMP ${ARM_GCC_PATH}/arm-none-eabi-objdump)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_SIZE ${ARM_GCC_PATH}/arm-none-eabi-size)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_DEBUGGER ${ARM_GCC_PATH}/arm-none-eabi-gdb)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_CPPFILT ${ARM_GCC_PATH}/arm-none-eabi-c++filt)</span></span></code></pre><p>And now we add content in CMakeLists.txt file. I copied the compiler and linker flags from Code Composer Studio and how they compile the program for TM4C microcontroller.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #c9d1d9"># ---</span></span>
-<span class="line"><span style="color: #c9d1d9"># CMakeLists.txt</span></span>
-<span class="line"><span style="color: #c9d1d9"># ---</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">cmake_minimum_required(VERSION 3.10)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">project(blinky)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(PROJECT_TARGET ${PROJECT_NAME}.out)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(PROJECT_PART TM4C129ENCPDT)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.c)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># Startup and linker file provided by Tiva</span></span>
-<span class="line"><span style="color: #c9d1d9">enable_language(ASM)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(STARTUP_FILE startup_gcc.c)</span></span>
-<span class="line"><span style="color: #c9d1d9">set(LINKER_SCRIPT ${PROJECT_PART}.ld)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># Bin file to create</span></span>
-<span class="line"><span style="color: #c9d1d9">add_executable(${PROJECT_TARGET} ${STARTUP_FILE} ${SOURCES})</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># Tivaware includes and libraries</span></span>
-<span class="line"><span style="color: #c9d1d9">set(TIVAWARE_PATH $ENV{HOME}/ti/tivaware_c_series_2_1_4_178)</span></span>
-<span class="line"><span style="color: #c9d1d9">target_include_directories(${PROJECT_TARGET} PUBLIC ${TIVAWARE_PATH})</span></span>
-<span class="line"><span style="color: #c9d1d9">target_link_libraries(${PROJECT_TARGET} ${TIVAWARE_PATH}/driverlib/gcc/libdriver.a)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># Linker flags</span></span>
-<span class="line"><span style="color: #c9d1d9">set_target_properties(${PROJECT_TARGET} PROPERTIES LINK_FLAGS</span></span>
-<span class="line"><span style="color: #c9d1d9">	&quot;-mthumb \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-march=armv7e-m \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mcpu=cortex-m4 \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mfloat-abi=hard \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mfpu=fpv4-sp-d16 \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-nostartfiles \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-static \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-Wl,-T,${PROJECT_SOURCE_DIR}/${LINKER_SCRIPT} \</span></span>
-<span class="line"><span style="color: #c9d1d9">	-Wl,--gc-sections&quot;)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9"># Compiler flags</span></span>
-<span class="line"><span style="color: #c9d1d9">target_compile_options(${PROJECT_TARGET} PUBLIC</span></span>
-<span class="line"><span style="color: #c9d1d9">	-g</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mthumb</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mcpu=cortex-m4</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mfpu=fpv4-sp-d16</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mfloat-abi=hard</span></span>
-<span class="line"><span style="color: #c9d1d9">	-mabi=aapcs</span></span>
-<span class="line"><span style="color: #c9d1d9">	-Os</span></span>
-<span class="line"><span style="color: #c9d1d9">	-ffunction-sections</span></span>
-<span class="line"><span style="color: #c9d1d9">	-fdata-sections</span></span>
-<span class="line"><span style="color: #c9d1d9">	-MD</span></span>
-<span class="line"><span style="color: #c9d1d9">	-std=c99</span></span>
-<span class="line"><span style="color: #c9d1d9">	-Wall</span></span>
-<span class="line"><span style="color: #c9d1d9">	-pedantic</span></span>
-<span class="line"><span style="color: #c9d1d9">	-DPART_${PROJECT_PART}</span></span>
-<span class="line"><span style="color: #c9d1d9">	-DTARGET_IS_TM4C129_RA1</span></span>
-<span class="line"><span style="color: #c9d1d9">	-Dgcc</span></span>
-<span class="line"><span style="color: #c9d1d9">	-c)</span></span>
-<span class="line"><span style="color: #c9d1d9"></span></span>
-<span class="line"><span style="color: #c9d1d9">set(CMAKE_EXPORT_COMPILE_COMMANDS ON)</span></span></code></pre><p>Now I must mention that this was a quick simple way of getting embedded development setup for vim, there are some parts I will explain that will need a bit of manual modification for this to work for your environment. For our simple blink program, all we needed was the <code>libdriver</code> library that came with TivaWare. I simple linked it from where I had my TivaWare installed on my machine which is show above as <code>TIVAWARE_PATH</code>.</p><p>Finally, everything is assembled and ready for us to compile our program. Let’s create a new folder where all the build files will go into, and change our directory into it.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #C9D1D9">mkdir build</span></span>
-<span class="line"><span style="color: #79C0FF">cd</span><span style="color: #C9D1D9"> build</span></span></code></pre><p>Now we want to tell <code>cmake</code> to build the files, but we want it to use the toolchain file we created instead of <code>cmake</code> looking in the machine installed <code>gcc</code>. And once that is successful we can compile our project by calling <code>make</code> after that.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E"># inside the build/ directory</span></span>
-<span class="line"><span style="color: #C9D1D9">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake ..</span></span>
-<span class="line"><span style="color: #C9D1D9">-- The C compiler identification is GNU 7.2.1</span></span>
-<span class="line"><span style="color: #C9D1D9">-- The CXX compiler identification is GNU 7.2.1</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Check </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> working C compiler: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Check </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> working C compiler: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc -- works</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting C compiler ABI info</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting C compiler ABI info - </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting C compile features</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting C compile features - </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Check </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> working CXX compiler: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Check </span><span style="color: #FF7B72">for</span><span style="color: #C9D1D9"> working CXX compiler: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++ -- works</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting CXX compiler ABI info</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting CXX compiler ABI info - </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting CXX compile features</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Detecting CXX compile features - </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- The ASM compiler identification is GNU</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Found assembler: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Configuring </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Generating </span><span style="color: #FF7B72">done</span></span>
-<span class="line"><span style="color: #C9D1D9">-- Build files have been written to: </span><span style="color: #FF7B72">~</span><span style="color: #C9D1D9">/embedded/guide-tutorial/projects/blinky/build</span></span>
+<span class="line"><span style="color:#8B949E"># Copy the blink program to test it out</span></span>
+<span class="line"><span style="color:#C9D1D9">mkdir src</span></span>
+<span class="line"><span style="color:#C9D1D9">cp $HOME/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.c src/main.c</span></span></code></pre>
+<p>Create src folder where all our source files will go inside. We’ll also need to create the CMakeLists.txt file along with a toolchain file since we want to use a custom <code>gcc</code> instead of the machine installed one.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E"># CMakeLists and toolchain files</span></span>
+<span class="line"><span style="color:#C9D1D9">touch CMakeLists.txt toolchain.cmake</span></span></code></pre>
+<p>Let’s start with the toolchain.cmake file.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#c9d1d9"># ---</span></span>
+<span class="line"><span style="color:#c9d1d9"># toolchain.cmake</span></span>
+<span class="line"><span style="color:#c9d1d9"># ---</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_SYSTEM_NAME Generic)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_SYSTEM_PROCESSOR ARM)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">set(ARM_GCC_PATH $ENV{EMBEDDED_ROOT}/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_C_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_CXX_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-g++)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_ASM_COMPILER ${ARM_GCC_PATH}/arm-none-eabi-gcc)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># tells CMake not to try to link executables during its internal checks</span></span>
+<span class="line"><span style="color:#c9d1d9"># things are not going to link properly without a linker script</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_TRY_COMPILE_TARGET_TYPE STATIC_LIBRARY)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_OBJCOPY ${ARM_GCC_PATH}/arm-none-eabi-objcopy)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_OBJDUMP ${ARM_GCC_PATH}/arm-none-eabi-objdump)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_SIZE ${ARM_GCC_PATH}/arm-none-eabi-size)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_DEBUGGER ${ARM_GCC_PATH}/arm-none-eabi-gdb)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_CPPFILT ${ARM_GCC_PATH}/arm-none-eabi-c++filt)</span></span></code></pre>
+<p>And now we add content in CMakeLists.txt file. I copied the compiler and linker flags from Code Composer Studio and how they compile the program for TM4C microcontroller.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#c9d1d9"># ---</span></span>
+<span class="line"><span style="color:#c9d1d9"># CMakeLists.txt</span></span>
+<span class="line"><span style="color:#c9d1d9"># ---</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">cmake_minimum_required(VERSION 3.10)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">project(blinky)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(PROJECT_TARGET ${PROJECT_NAME}.out)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(PROJECT_PART TM4C129ENCPDT)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">file(GLOB SOURCES ${PROJECT_SOURCE_DIR}/src/*.c)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># Startup and linker file provided by Tiva</span></span>
+<span class="line"><span style="color:#c9d1d9">enable_language(ASM)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(STARTUP_FILE startup_gcc.c)</span></span>
+<span class="line"><span style="color:#c9d1d9">set(LINKER_SCRIPT ${PROJECT_PART}.ld)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># Bin file to create</span></span>
+<span class="line"><span style="color:#c9d1d9">add_executable(${PROJECT_TARGET} ${STARTUP_FILE} ${SOURCES})</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># Tivaware includes and libraries</span></span>
+<span class="line"><span style="color:#c9d1d9">set(TIVAWARE_PATH $ENV{HOME}/ti/tivaware_c_series_2_1_4_178)</span></span>
+<span class="line"><span style="color:#c9d1d9">target_include_directories(${PROJECT_TARGET} PUBLIC ${TIVAWARE_PATH})</span></span>
+<span class="line"><span style="color:#c9d1d9">target_link_libraries(${PROJECT_TARGET} ${TIVAWARE_PATH}/driverlib/gcc/libdriver.a)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># Linker flags</span></span>
+<span class="line"><span style="color:#c9d1d9">set_target_properties(${PROJECT_TARGET} PROPERTIES LINK_FLAGS</span></span>
+<span class="line"><span style="color:#c9d1d9">	&quot;-mthumb \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-march=armv7e-m \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mcpu=cortex-m4 \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mfloat-abi=hard \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mfpu=fpv4-sp-d16 \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-nostartfiles \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-static \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-Wl,-T,${PROJECT_SOURCE_DIR}/${LINKER_SCRIPT} \</span></span>
+<span class="line"><span style="color:#c9d1d9">	-Wl,--gc-sections&quot;)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9"># Compiler flags</span></span>
+<span class="line"><span style="color:#c9d1d9">target_compile_options(${PROJECT_TARGET} PUBLIC</span></span>
+<span class="line"><span style="color:#c9d1d9">	-g</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mthumb</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mcpu=cortex-m4</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mfpu=fpv4-sp-d16</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mfloat-abi=hard</span></span>
+<span class="line"><span style="color:#c9d1d9">	-mabi=aapcs</span></span>
+<span class="line"><span style="color:#c9d1d9">	-Os</span></span>
+<span class="line"><span style="color:#c9d1d9">	-ffunction-sections</span></span>
+<span class="line"><span style="color:#c9d1d9">	-fdata-sections</span></span>
+<span class="line"><span style="color:#c9d1d9">	-MD</span></span>
+<span class="line"><span style="color:#c9d1d9">	-std=c99</span></span>
+<span class="line"><span style="color:#c9d1d9">	-Wall</span></span>
+<span class="line"><span style="color:#c9d1d9">	-pedantic</span></span>
+<span class="line"><span style="color:#c9d1d9">	-DPART_${PROJECT_PART}</span></span>
+<span class="line"><span style="color:#c9d1d9">	-DTARGET_IS_TM4C129_RA1</span></span>
+<span class="line"><span style="color:#c9d1d9">	-Dgcc</span></span>
+<span class="line"><span style="color:#c9d1d9">	-c)</span></span>
+<span class="line"><span style="color:#c9d1d9"></span></span>
+<span class="line"><span style="color:#c9d1d9">set(CMAKE_EXPORT_COMPILE_COMMANDS ON)</span></span></code></pre>
+<p>Now I must mention that this was a quick simple way of getting embedded development setup for vim, there are some parts I will explain that will need a bit of manual modification for this to work for your environment. For our simple blink program, all we needed was the <code>libdriver</code> library that came with TivaWare. I simple linked it from where I had my TivaWare installed on my machine which is show above as <code>TIVAWARE_PATH</code>.</p>
+<p>Finally, everything is assembled and ready for us to compile our program. Let’s create a new folder where all the build files will go into, and change our directory into it.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#C9D1D9">mkdir build</span></span>
+<span class="line"><span style="color:#79C0FF">cd</span><span style="color:#C9D1D9"> build</span></span></code></pre>
+<p>Now we want to tell <code>cmake</code> to build the files, but we want it to use the toolchain file we created instead of <code>cmake</code> looking in the machine installed <code>gcc</code>. And once that is successful we can compile our project by calling <code>make</code> after that.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E"># inside the build/ directory</span></span>
+<span class="line"><span style="color:#C9D1D9">cmake -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake ..</span></span>
+<span class="line"><span style="color:#C9D1D9">-- The C compiler identification is GNU 7.2.1</span></span>
+<span class="line"><span style="color:#C9D1D9">-- The CXX compiler identification is GNU 7.2.1</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Check </span><span style="color:#FF7B72">for</span><span style="color:#C9D1D9"> working C compiler: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Check </span><span style="color:#FF7B72">for</span><span style="color:#C9D1D9"> working C compiler: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc -- works</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting C compiler ABI info</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting C compiler ABI info - </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting C compile features</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting C compile features - </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Check </span><span style="color:#FF7B72">for</span><span style="color:#C9D1D9"> working CXX compiler: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Check </span><span style="color:#FF7B72">for</span><span style="color:#C9D1D9"> working CXX compiler: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-g++ -- works</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting CXX compiler ABI info</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting CXX compiler ABI info - </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting CXX compile features</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Detecting CXX compile features - </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- The ASM compiler identification is GNU</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Found assembler: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/compilers/gcc-arm-none-eabi-7-2017-q4-major/bin/arm-none-eabi-gcc</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Configuring </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Generating </span><span style="color:#FF7B72">done</span></span>
+<span class="line"><span style="color:#C9D1D9">-- Build files have been written to: </span><span style="color:#FF7B72">~</span><span style="color:#C9D1D9">/embedded/guide-tutorial/projects/blinky/build</span></span>
 <span class="line"></span>
-<span class="line"><span style="color: #8B949E"># finally, call make to compile the program</span></span>
-<span class="line"><span style="color: #C9D1D9">make</span></span>
-<span class="line"><span style="color: #C9D1D9">Scanning dependencies of target blinky.out</span></span>
-<span class="line"><span style="color: #C9D1D9">[ 33%] Building C object CMakeFiles/blinky.out.dir/startup_gcc.c.obj</span></span>
-<span class="line"><span style="color: #C9D1D9">[ 66%] Building C object CMakeFiles/blinky.out.dir/src/main.c.obj</span></span>
-<span class="line"><span style="color: #C9D1D9">[100%] Linking C executable blinky.out</span></span>
-<span class="line"><span style="color: #C9D1D9">[100%] Built target blinky.out</span></span></code></pre><p>If everything went well, then we will have a <code>blinky.out</code> in our <code>build/</code> directory! Congratulate yourself for getting this far!</p><p>Now all that remains is that we are able to open up vim and try to get auto-completion and syntax/error checking working. If you remember from the first part, we had LangaugeClient-neovim as our LSP client to run <code>clangd</code> which is a Langauge Server that will run in the background providing diagnostics and auto-completion just like an IDE. But in order for <code>clangd</code> to provide us IDE-like features we need to provide it with a
-<code>compile_commands.json</code> file that cmake built for us in the <code>build/</code> directory.</p><p>Since we need this file in the root of our project, we could copy the file our to the root and have that solved. The downside to that is when we add new files and recompile our program we end up with the old <code>compile_commands.json</code> file in the root, which we will need to update again manually. The best approach to this is to symbolically link <code>compile_commands.json</code> to the root, so when it updates then we don’t need to worry about manually copying the file to the root.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #8B949E"># in the root of project - blinky/</span></span>
-<span class="line"><span style="color: #C9D1D9">ln -s build/compile_commands.json </span><span style="color: #79C0FF">.</span></span></code></pre><p>Open <code>src/main.c</code> in vim and start using the type any of the function that are available. As you type you should be able to get a list of options auto-completion will prompt for completion. You can go to the definition of a function declared by hovering over the function and pressing <code>&lt;F5&gt;</code> to show the LSP options and typing ‘definition’. You can make a key binding for each LSP option. Here is my updated <code>init.vim</code> with individual key bindings.</p><pre class="astro-code" style="background-color: #0d1117; overflow-x: auto;"><code><span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">F5</span><span style="color: #C9D1D9">&gt; :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient_contextMenu</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span>
-<span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">leader</span><span style="color: #C9D1D9">&gt;</span><span style="color: #79C0FF">gd</span><span style="color: #C9D1D9"> :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient#textDocument_definition</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span>
-<span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">leader</span><span style="color: #C9D1D9">&gt;gf :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient#textDocument_formatting</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span>
-<span class="line"><span style="color: #FF7B72">nnoremap</span><span style="color: #C9D1D9"> &lt;</span><span style="color: #79C0FF">leader</span><span style="color: #C9D1D9">&gt;gr :</span><span style="color: #FF7B72">call</span><span style="color: #C9D1D9"> </span><span style="color: #D2A8FF">LanguageClient#textDocument_rename</span><span style="color: #C9D1D9">()&lt;</span><span style="color: #79C0FF">CR</span><span style="color: #C9D1D9">&gt;</span></span></code></pre><p>This concludes the 2nd part of the series - Embedded development environment in Vim - I would like to revist this in the future and keep it up-to-date as much as possible. I hope you enjoyed this guide.</p>
+<span class="line"><span style="color:#8B949E"># finally, call make to compile the program</span></span>
+<span class="line"><span style="color:#C9D1D9">make</span></span>
+<span class="line"><span style="color:#C9D1D9">Scanning dependencies of target blinky.out</span></span>
+<span class="line"><span style="color:#C9D1D9">[ 33%] Building C object CMakeFiles/blinky.out.dir/startup_gcc.c.obj</span></span>
+<span class="line"><span style="color:#C9D1D9">[ 66%] Building C object CMakeFiles/blinky.out.dir/src/main.c.obj</span></span>
+<span class="line"><span style="color:#C9D1D9">[100%] Linking C executable blinky.out</span></span>
+<span class="line"><span style="color:#C9D1D9">[100%] Built target blinky.out</span></span></code></pre>
+<p>If everything went well, then we will have a <code>blinky.out</code> in our <code>build/</code> directory! Congratulate yourself for getting this far!</p>
+<p>Now all that remains is that we are able to open up vim and try to get auto-completion and syntax/error checking working. If you remember from the first part, we had LangaugeClient-neovim as our LSP client to run <code>clangd</code> which is a Langauge Server that will run in the background providing diagnostics and auto-completion just like an IDE. But in order for <code>clangd</code> to provide us IDE-like features we need to provide it with a
+<code>compile_commands.json</code> file that cmake built for us in the <code>build/</code> directory.</p>
+<p>Since we need this file in the root of our project, we could copy the file our to the root and have that solved. The downside to that is when we add new files and recompile our program we end up with the old <code>compile_commands.json</code> file in the root, which we will need to update again manually. The best approach to this is to symbolically link <code>compile_commands.json</code> to the root, so when it updates then we don’t need to worry about manually copying the file to the root.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#8B949E"># in the root of project - blinky/</span></span>
+<span class="line"><span style="color:#C9D1D9">ln -s build/compile_commands.json </span><span style="color:#79C0FF">.</span></span></code></pre>
+<p>Open <code>src/main.c</code> in vim and start using the type any of the function that are available. As you type you should be able to get a list of options auto-completion will prompt for completion. You can go to the definition of a function declared by hovering over the function and pressing <code>&lt;F5&gt;</code> to show the LSP options and typing ‘definition’. You can make a key binding for each LSP option. Here is my updated <code>init.vim</code> with individual key bindings.</p>
+<pre class="astro-code" style="background-color:#0d1117;overflow-x:auto"><code><span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">F5</span><span style="color:#C9D1D9">&gt; :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient_contextMenu</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">leader</span><span style="color:#C9D1D9">&gt;</span><span style="color:#79C0FF">gd</span><span style="color:#C9D1D9"> :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient#textDocument_definition</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">leader</span><span style="color:#C9D1D9">&gt;gf :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient#textDocument_formatting</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span>
+<span class="line"><span style="color:#FF7B72">nnoremap</span><span style="color:#C9D1D9"> &lt;</span><span style="color:#79C0FF">leader</span><span style="color:#C9D1D9">&gt;gr :</span><span style="color:#FF7B72">call</span><span style="color:#C9D1D9"> </span><span style="color:#D2A8FF">LanguageClient#textDocument_rename</span><span style="color:#C9D1D9">()&lt;</span><span style="color:#79C0FF">CR</span><span style="color:#C9D1D9">&gt;</span></span></code></pre>
+<p>This concludes the 2nd part of the series - Embedded development environment in Vim - I would like to revist this in the future and keep it up-to-date as much as possible. I hope you enjoyed this guide.</p>
     </div>
-  </div><div class="frontpage-divider astro-DMOPS5DY"></div>
+  </div><div class="frontpage-divider astro-X4VM4NEM"></div>
 
-<div class="app-footer flex justify-center items-center px-4 astro-DMOPS5DY">
-  <span class="astro-DMOPS5DY">
+<div class="app-footer flex justify-center items-center px-4 astro-X4VM4NEM">
+  <span class="astro-X4VM4NEM">
     2020 - 2022 Arnold Chand (creativenull) | Made with ♥️ 
     <a data-hk="0-0" href="https://astro.build" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="transition-color duration-300 text-blue-700 font-bold hover:underline hover:text-green-400 dark:text-blue-400 dark:hover:underline dark:hover:text-green-500">solidjs</a>
   </span>
