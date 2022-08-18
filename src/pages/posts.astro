@@ -2,7 +2,7 @@
 import PageLayout from "@layouts/PageLayout.astro";
 import Posts from "@components/page/Posts";
 
-const posts = (await Astro.glob("./posts/*.md")).reverse();
+const posts = (await Astro.glob("./posts/*.mdx")).reverse();
 ---
 
 <PageLayout title="Posts">

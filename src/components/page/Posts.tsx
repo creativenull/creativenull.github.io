@@ -1,11 +1,11 @@
 import { For } from "solid-js";
-import { MarkdownInstance } from "astro";
+import { MDXInstance } from "astro";
 import truncate from "lodash.truncate";
 import { config } from "@config";
 import AppLink from "@components/AppLink";
 
 export interface PostsProps {
-  posts: MarkdownInstance<Record<string, any>>[];
+  posts: MDXInstance<Record<string, any>>[];
 }
 
 export default function Posts(props: PostsProps) {
