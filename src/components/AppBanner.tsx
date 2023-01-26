@@ -5,11 +5,7 @@ export default function AppBanner() {
   const [toggleColors, setToggleColors] = createSignal(true);
 
   function toggleStyling() {
-    if (toggleColors()) {
-      setToggleColors(false);
-    } else {
-      setToggleColors(true);
-    }
+    toggleColors() ? setToggleColors(false) : setToggleColors(true)
   }
 
   return (
