@@ -1,8 +1,12 @@
 ---
+import { getEntryBySlug } from "astro:content";
 import PageLayout from "@layouts/PageLayout.astro";
 import Posts from "@components/page/Posts";
+import { getCollection } from "astro:content";
 
-const posts = (await Astro.glob("./posts/*.mdx")).reverse();
+const posts = (await getCollection("posts"))
+  .reverse()
+  .filter((entry) => !Boolean(entry.data?.draft));
 ---
 
 <PageLayout title="Posts">

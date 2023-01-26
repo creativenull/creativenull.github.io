@@ -1,9 +1,14 @@
 ---
+import { getEntryBySlug } from "astro:content";
+import { getCollection } from "astro:content";
 import FrontPageLayout from "@layouts/FrontPageLayout.astro";
 import Posts from "@components/page/Posts";
 
 const title = "Home";
-const latestPosts = (await Astro.glob("./posts/*.mdx")).reverse().slice(0, 3);
+const latestPosts = (await getCollection("posts"))
+  .slice(-3)
+  .reverse()
+  .filter((entry) => !Boolean(entry.data?.draft));
 ---
 
 <FrontPageLayout {title}>
