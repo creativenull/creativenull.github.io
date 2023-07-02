@@ -33,11 +33,11 @@
 
 .app-post p,
 .app-post li {
-  @apply leading-loose text-xl mx-6;
+  @apply leading-loose text-lg mx-6;
 }
 
 .app-post p {
-  @apply leading-loose text-xl mx-6 my-4;
+  @apply leading-loose mx-6 my-4;
 }
 
 .app-post a {
@@ -72,23 +72,23 @@
   }
 
   .app-post h2 {
-    @apply text-5xl;
-  }
-
-  .app-post h3 {
-    @apply text-4xl;
-  }
-
-  .app-post h4 {
     @apply text-3xl;
   }
 
-  .app-post h5 {
+  .app-post h3 {
     @apply text-2xl;
   }
 
-  .app-post h6 {
+  .app-post h4 {
     @apply text-xl;
+  }
+
+  .app-post h5 {
+    @apply text-lg;
+  }
+
+  .app-post h6 {
+    @apply text-lg font-bold;
   }
 
   .app-post pre {
