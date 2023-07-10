@@ -1,12 +1,6 @@
 ---
 import { config } from "@config";
 
-// For prod build
-import "virtual:windi.css";
-
-// For dev build
-import WindiBootstrapDev from "@components/windicss/Bootstrap.astro";
-
 export interface BaseProps {
   title: string;
 }
@@ -34,11 +28,8 @@ const { title } = Astro.props as BaseProps;
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
       integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
       crossorigin="anonymous"
-      referrerPolicy="no-referrer"
+      referrerpolicy="no-referrer"
     />
-
-  {import.meta.env.DEV && <WindiBootstrapDev />}
-
   </head>
   <body class="dark:(text-light-50 bg-dark-800) text-dark-900 bg-light-900">
     <div class="font-noto font-extralight">

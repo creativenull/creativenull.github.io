@@ -1,9 +1,8 @@
 ---
-import "@css/post.css";
 import AppHeader from "@components/AppHeader.astro";
 import AppFooter from "@components/AppFooter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { DarkModeProvider } from "../store/darkmode"
+import { DarkModeProvider } from "../store/darkmode";
 
 const { content } = Astro.props;
 ---
@@ -18,7 +17,7 @@ const { content } = Astro.props;
       {content.title}
     </h1>
 
-    <div class="app-post pb-4 mx-auto md:(w-3/4 px-0 pb-6) lg:w-1/2">
+    <div class="prose dark:prose-invert px-4 pb-4 mx-auto md:(w-3/4 px-0 pb-6 text-xl) lg:(w-1/2)">
       <slot />
     </div>
   </div>

@@ -19,7 +19,7 @@ export default function Posts(props: PostsProps) {
       <For each={props.posts}>
         {(post) => (
           <div class="space-y-4 mb-6">
-            <h1 class="post-title md:text-3xl text-xl">
+            <h1 class="post-title md:text-2xl text-xl">
               <AppLink href={`/${post.collection}/${post.slug}`}>{post.data.title}</AppLink>
             </h1>
             <div class="post-attr font-bold text-xs md:text-base">

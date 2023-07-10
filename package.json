@@ -4,20 +4,21 @@
   "private": true,
   "scripts": {
     "dev": "astro dev",
-    "start": "astro dev",
     "build": "astro build && cp _CNAME docs/CNAME",
     "preview": "astro preview"
   },
   "devDependencies": {
     "@types/lodash.truncate": "^4.4.7",
+    "@unocss/reset": "^0.53.4",
+    "@unocss/transformer-directives": "^0.53.4",
+    "@unocss/transformer-variant-group": "^0.53.4",
     "astro": "^2.0.1",
     "prettier": "^2.6.2",
-    "prettier-plugin-astro": "^0.7.2",
-    "vite-plugin-windicss": "^1.8.10",
-    "windicss": "^3.5.6"
+    "prettier-plugin-astro": "^0.10.0",
+    "unocss": "^0.53.4"
   },
   "dependencies": {
-    "@astrojs/mdx": "^0.15.0",
+    "@astrojs/mdx": "^0.19.7",
     "@astrojs/solid-js": "^2.0.0",
     "lodash.truncate": "^4.4.2",
     "solid-js": "^1.5.1"

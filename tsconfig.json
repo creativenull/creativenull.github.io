@@ -7,7 +7,6 @@
       "@components/*": ["components/*"],
       "@layouts/*": ["layouts/*"],
       "@pages/*": ["pages/*"],
-      "@css/*": ["css/*"],
       "@config": ["config.ts"]
     },
     "jsxImportSource": "solid-js",
