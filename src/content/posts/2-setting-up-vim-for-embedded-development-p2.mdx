@@ -4,15 +4,19 @@ title: Embedded development environment in Vim (2019) - Part 2
 description: Last time, I showed you the plugins I used and setup their settings in a .vimrc (for vim) or init.vim (for nvim) file. This second part will guide you through setting up `cmake` and making sure our Langauge Server/Client is able to work properly with our custom compiler
 date: Mar 5, 2019
 ---
-import Tip from "@components/post/Tip.astro"
+
+import Tip from "@components/post/Tip.astro";
 
 <Tip>
-  If you haven't read the first part, [click here](/posts/1-setting-up-vim-for-embedded-development-p1) to read that first before you read part two.
+  If you haven't read the first part, [click
+  here](/posts/1-setting-up-vim-for-embedded-development-p1) to read that first before you read part
+  two.
 </Tip>
 
 Last time, I showed you the plugins I used and setup their settings in a .vimrc (for vim) or init.vim (for nvim) file. This second part will guide you through setting up `cmake` and making sure our Langauge Server/Client is able to work properly with our custom compiler.
 
 ## Build custom toolchain
+
 Since we're building our program to be run in a microcontroller, we need a dedicated toolchain to compile our program. The microcontroller I am using is the TI TM4C129EXL ARM microcontroller. And since GCC has ARM support we can use GCC to compile out program. To upload the program we will use the UniFlash tool provided by TI. Unfortunately, we won't be able to debug for this specific microcontroller (I haven't found a working solution yet) but but debugging any other
 microcontroller OpenOCD is a great tool to enable that, however I won't be covering that in this guide - maybe part 3?
 

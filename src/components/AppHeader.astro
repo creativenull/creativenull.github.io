@@ -1,5 +1,5 @@
 ---
-import AppDarkMode from "./AppDarkMode"
+import AppDarkMode from "./AppDarkMode";
 
 let links = [
   {
@@ -19,14 +19,16 @@ let links = [
 
 <div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
   <nav class="h-full flex items-center justify-center">
-    {links.map((link) => (
-      <a
-        class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:(bg-light-50 text-dark-700)"
-        href={link.href}
-      >
-        {link.name}
-      </a>
-    ))}
+    {
+      links.map((link) => (
+        <a
+          class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:(bg-light-50 text-dark-700)"
+          href={link.href}
+        >
+          {link.name}
+        </a>
+      ))
+    }
   </nav>
 
   <div class="pr-4">

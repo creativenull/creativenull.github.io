@@ -8,9 +8,9 @@ date: Jan 2, 2021
 Nvim v0.5 is the development branch of neovim and has been in constant feature update. Some of the major features
 include (but still in development):
 
-+ built-in Language Server Client (aka nvim-lsp)
-+ treesitter (used for syntax highlighting - and a bit of syntax check, but a topic for another day perhaps)
-+ `init.lua` as a substitute config file instead of `init.vim` (Also coming soon in a future post)
+- built-in Language Server Client (aka nvim-lsp)
+- treesitter (used for syntax highlighting - and a bit of syntax check, but a topic for another day perhaps)
+- `init.lua` as a substitute config file instead of `init.vim` (Also coming soon in a future post)
 
 You can have a [look at their roadmap here](https://neovim.io/roadmap/) to see what else is in development.
 
@@ -34,12 +34,12 @@ Couple resources and tools you may need before we get started will be listed her
 
 Tools:
 
-+ [git](https://git-scm.com)
-+ [Build prerequisites from neovim wiki](https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites)
+- [git](https://git-scm.com)
+- [Build prerequisites from neovim wiki](https://github.com/neovim/neovim/wiki/Building-Neovim#build-prerequisites)
 
 We will also make heavy use of the Build section of the neovim wiki resource:
 
-+ [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
+- [Building Neovim](https://github.com/neovim/neovim/wiki/Building-Neovim)
 
 ## Clone and Build
 
@@ -126,7 +126,7 @@ would recommend you to read the next section, otherwise just jump to updating ne
 
 Now everything from here onward is optional for you to do. The reason why I did this is because I had issues with
 loading remote plugins (plugins with `rplugin` directory) where it would over-write the `rplugin.vim` manifest, if I
-switch between stable and nightly. This was due to me having different plugins for the two versions. 
+switch between stable and nightly. This was due to me having different plugins for the two versions.
 
 The solution was to keep them in separate directory so there are no namespace clashes. So we should have the following
 directory structure for stable (`nvim`) and nightly (`nvim-nightly`).
