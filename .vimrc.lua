@@ -1,18 +1,12 @@
 -- Powered by projectlocal.vim
 -- https://github.com/creativenull/projectlocal.vim
-local pl = require("projectlocal.lsp")
-local lspconfig = require("lspconfig")
+local user_config = require("projectlocal.lsp").get_config()
 
-lspconfig.astro.setup(pl.get_config({
-  filetypes = { "astro", "typescript", "javascript" },
+require("lspconfig").astro.setup(vim.tbl_extend("force", user_config, {
+  filetypes = { "astro", "typescript", "typescriptreact", "javascript", "javascriptreact" },
   init_options = {
     typescript = {
-      tsdk = vim.fn.getcwd() .. "/node_modules/typescript/lib"
+      tsdk = string.format("%s/node_modules/typescript/lib", vim.call("getcwd")),
     },
   },
 }))
-
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "typescript", "javascript", "astro", "json" },
-  command = 'let b:ale_fixers = ["prettier"]',
-})
