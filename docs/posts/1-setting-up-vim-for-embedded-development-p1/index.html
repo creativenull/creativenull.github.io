@@ -16,16 +16,16 @@
     <div class="font-noto font-extralight">
       
   <div class="min-h-screen">
-    <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var d;{let h={0:t=>t,1:t=>JSON.parse(t,a),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,a)),5:t=>new Set(JSON.parse(t,a)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},a=(t,e)=>{if(t===""||!Array.isArray(e))return e;let[r,n]=e;return r in h?h[r](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var o;if(!this.hydrator||!this.isConnected)return;let e=(o=this.parentElement)==null?void 0:o.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},c=this.querySelectorAll("template[data-astro-template]");for(let s of c){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("data-astro-template")||"default"]=s.innerHTML,s.remove())}for(let s of r){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("name")||"default"]=s.innerHTML)}let l=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),a):{};await this.hydrator(this)(this.Component,l,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((e,r)=>{r.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}Astro[r](async()=>{let n=this.getAttribute("renderer-url"),[c,{default:l}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),o=this.getAttribute("component-export")||"default";if(!o.includes("."))this.Component=c[o];else{this.Component=c;for(let s of o.split("."))this.Component=this.Component[s]}return this.hydrator=l,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="ZPaIxh" data-solid-render-id="s1" component-url="/_astro/darkmode.c14e7378.js" component-export="DarkModeProvider" renderer-url="/_astro/client.01908dee.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot>
+    <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var d;{let h={0:t=>t,1:t=>JSON.parse(t,a),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,a)),5:t=>new Set(JSON.parse(t,a)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},a=(t,e)=>{if(t===""||!Array.isArray(e))return e;let[r,n]=e;return r in h?h[r](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var o;if(!this.hydrator||!this.isConnected)return;let e=(o=this.parentElement)==null?void 0:o.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},c=this.querySelectorAll("template[data-astro-template]");for(let s of c){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("data-astro-template")||"default"]=s.innerHTML,s.remove())}for(let s of r){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("name")||"default"]=s.innerHTML)}let l=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),a):{};await this.hydrator(this)(this.Component,l,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((e,r)=>{r.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}Astro[r](async()=>{let n=this.getAttribute("renderer-url"),[c,{default:l}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),o=this.getAttribute("component-export")||"default";if(!o.includes("."))this.Component=c[o];else{this.Component=c;for(let s of o.split("."))this.Component=this.Component[s]}return this.hydrator=l,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="ZVOD5" data-solid-render-id="s1" component-url="/_astro/darkmode.c14e7378.js" component-export="DarkModeProvider" renderer-url="/_astro/client.01908dee.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot>
       <div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
   <nav class="h-full flex items-center justify-center">
     <a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/">
-        Home
-      </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/posts">
-        Posts
-      </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
-        Github
-      </a>
+          Home
+        </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/posts">
+          Posts
+        </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
+          Github
+        </a>
   </nav>
 
   <div class="pr-4">
@@ -41,9 +41,9 @@
     <div class="prose dark:prose-invert px-4 pb-4 mx-auto md:w-3/4 md:px-0 md:pb-6 md:text-xl lg:w-1/2">
       <div class="bg-emerald-800 text-light-900 border-l border-l-10 border-emerald-900 py-2 md:my-8">
   <p class="font-bold">Note</p>
-  <p>This is a two part series on how my vim is setup for embedded systems development. The first part shows what vim
-plugins I use and how I have them setup, while part two will cover the cmake portion on setting up a build workflow
-and a template.</p>
+  <p>This is a two part series on how my vim is setup for embedded systems development. The first part
+shows what vim plugins I use and how I have them setup, while part two will cover the cmake
+portion on setting up a build workflow and a template.</p>
 </div>
 <p>There has been a lot of tutorials on setting up vim for a Python/JavaScript/Java/C/C++ environment, but I did not find a variety of tutorials on how to setup a C/C++ environment for embedded development. I did, however, find one great post <a href="http://www.alexeyshmalko.com/2014/using-vim-as-c-cpp-ide/">written by Alexey</a> where he did explain how to setup for one. Although his post does a great job explaining, there were still some things missing that I want to add for my embedded development environment. Things that I wanted to work for my setup:</p>
 <ul>
@@ -86,10 +86,10 @@ and a template.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">&quot; --- Deoplete Options ---</span></span>
 <span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> g:deoplete#enable_at_startup</span><span style="color:#F97583">=</span><span style="color:#79B8FF">1</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">&quot; --- SuperTab Options --- </span></span>
+<span class="line"><span style="color:#6A737D">&quot; --- SuperTab Options ---</span></span>
 <span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> g:SuperTabDefaultCompletionType</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&#39;&lt;C-n&gt;&#39;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#6A737D">&quot; --- LanguageClient Options --- </span></span>
+<span class="line"><span style="color:#6A737D">&quot; --- LanguageClient Options ---</span></span>
 <span class="line"><span style="color:#F97583">let</span><span style="color:#E1E4E8"> g:LanguageClient_serverCommands</span><span style="color:#F97583">=</span><span style="color:#E1E4E8">{</span></span>
 <span class="line"><span style="color:#E1E4E8">	</span><span style="color:#F97583">\</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&#39;c&#39;</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">&#39;clangd&#39;</span><span style="color:#E1E4E8">],</span></span>
 <span class="line"><span style="color:#E1E4E8">	</span><span style="color:#F97583">\</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&#39;cpp&#39;</span><span style="color:#E1E4E8">: [</span><span style="color:#9ECBFF">&#39;clangd&#39;</span><span style="color:#E1E4E8">],</span></span>
@@ -106,8 +106,10 @@ and a template.</p>
 
 <div class="app-footer flex justify-center items-center px-4">
   <span>
-    2020 - 2023 Arnold Chand (creativenull) | Made with ♥️ 
-    <a data-hk="0-0" href="https://astro.build" class="text-blue-700 font-bold hover:underline dark:text-blue-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="text-blue-700 font-bold hover:underline dark:text-blue-500">solidjs</a>
+    2020 - 2023 Arnold Chand (creativenull) | Made with ♥️
+    <a data-hk="0-0" href="https://astro.build" class="text-blue-700 font-bold hover:underline dark:text-blue-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="text-blue-700 font-bold hover:underline dark:text-blue-500">
+      solidjs
+    </a>
   </span>
 </div>
 
