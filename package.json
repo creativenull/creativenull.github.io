@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build && cp _CNAME docs/CNAME && touch docs/.nojekyll",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "fmt": "prettier --write ./src"
   },
   "devDependencies": {
     "@astrojs/ts-plugin": "^1.1.0",
