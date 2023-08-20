@@ -1,6 +1,5 @@
 import { For } from "solid-js";
 import truncate from "lodash.truncate";
-import { config } from "@config";
 import AppLink from "@components/AppLink";
 import { CollectionEntry } from "astro:content";
 
@@ -22,10 +21,10 @@ export default function Posts(props: PostsProps) {
             <h1 class="post-title md:text-2xl text-xl">
               <AppLink href={`/${post.collection}/${post.slug}`}>{post.data.title}</AppLink>
             </h1>
-            <div class="post-attr font-bold text-xs md:text-base">
-              {config.author}, {post.data.date}
+            <div class="post-attr italic text-xs md:text-sm">
+              {post.data.date}
             </div>
-            <p class="post-desc leading-loose md:text-xl text-md">
+            <p class="post-desc leading-loose">
               {truncate(post.data.description, truncateOptions)}
             </p>
           </div>
