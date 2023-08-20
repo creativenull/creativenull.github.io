@@ -3,7 +3,24 @@ import transformerVariantGroup from "@unocss/transformer-variant-group";
 import transformerDirectives from "@unocss/transformer-directives";
 
 export default defineConfig({
-  presets: [presetWind(), presetTypography()],
+  presets: [
+    presetWind(),
+    presetTypography({
+      cssExtend: {
+        "pre code": { "font-family": "JetBrains Mono, monospace" },
+        "p code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
+        "ol code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
+        "ul code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
+        "a::after": {
+          "font-size": "10px",
+          content: '"\\f08e"',
+          "font-family": "FontAwesome",
+          display: "inline-block",
+          "padding-left": "5px",
+        },
+      },
+    }),
+  ],
   transformers: [transformerVariantGroup(), transformerDirectives()],
 
   theme: {
