@@ -7,6 +7,7 @@ export default defineConfig({
     presetWind(),
     presetTypography({
       cssExtend: {
+        strong: { "font-weight": "bold" },
         "pre code": { "font-family": "JetBrains Mono, monospace" },
         "p code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
         "ol code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
