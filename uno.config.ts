@@ -12,7 +12,7 @@ export default defineConfig({
         "p code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
         "ol code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
         "ul code": { "font-family": "JetBrains Mono, monospace", padding: "0 5px" },
-        "a::after": {
+        "a[href^=https]::after": {
           "font-size": "10px",
           content: '"\\f08e"',
           "font-family": "FontAwesome",
