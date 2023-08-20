@@ -1,5 +1,29 @@
-<div class="bg-emerald-800 text-light-900 border-l border-l-10 border-emerald-900 py-2 px-2 md:my-8">
-  <p class="italic">Note</p>
+---
+type TipType = "note" | "warning" | "outdated";
+
+type Props = {
+  type: TipType;
+};
+
+const { type = "note" } = Astro.props;
+
+function tipBg(t: TipType) {
+  switch (t) {
+    case "outdated":
+      return "bg-rose-800 border-rose-900";
+
+    case "warning":
+      return "bg-yellow-800 border-yellow-900";
+
+    case "note":
+    default:
+      return "bg-emerald-800 border-emerald-900";
+  }
+}
+---
+
+<div class={`${tipBg(type)} text-light-900 border-l border-l-10 py-2 px-2 md:my-8`}>
+  <p class="italic capitalize">{type}</p>
   <div class="text-xs md:text-base">
     <slot />
   </div>
