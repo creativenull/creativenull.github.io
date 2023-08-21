@@ -240,16 +240,16 @@ null_ls.setup({ sources = sources })
 **Equivalent efm-langserver setup code**
 
 ```lua
-local eslint = require('efmls-configs.linters.eslint')
+local prettier = require('efmls-configs.formatters.prettier')
+local prettier_languages = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact', 'vue', 'css', 'scss', 'less', 'html', 'json', 'jsonc', 'yaml', 'markdown', 'markdown.mdx', 'graphql', 'handlebars' }
 local write_good = require('efmls-configs.linters.write_good')
-local languages = {
-  javascript = { eslint },
-  javascriptreact = { eslint },
-  typescript = { eslint },
-  typescriptreact = { eslint },
-  vue = { eslint },
-  markdown = { write_good },
-}
+local languages = {}
+
+for _,pl in pairs(prettier_languages) do
+  languages[pl] = { prettier }
+end
+
+languages['markdown'] = { write_good }
 
 require('lspconfig').efm.setup({
   init_options = {
@@ -264,8 +264,9 @@ require('lspconfig').efm.setup({
 })
 ```
 
-Making use of defaults would be the recommended way (`require('efmls-configs.defaults')`). But to be pedantic to
-null-ls, the above would be the equivalent code.
+This is a bit verbose. But to be pedantic to null-ls, the above will be the equivalent. However, I would highly
+recommend you to use the defaults (`require('efmls-configs.defaults').languages()`) as it already sets up the languages
+for the tools for you.
 
 ## Final Thoughts
 

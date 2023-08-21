@@ -216,16 +216,16 @@ efm-langserver. So here are some examples of null-ls code and it’s equivalent 
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">null_ls.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({ sources </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sources })</span></span></code></pre>
 <p><strong>Equivalent efm-langserver setup code</strong></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> eslint </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.linters.eslint&#39;</span><span style="color:#E1E4E8">)</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.formatters.prettier&#39;</span><span style="color:#E1E4E8">)</span></span>
+<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier_languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;javascript&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;javascriptreact&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;typescript&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;typescriptreact&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;vue&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;css&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;scss&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;less&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;html&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;json&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;jsonc&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;yaml&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;markdown&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;markdown.mdx&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;graphql&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;handlebars&#39; </span><span style="color:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> write_good </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.linters.write_good&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascript </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint },</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascriptreact </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint },</span></span>
-<span class="line"><span style="color:#E1E4E8">  typescript </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint },</span></span>
-<span class="line"><span style="color:#E1E4E8">  typescriptreact </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint },</span></span>
-<span class="line"><span style="color:#E1E4E8">  vue </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint },</span></span>
-<span class="line"><span style="color:#E1E4E8">  markdown </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { write_good },</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> _,pl </span><span style="color:#F97583">in</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">pairs</span><span style="color:#E1E4E8">(prettier_languages) </span><span style="color:#F97583">do</span></span>
+<span class="line"><span style="color:#E1E4E8">  languages[pl] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { prettier }</span></span>
+<span class="line"><span style="color:#F97583">end</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">languages[</span><span style="color:#9ECBFF">&#39;markdown&#39;</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { write_good }</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;lspconfig&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">efm</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
 <span class="line"><span style="color:#E1E4E8">  init_options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
@@ -238,8 +238,9 @@ efm-langserver. So here are some examples of null-ls code and it’s equivalent 
 <span class="line"><span style="color:#E1E4E8">    languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> languages,</span></span>
 <span class="line"><span style="color:#E1E4E8">  },</span></span>
 <span class="line"><span style="color:#E1E4E8">})</span></span></code></pre>
-<p>Making use of defaults would be the recommended way (<code>require(&#39;efmls-configs.defaults&#39;)</code>). But to be pedantic to
-null-ls, the above would be the equivalent code.</p>
+<p>This is a bit verbose. But to be pedantic to null-ls, the above will be the equivalent. However, I would highly
+recommend you to use the defaults (<code>require(&#39;efmls-configs.defaults&#39;).languages()</code>) as it already sets up the languages
+for the tools for you.</p>
 <h2 id="final-thoughts">Final Thoughts</h2>
 <p>This post ended up being longer that I thought it would. But in conclusion, there are alternatives to null-ls like
 efm-langserver and can provide the same features. I plan to make more posts like this for other alternatives like
