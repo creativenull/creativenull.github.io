@@ -1,19 +1,17 @@
 ---
-import { getCollection } from "astro:content";
-import FrontPageLayout from "@layouts/FrontPageLayout.astro";
+import PageLayout from "@layouts/PageLayout.astro";
 import Posts from "@components/page/Posts";
+import { getCollection } from "astro:content";
 
-const title = "Home";
-const latestPosts = (await getCollection("posts"))
-  .slice(-3)
+const posts = (await getCollection("posts"))
   .reverse()
   .filter((entry) => !Boolean(entry.data?.draft));
 ---
 
-<FrontPageLayout {title}>
-  <div class="my-10">
-    <h1 class="text-4xl md:text-6xl">Latest Posts</h1>
+<PageLayout title="Posts">
+  <div class="w-full border-b border-b-gray-900 dark:border-b-gray-300 text-gray-700 dark:text-gray-300 pb-4 mb-8">
+    <h1 class="text-4xl">Posts</h1>
   </div>
 
-  <Posts posts={latestPosts} />
-</FrontPageLayout>
+  <Posts posts={posts} />
+</PageLayout>
