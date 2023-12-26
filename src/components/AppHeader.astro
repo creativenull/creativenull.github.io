@@ -1,37 +1,79 @@
 ---
-import AppDarkMode from "./AppDarkMode";
-
-let links = [
-  {
-    href: "/",
-    name: "Home",
-  },
-  {
-    href: "/posts",
-    name: "Posts",
-  },
-  {
-    href: "https://github.com/creativenull",
-    name: "Github",
-  },
-];
+import AppLogo from "./AppLogo.astro";
 ---
 
-<div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
-  <nav class="h-full flex items-center justify-center">
-    {
-      links.map((link) => (
-        <a
-          class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:(bg-light-50 text-dark-700)"
-          href={link.href}
-        >
-          {link.name}
-        </a>
-      ))
-    }
-  </nav>
+<div class="app-header text-light-50 bg-dark-800 h-20 w-full flex items-center justify-between">
+  <div class="flex h-full space-x-4 pl-4">
+    <AppLogo />
+    <nav class="h-full flex items-center justify-center">
+      <a
+        target="_blank"
+        class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:(bg-light-50 text-dark-700)"
+        href="https://github.com/creativenull"
+      >
+        GitHub
+      </a>
+    </nav>
+  </div>
 
   <div class="pr-4">
-    <AppDarkMode client:load />
+    <button onclick="onButtonClick()" class="p-2 text-light-50 text-xl hover:text-sky-500">
+      <i id="theme-icon" class="fa-solid"></i>
+    </button>
   </div>
 </div>
+
+<script defer>
+  const key = "theme";
+  const themeIconEl = document.querySelector("#theme-icon");
+
+  function theme() {
+    return window.localStorage.getItem(key) ?? "dark";
+  }
+
+  function isDark() {
+    return theme() === "dark";
+  }
+
+  function toggleDarkMode() {
+    window.localStorage.setItem(key, isDark() ? "light" : "dark");
+  }
+
+  function addSunIcon(el) {
+    el.classList.add("fa-sun");
+    el.classList.remove("fa-moon");
+  }
+
+  function addMoonIcon(el) {
+    el.classList.add("fa-moon");
+    el.classList.remove("fa-sun");
+  }
+
+  function addDarkClass(el) {
+    el.classList.add("dark");
+    el.classList.remove("light");
+  }
+
+  function addLightClass(el) {
+    el.classList.add("light");
+    el.classList.remove("dark");
+  }
+
+  function setDarkMode() {
+    addSunIcon(themeIconEl);
+    addDarkClass(document.documentElement);
+  }
+
+  function setLightMode() {
+    addMoonIcon(themeIconEl);
+    addLightClass(document.documentElement);
+  }
+
+  function onButtonClick() {
+    toggleDarkMode();
+    isDark() ? setDarkMode() : setLightMode();
+  }
+
+  // INITIAL RENDER
+  isDark() ? setDarkMode() : setLightMode();
+</script>

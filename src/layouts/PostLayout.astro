@@ -2,7 +2,6 @@
 import AppHeader from "@components/AppHeader.astro";
 import AppFooter from "@components/AppFooter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { DarkModeProvider } from "../store/darkmode";
 import { config } from "@config";
 
 const { content } = Astro.props;
@@ -10,9 +9,7 @@ const { content } = Astro.props;
 
 <BaseLayout title={content.title}>
   <div class="min-h-screen">
-    <DarkModeProvider client:load>
-      <AppHeader />
-    </DarkModeProvider>
+    <AppHeader />
 
     <h1 class="text-3xl px-4 my-10 md:(text-6xl text-center my-12) lg:(w-3/4 mx-auto)">
       {content.title}

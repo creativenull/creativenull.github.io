@@ -1,6 +1,4 @@
 ---
-import AppLink from "@components/AppLink";
-
 const currentYear = new Date(Date.now()).getFullYear();
 ---
 
@@ -8,12 +6,15 @@ const currentYear = new Date(Date.now()).getFullYear();
 
 <div class="app-footer flex justify-center items-center px-4">
   <span>
-    2020 - {currentYear} Arnold Chand (creativenull) | Made with ♥️
-    <AppLink href="https://astro.build">astro.build</AppLink> + <AppLink
-      href="https://www.solidjs.com"
+    2020 - {currentYear} Arnold Chand (creativenull) | Built with 
+
+    <a
+      href="https://astro.build"
+      target="_blank"
+      class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500"
     >
-      solidjs
-    </AppLink>
+      Astro
+    </a>
   </span>
 </div>
 
