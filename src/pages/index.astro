@@ -1,6 +1,6 @@
 ---
 import PageLayout from "@layouts/PageLayout.astro";
-import Posts from "@components/page/Posts";
+import Posts from "@components/page/Posts.astro";
 import { getCollection } from "astro:content";
 
 const posts = (await getCollection("posts"))
