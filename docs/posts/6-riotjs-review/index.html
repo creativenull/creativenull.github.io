@@ -1,49 +1,78 @@
-<!DOCTYPE html>
-<html lang="en" class="dark">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-    <meta name="theme-color" content="#1E3A8A">
-    <title>Riot.js Review Part 1 - CreativeNull</title>
+<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><title>Riot.js Review Part 1 - CreativeNull</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&family=Noto+Sans:ital,wght@0,200;0,700;1,200;1,700&family=Righteous&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"><link rel="stylesheet" href="/_astro/index.pFfo2-aH.css" /><style>.app-footer{height:100px}.frontpage-divider{height:1px;background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
+</style></head> <body class="dark:text-light-50 dark:bg-dark-900 text-dark-900 bg-light-900"> <div class="font-noto font-extralight">  <div class="min-h-screen"> <div class="app-header text-light-50 bg-dark-800 h-20 w-full flex items-center justify-between"> <div class="flex h-full space-x-4 pl-4"> <a href="https://creativenull.xyz" onmouseenter="toggleOnEnter()" onmouseleave="toggleOnLeave()" class="font-righteous flex text-2xl flex items-center"> <span id="app-logo-primary" class="transition-color duration-500 text-light-900"> Creative </span> <span id="app-logo-secondary" class="transition-color duration-500 text-blue-600"> Null </span> </a> <script defer>
+  const appLogoPrimaryEl = document.querySelector("#app-logo-primary");
+  const appLogoSecondaryEl = document.querySelector("#app-logo-secondary");
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;1,100&family=Noto+Sans:ital,wght@0,200;0,700;1,200;1,700&family=Righteous&display=swap" rel="stylesheet">
+  function toggleOnEnter() {
+    appLogoPrimaryEl.classList.toggle("text-light-900");
+    appLogoPrimaryEl.classList.toggle("text-blue-600");
+    appLogoSecondaryEl.classList.toggle("text-light-900");
+    appLogoSecondaryEl.classList.toggle("text-blue-600");
+  }
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="/_astro/index.c9e396c0.css" /><link rel="stylesheet" href="/_astro/AppFooter.astro_astro_type_style_index_0_lang.dbb02db2.css" /></head>
-  <body class="dark:text-light-50 dark:bg-dark-800 text-dark-900 bg-light-900">
-    <div class="font-noto font-extralight">
-      
-  <div class="min-h-screen">
-    <style>astro-island,astro-slot,astro-static-slot{display:contents}</style><script>(()=>{var e=async t=>{await(await t())()};(self.Astro||(self.Astro={})).load=e;window.dispatchEvent(new Event("astro:load"));})();;(()=>{var d;{let h={0:t=>t,1:t=>JSON.parse(t,a),2:t=>new RegExp(t),3:t=>new Date(t),4:t=>new Map(JSON.parse(t,a)),5:t=>new Set(JSON.parse(t,a)),6:t=>BigInt(t),7:t=>new URL(t),8:t=>new Uint8Array(JSON.parse(t)),9:t=>new Uint16Array(JSON.parse(t)),10:t=>new Uint32Array(JSON.parse(t))},a=(t,e)=>{if(t===""||!Array.isArray(e))return e;let[r,n]=e;return r in h?h[r](n):void 0};customElements.get("astro-island")||customElements.define("astro-island",(d=class extends HTMLElement{constructor(){super(...arguments);this.hydrate=async()=>{var o;if(!this.hydrator||!this.isConnected)return;let e=(o=this.parentElement)==null?void 0:o.closest("astro-island[ssr]");if(e){e.addEventListener("astro:hydrate",this.hydrate,{once:!0});return}let r=this.querySelectorAll("astro-slot"),n={},c=this.querySelectorAll("template[data-astro-template]");for(let s of c){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("data-astro-template")||"default"]=s.innerHTML,s.remove())}for(let s of r){let i=s.closest(this.tagName);i!=null&&i.isSameNode(this)&&(n[s.getAttribute("name")||"default"]=s.innerHTML)}let l=this.hasAttribute("props")?JSON.parse(this.getAttribute("props"),a):{};await this.hydrator(this)(this.Component,l,n,{client:this.getAttribute("client")}),this.removeAttribute("ssr"),this.dispatchEvent(new CustomEvent("astro:hydrate"))}}connectedCallback(){!this.hasAttribute("await-children")||this.firstChild?this.childrenConnectedCallback():new MutationObserver((e,r)=>{r.disconnect(),setTimeout(()=>this.childrenConnectedCallback(),0)}).observe(this,{childList:!0})}async childrenConnectedCallback(){let e=this.getAttribute("before-hydration-url");e&&await import(e),this.start()}start(){let e=JSON.parse(this.getAttribute("opts")),r=this.getAttribute("client");if(Astro[r]===void 0){window.addEventListener(`astro:${r}`,()=>this.start(),{once:!0});return}Astro[r](async()=>{let n=this.getAttribute("renderer-url"),[c,{default:l}]=await Promise.all([import(this.getAttribute("component-url")),n?import(n):()=>()=>{}]),o=this.getAttribute("component-export")||"default";if(!o.includes("."))this.Component=c[o];else{this.Component=c;for(let s of o.split("."))this.Component=this.Component[s]}return this.hydrator=l,this.hydrate},e,this)}attributeChangedCallback(){this.hydrate()}},d.observedAttributes=["props"],d))}})();</script><astro-island uid="ZVOD5" data-solid-render-id="s1" component-url="/_astro/darkmode.c14e7378.js" component-export="DarkModeProvider" renderer-url="/_astro/client.01908dee.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;DarkModeProvider&quot;,&quot;value&quot;:true}" await-children=""><astro-slot>
-      <div class="app-header text-light-50 bg-blue-900 h-20 w-full flex items-center justify-between">
-  <nav class="h-full flex items-center justify-center">
-    <a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/">
-          Home
-        </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="/posts">
-          Posts
-        </a><a class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
-          Github
-        </a>
-  </nav>
+  function toggleOnLeave() {
+    appLogoPrimaryEl.classList.toggle("text-light-900");
+    appLogoPrimaryEl.classList.toggle("text-blue-600");
+    appLogoSecondaryEl.classList.toggle("text-light-900");
+    appLogoSecondaryEl.classList.toggle("text-blue-600");
+  }
+</script> <nav class="h-full flex items-center justify-center"> <a target="_blank" class="h-full flex items-center justify-center text-xl font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
+GitHub
+</a> </nav> </div> <div class="pr-4"> <button onclick="onButtonClick()" class="p-2 text-light-50 text-xl hover:text-sky-500"> <i id="theme-icon" class="fa-solid"></i> </button> </div> </div> <script defer>
+  const key = "theme";
+  const themeIconEl = document.querySelector("#theme-icon");
 
-  <div class="pr-4">
-    <astro-island uid="Z1kUDcR" data-solid-render-id="s0" component-url="/_astro/AppDarkMode.5d728878.js" component-export="default" renderer-url="/_astro/client.01908dee.js" props="{}" ssr="" client="load" opts="{&quot;name&quot;:&quot;AppDarkMode&quot;,&quot;value&quot;:true}" await-children=""><button data-hk="s00-0" class="p-2 text-light-50 text-xl hover:text-sky-500"><i class="fa-solid  fa-moon"></i></button></astro-island>
-  </div>
-</div>
-    </astro-slot></astro-island>
+  function theme() {
+    return window.localStorage.getItem(key) ?? "dark";
+  }
 
-    <h1 class="text-3xl px-4 my-10 md:text-6xl md:text-center md:my-12 lg:w-3/4 lg:mx-auto">
-      Riot.js Review Part 1
-    </h1>
+  function isDark() {
+    return theme() === "dark";
+  }
 
-    <div class="prose dark:prose-invert px-4 pb-4 mx-auto md:w-3/4 md:px-0 md:pb-6 md:text-lg lg:w-1/2">
-      <div class="text-sm italic">
-        Posted on Oct 1, 2020 by Arnold Chand
-      </div>
+  function toggleDarkMode() {
+    window.localStorage.setItem(key, isDark() ? "light" : "dark");
+  }
 
-      <p>I haven’t had much time to check out other frameworks, but finally got the time for this one. I have been looking at it
+  function addSunIcon(el) {
+    el.classList.add("fa-sun");
+    el.classList.remove("fa-moon");
+  }
+
+  function addMoonIcon(el) {
+    el.classList.add("fa-moon");
+    el.classList.remove("fa-sun");
+  }
+
+  function addDarkClass(el) {
+    el.classList.add("dark");
+    el.classList.remove("light");
+  }
+
+  function addLightClass(el) {
+    el.classList.add("light");
+    el.classList.remove("dark");
+  }
+
+  function setDarkMode() {
+    addSunIcon(themeIconEl);
+    addDarkClass(document.documentElement);
+  }
+
+  function setLightMode() {
+    addMoonIcon(themeIconEl);
+    addLightClass(document.documentElement);
+  }
+
+  function onButtonClick() {
+    toggleDarkMode();
+    isDark() ? setDarkMode() : setLightMode();
+  }
+
+  // INITIAL RENDER
+  isDark() ? setDarkMode() : setLightMode();
+</script> <h1 class="text-3xl px-4 my-10 md:text-6xl md:text-center md:my-12 lg:w-3/4 lg:mx-auto"> Riot.js Review Part 1 </h1> <div class="prose dark:prose-invert px-4 pb-4 mx-auto md:w-3/4 md:px-0 md:pb-6 md:text-lg lg:w-1/2"> <div class="text-sm italic">
+Posted on Oct 1, 2020 by Arnold Chand </div> <p>I haven’t had much time to check out other frameworks, but finally got the time for this one. I have been looking at it
 and also been streaming my progress over at <a href="https://twitch.tv/creativenull">twitch</a>. Although there were only two streams, most of the work
 was offline. Here are my two cents to it, and this is by no means a robust framework review it’s just how I went about
 experiencing <a href="https://riot.js.org">riot</a>.</p>
@@ -54,15 +83,15 @@ level. In riot there is only one tag, and that is the name of the component, as 
 add your html elements and enclose your logic in a script tag and your style in a style tag. This is very similar to
 svelte except the fact that you don’t add the custom tag. Below you should the difference.</p>
 <h3 id="vue">Vue</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">template</span><span style="color:#E1E4E8">&gt;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">template</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{{ greeting }}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">template</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">default</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">  name: </span><span style="color:#9ECBFF">&quot;MyComponent&quot;</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span><span style="color:#B392F0">data</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">  data</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">      greeting: </span><span style="color:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#E1E4E8">,</span></span>
 <span class="line"><span style="color:#E1E4E8">    };</span></span>
 <span class="line"><span style="color:#E1E4E8">  },</span></span>
@@ -71,27 +100,27 @@ svelte except the fact that you don’t add the custom tag. Below you should the
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span><span style="color:#79B8FF">color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h3 id="svelte">Svelte</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span><span style="color:#F97583">let</span><span style="color:#E1E4E8"> greeting </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> greeting </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &quot;Hello World&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#79B8FF">color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">  h1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h3 id="riot">Riot</h3>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">export</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">default</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">    export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">      state: {</span></span>
 <span class="line"><span style="color:#E1E4E8">        greeting: </span><span style="color:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#E1E4E8">,</span></span>
 <span class="line"><span style="color:#E1E4E8">      },</span></span>
@@ -99,17 +128,17 @@ svelte except the fact that you don’t add the custom tag. Below you should the
 <span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#79B8FF">color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#85E89D">    h1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">      color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <p>Additionally, adding scope in riot is a bit different. Instead of adding an attribute like <code>scoped</code> (in vue), you would
 use native CSS pseudo-selectors to do that. In CSS this is the <code>:host</code> selector and can be used with the example above
 like this:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">  </span><span style="color:#B392F0">:host</span><span style="color:#E1E4E8"> </span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#79B8FF">color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"><span style="color:#B392F0">  :host</span><span style="color:#85E89D"> h1</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#79B8FF">    color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#6A737D">/* scoped only to the component above */</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h2 id="no-state-management">No State Management</h2>
@@ -121,38 +150,38 @@ close.</p>
 riot, although I will admit, it was difficult to go through the docs and issues to figure this one out. Most issues only
 talked about the possibility of implementing but no code or logic explanation to determine how. Here is a sample code,
 on how I implemented a MobX wrapper with riot. It’s not the best but it does the job for a small scale size app.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// store.js</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { observable } </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// store.js</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { observable } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">const</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">state</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">const</span><span style="color:#79B8FF"> state</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#E1E4E8">  greeting: </span><span style="color:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#E1E4E8">,</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">default</span><span style="color:#E1E4E8"> </span><span style="color:#B392F0">observable</span><span style="color:#E1E4E8">(state);</span></span></code></pre>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// plugins/mobx.js</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">*</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">as</span><span style="color:#E1E4E8"> riot </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;riot&quot;</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { reaction, toJS } </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> observable</span><span style="color:#E1E4E8">(state);</span></span></code></pre>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// plugins/mobx.js</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#79B8FF"> *</span><span style="color:#F97583"> as</span><span style="color:#E1E4E8"> riot </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;riot&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { reaction, toJS } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A737D">// Register mobx state if store exists in component</span></span>
-<span class="line"><span style="color:#F97583">export</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">function</span><span style="color:#E1E4E8"> </span><span style="color:#B392F0">registerMobxPlugin</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">store</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> function</span><span style="color:#B392F0"> registerMobxPlugin</span><span style="color:#E1E4E8">(</span><span style="color:#FFAB70">store</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">  riot.</span><span style="color:#B392F0">install</span><span style="color:#E1E4E8">((</span><span style="color:#FFAB70">component</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#6A737D">// Check if the store object is defined in the component</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (component.store) {</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#F97583">const</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">originalOnMounted</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> component.onMounted;</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#F97583">const</span><span style="color:#E1E4E8"> </span><span style="color:#79B8FF">originalOnUnmounted</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> component.onUnmounted;</span></span>
+<span class="line"><span style="color:#6A737D">    // Check if the store object is defined in the component</span></span>
+<span class="line"><span style="color:#F97583">    if</span><span style="color:#E1E4E8"> (component.store) {</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> originalOnMounted</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> component.onMounted;</span></span>
+<span class="line"><span style="color:#F97583">      const</span><span style="color:#79B8FF"> originalOnUnmounted</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> component.onUnmounted;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#6A737D">// Register the MobX reaction here and then run the default OnMounted lifecycle</span></span>
-<span class="line"><span style="color:#E1E4E8">      component.</span><span style="color:#B392F0">onMounted</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">state</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">        component._disposer </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#B392F0">reaction</span><span style="color:#E1E4E8">(</span></span>
-<span class="line"><span style="color:#E1E4E8">          () </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> </span><span style="color:#B392F0">toJS</span><span style="color:#E1E4E8">(store),</span></span>
+<span class="line"><span style="color:#6A737D">      // Register the MobX reaction here and then run the default OnMounted lifecycle</span></span>
+<span class="line"><span style="color:#E1E4E8">      component.</span><span style="color:#B392F0">onMounted</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">state</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">        component._disposer </span><span style="color:#F97583">=</span><span style="color:#B392F0"> reaction</span><span style="color:#E1E4E8">(</span></span>
+<span class="line"><span style="color:#E1E4E8">          () </span><span style="color:#F97583">=&gt;</span><span style="color:#B392F0"> toJS</span><span style="color:#E1E4E8">(store),</span></span>
 <span class="line"><span style="color:#E1E4E8">          () </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> component.</span><span style="color:#B392F0">update</span><span style="color:#E1E4E8">()</span></span>
 <span class="line"><span style="color:#E1E4E8">        );</span></span>
 <span class="line"><span style="color:#E1E4E8">        originalOnMounted.</span><span style="color:#B392F0">apply</span><span style="color:#E1E4E8">(component, props, state);</span></span>
 <span class="line"><span style="color:#E1E4E8">      };</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#6A737D">// Register the MobX disposer here and then run the default OnUnmounted lifecycle</span></span>
-<span class="line"><span style="color:#E1E4E8">      component.</span><span style="color:#B392F0">onUnmounted</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">state</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">        </span><span style="color:#F97583">if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> component._disposer </span><span style="color:#F97583">===</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;function&quot;</span><span style="color:#E1E4E8">) {</span></span>
+<span class="line"><span style="color:#6A737D">      // Register the MobX disposer here and then run the default OnUnmounted lifecycle</span></span>
+<span class="line"><span style="color:#E1E4E8">      component.</span><span style="color:#B392F0">onUnmounted</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> (</span><span style="color:#FFAB70">props</span><span style="color:#E1E4E8">, </span><span style="color:#FFAB70">state</span><span style="color:#E1E4E8">) </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">        if</span><span style="color:#E1E4E8"> (</span><span style="color:#F97583">typeof</span><span style="color:#E1E4E8"> component._disposer </span><span style="color:#F97583">===</span><span style="color:#9ECBFF"> &quot;function&quot;</span><span style="color:#E1E4E8">) {</span></span>
 <span class="line"><span style="color:#E1E4E8">          component.</span><span style="color:#B392F0">_disposer</span><span style="color:#E1E4E8">();</span></span>
 <span class="line"><span style="color:#E1E4E8">        }</span></span>
 <span class="line"></span>
@@ -160,34 +189,34 @@ on how I implemented a MobX wrapper with riot. It’s not the best but it does t
 <span class="line"><span style="color:#E1E4E8">      };</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">return</span><span style="color:#E1E4E8"> component;</span></span>
+<span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> component;</span></span>
 <span class="line"><span style="color:#E1E4E8">  });</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>Just call <code>registerMobxPlugin</code> on the <code>index.js</code> bootstrap file in a riot app:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// index.js</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;@riotjs/hot-reload&quot;</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { component } </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;riot&quot;</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { registerMobxPlugin } </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;./plugins/mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> store </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;./store&quot;</span><span style="color:#E1E4E8">;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// index.js</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#9ECBFF"> &quot;@riotjs/hot-reload&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { component } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;riot&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { registerMobxPlugin } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;./plugins/mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> store </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;./store&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#B392F0">registerMobxPlugin</span><span style="color:#E1E4E8">(store);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;DOMContentLoaded&quot;</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> </span><span style="color:#B392F0">component</span><span style="color:#E1E4E8">(App)(document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;app&quot;</span><span style="color:#E1E4E8">)));</span></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;DOMContentLoaded&quot;</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=&gt;</span><span style="color:#B392F0"> component</span><span style="color:#E1E4E8">(App)(document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;app&quot;</span><span style="color:#E1E4E8">)));</span></span></code></pre>
 <p>Here is how you’ll retrive data from the store from a component:</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">&lt;!-- my-app.riot --&gt;</span></span>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">&lt;!-- my-app.riot --&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">my-app</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{store.greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">import</span><span style="color:#E1E4E8"> store </span><span style="color:#F97583">from</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;./store&quot;</span><span style="color:#E1E4E8">;</span></span>
-<span class="line"><span style="color:#E1E4E8">    </span><span style="color:#F97583">export</span><span style="color:#E1E4E8"> </span><span style="color:#F97583">default</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#6A737D">// Define the store first</span></span>
+<span class="line"><span style="color:#F97583">    import</span><span style="color:#E1E4E8"> store </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;./store&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">    export</span><span style="color:#F97583"> default</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#6A737D">      // Define the store first</span></span>
 <span class="line"><span style="color:#E1E4E8">      store,</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">      </span><span style="color:#B392F0">onMounted</span><span style="color:#E1E4E8">() {</span></span>
-<span class="line"><span style="color:#E1E4E8">        </span><span style="color:#6A737D">// Change the greeting after 5s</span></span>
-<span class="line"><span style="color:#E1E4E8">        </span><span style="color:#B392F0">setTimeout</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">          store.greeting </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> </span><span style="color:#9ECBFF">&quot;Hello Riot&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">      onMounted</span><span style="color:#E1E4E8">() {</span></span>
+<span class="line"><span style="color:#6A737D">        // Change the greeting after 5s</span></span>
+<span class="line"><span style="color:#B392F0">        setTimeout</span><span style="color:#E1E4E8">(() </span><span style="color:#F97583">=&gt;</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#E1E4E8">          store.greeting </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &quot;Hello Riot&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">        }, </span><span style="color:#79B8FF">5000</span><span style="color:#E1E4E8">);</span></span>
 <span class="line"><span style="color:#E1E4E8">      },</span></span>
 <span class="line"><span style="color:#E1E4E8">    };</span></span>
@@ -218,20 +247,8 @@ behaviour in the app.</p>
 <p>This was just some of the things I encountered with riot. Overall, it’s a great framework to get started with, only, if
 you are an intermediate developer coming from a vue/svelte (something similar to these frameworks) background. I am
 still in the process on using this framework. Currently, I’m building a workout app with it and streaming this on
-<a href="https://twitch.tv/creativenull">twitch</a> 🙂. Feel free to join me as I keep making these reviews for other frameworks as well.</p>
-    </div>
-  </div>
-
-  <div class="frontpage-divider"></div>
-
-<div class="app-footer flex justify-center items-center px-4">
-  <span>
-    2020 - 2023 Arnold Chand (creativenull) | Made with ♥️
-    <a data-hk="0-0" href="https://astro.build" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">astro.build</a> + <a data-hk="0-0" href="https://www.solidjs.com" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
-      solidjs
-    </a>
-  </span>
-</div>
-
-    </div>
-  </body></html>
+<a href="https://twitch.tv/creativenull">twitch</a> 🙂. Feel free to join me as I keep making these reviews for other frameworks as well.</p> </div> </div> <div class="frontpage-divider"></div> <div class="app-footer flex justify-center items-center px-4"> <span>
+2020 - 2023 Arnold Chand (creativenull) | Built with
+<a href="https://astro.build" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
+Astro
+</a> </span> </div>   </div> </body></html>
