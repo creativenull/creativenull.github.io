@@ -3,34 +3,24 @@ import { config } from "@config";
 ---
 
 <a
+  x-data="{ toggleColors: false }"
+  @mouseenter="toggleColors = !toggleColors"
+  @mouseleave="toggleColors = !toggleColors"
   href={config.siteUrl}
-  onmouseenter="toggleOnEnter()"
-  onmouseleave="toggleOnLeave()"
   class="font-righteous flex text-2xl flex items-center"
 >
-  <span id="app-logo-primary" class="transition-color duration-500 text-light-900">
+  <span
+    id="app-logo-primary"
+    class="transition-color duration-500"
+    :class="{ 'text-light-900': !toggleColors, 'text-blue-600': toggleColors }"
+  >
     {config.siteBannerConfig.primaryTitleText}
   </span>
-  <span id="app-logo-secondary" class="transition-color duration-500 text-blue-600">
+  <span
+    id="app-logo-secondary"
+    class="transition-color duration-500"
+    :class="{ 'text-light-900': toggleColors, 'text-blue-600': !toggleColors }"
+  >
     {config.siteBannerConfig.secondaryTitleText}
   </span>
 </a>
-
-<script defer>
-  const appLogoPrimaryEl = document.querySelector("#app-logo-primary");
-  const appLogoSecondaryEl = document.querySelector("#app-logo-secondary");
-
-  function toggleOnEnter() {
-    appLogoPrimaryEl.classList.toggle("text-light-900");
-    appLogoPrimaryEl.classList.toggle("text-blue-600");
-    appLogoSecondaryEl.classList.toggle("text-light-900");
-    appLogoSecondaryEl.classList.toggle("text-blue-600");
-  }
-
-  function toggleOnLeave() {
-    appLogoPrimaryEl.classList.toggle("text-light-900");
-    appLogoPrimaryEl.classList.toggle("text-blue-600");
-    appLogoSecondaryEl.classList.toggle("text-light-900");
-    appLogoSecondaryEl.classList.toggle("text-blue-600");
-  }
-</script>

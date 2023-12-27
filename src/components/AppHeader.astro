@@ -17,63 +17,13 @@ import AppLogo from "./AppLogo.astro";
   </div>
 
   <div class="pr-4">
-    <button onclick="onButtonClick()" class="p-2 text-light-50 text-xl hover:text-sky-500">
-      <i id="theme-icon" class="fa-solid"></i>
+    <button
+      x-data="{ darkMode: $persist(true), updateDocument() { this.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark') } }"
+      x-init="updateDocument()"
+      @click="darkMode = !darkMode; updateDocument()"
+      class="p-2 text-light-50 text-xl hover:text-sky-500"
+    >
+      <i class="fa-solid" :class="{ 'fa-sun': darkMode, 'fa-moon': !darkMode }"></i>
     </button>
   </div>
 </div>
-
-<script defer>
-  const key = "theme";
-  const themeIconEl = document.querySelector("#theme-icon");
-
-  function theme() {
-    return window.localStorage.getItem(key) ?? "dark";
-  }
-
-  function isDark() {
-    return theme() === "dark";
-  }
-
-  function toggleDarkMode() {
-    window.localStorage.setItem(key, isDark() ? "light" : "dark");
-  }
-
-  function addSunIcon(el) {
-    el.classList.add("fa-sun");
-    el.classList.remove("fa-moon");
-  }
-
-  function addMoonIcon(el) {
-    el.classList.add("fa-moon");
-    el.classList.remove("fa-sun");
-  }
-
-  function addDarkClass(el) {
-    el.classList.add("dark");
-    el.classList.remove("light");
-  }
-
-  function addLightClass(el) {
-    el.classList.add("light");
-    el.classList.remove("dark");
-  }
-
-  function setDarkMode() {
-    addSunIcon(themeIconEl);
-    addDarkClass(document.documentElement);
-  }
-
-  function setLightMode() {
-    addMoonIcon(themeIconEl);
-    addLightClass(document.documentElement);
-  }
-
-  function onButtonClick() {
-    toggleDarkMode();
-    isDark() ? setDarkMode() : setLightMode();
-  }
-
-  // INITIAL RENDER
-  isDark() ? setDarkMode() : setLightMode();
-</script>
