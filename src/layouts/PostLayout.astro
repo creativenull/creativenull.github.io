@@ -11,12 +11,14 @@ const { content } = Astro.props;
   <div class="min-h-screen">
     <AppHeader />
 
-    <h1 class="text-3xl px-4 my-10 md:(text-6xl text-center my-12) lg:(w-3/4 mx-auto)">
+    <h1
+      class="text-2xl sm:(text-3xl w-3/4 mb-10 px-0 mx-auto) lg:(text-4xl w-1/2) font-bold text-center border-b border-b-gray-400 dark:border-b-gray-800 py-4 mb-4 mx-4"
+    >
       {content.title}
     </h1>
 
-    <div class="prose dark:prose-invert px-4 pb-4 mx-auto md:(w-3/4 px-0 pb-6 text-lg) lg:(w-1/2)">
-      <div class="text-sm italic">
+    <div class="prose dark:prose-invert mx-auto px-4 sm:px-0">
+      <div class="text-xs italic">
         Posted on {content.date} by {config.author}
       </div>
 
