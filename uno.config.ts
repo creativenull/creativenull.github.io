@@ -26,9 +26,9 @@ export default defineConfig({
 
   theme: {
     fontFamily: {
-      noto: ["Noto Sans", "sans-serif"],
-      jetbrains: ["JetBrains Mono", "monospace"],
-      righteous: ["Righteous", "cursive"],
+      noto: "Noto Sans, sans-serif",
+      jetbrains: "JetBrains Mono, monospace",
+      righteous: "Righteous, cursive",
     },
   },
 });
