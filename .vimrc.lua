@@ -11,11 +11,7 @@ require("lspconfig").astro.setup(vim.tbl_extend("force", user_config, {
   },
 }))
 
-vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "astro", "typescript", "typescriptreact", "javascript", "javascriptreact", "markdown" },
-  command = 'let b:ale_fixers = ["prettier"]',
-})
-
+-- Spell check for md files
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown" },
   command = "setlocal spell",
