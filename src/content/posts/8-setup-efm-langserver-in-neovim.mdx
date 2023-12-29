@@ -15,8 +15,9 @@ there are some great options out there. In this post I will cover one alternativ
 along with a helper plugin I created to help ease its setup.
 
 <Tip>
-  There are also other options out there like: [nvim-lint][9], [formatter.nvim][10], [guard.nvim][11],
-  [diagnostic-languageserver][12] and many more that I'm not aware of. However, the focus here is only on efm-langserver.
+  There are also other options out there like: [nvim-lint][9], [formatter.nvim][10],
+  [guard.nvim][11], [diagnostic-languageserver][12] and many more that I'm not aware of. However,
+  the focus here is only on efm-langserver.
 </Tip>
 
 ## Table of Contents
@@ -32,7 +33,7 @@ along with a helper plugin I created to help ease its setup.
 From the repository readme:
 
 > General purpose Language Server that can use specified error message format generated from specified command.
-  This is useful for editing code with linter.
+> This is useful for editing code with linter.
 
 It is written in Go and it uses the `errorformat` (`:help errorformat`) interface to parse messages/output from stdout
 into neovim diagnostic. This allows you to call CLI tools such as eslint or prettier and then channels them into neovim
