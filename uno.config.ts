@@ -22,6 +22,7 @@ export default defineConfig({
       },
     }),
   ],
+
   transformers: [transformerVariantGroup(), transformerDirectives()],
 
   theme: {
