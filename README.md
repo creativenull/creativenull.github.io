@@ -1,3 +1,3 @@
 # Website
 
-Built with [astro.build](https://astro.build/) and [solidjs](https://www.solidjs.com)
+Built with [astrojs](https://astro.build/) and [alpinejs](https://alpinejs.dev)
