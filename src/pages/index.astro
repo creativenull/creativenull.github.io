@@ -3,7 +3,9 @@ import PageLayout from "@layouts/PageLayout.astro";
 import Posts from "@components/page/Posts.astro";
 import { getCollection } from "astro:content";
 
-function bySlugId(a, b) {
+type CollectionItemSlug = { slug: string };
+
+function bySlugId(a: CollectionItemSlug, b: CollectionItemSlug): number {
   const slugAId = parseInt(a.slug, 10);
   const slugBId = parseInt(b.slug, 10);
 
