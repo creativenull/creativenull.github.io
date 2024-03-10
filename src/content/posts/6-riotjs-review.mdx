@@ -133,7 +133,7 @@ export function registerMobxPlugin(store) {
       component.onMounted = (props, state) => {
         component._disposer = reaction(
           () => toJS(store),
-          () => component.update()
+          () => component.update(),
         );
         originalOnMounted.apply(component, props, state);
       };
