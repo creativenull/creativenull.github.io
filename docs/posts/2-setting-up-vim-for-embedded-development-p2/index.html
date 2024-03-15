@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><title>Embedded development environment in Vim (2019) - Part 2 - CreativeNull</title><link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script><link rel="stylesheet" href="/_astro/index.CdIOcV0S.css" /><style>.app-footer{height:100px}.frontpage-divider{height:1px;background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
+<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><title>Embedded development environment in Vim (2019) - Part 2 - CreativeNull</title><link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script><link rel="stylesheet" href="/_astro/index.RizM67QW.css" /><style>.app-footer{height:100px}.frontpage-divider{height:1px;background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
 </style></head> <body class="dark:text-light-50 dark:bg-dark-900 text-dark-900 bg-light-900"> <div class="font-noto">  <div class="min-h-screen"> <div class="app-header text-light-50 bg-dark-800 h-14 md:h-20 w-full flex items-center justify-between"> <div class="flex h-full space-x-4 pl-4"> <a x-data="{ toggleColors: false }" @mouseenter="toggleColors = !toggleColors" @mouseleave="toggleColors = !toggleColors" href="https://creativenull.xyz" class="font-righteous flex md:text-2xl flex items-center"> <span id="app-logo-primary" class="transition-color duration-500" :class="{ 'text-light-900': !toggleColors, 'text-blue-600': toggleColors }"> Creative </span> <span id="app-logo-secondary" class="transition-color duration-500" :class="{ 'text-light-900': toggleColors, 'text-blue-600': !toggleColors }"> Null </span> </a> <nav class="h-full flex items-center justify-center md:text-xl"> <a target="_blank" class="h-full flex items-center justify-center font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
 GitHub
 </a> </nav> </div> <div class="pr-4"> <button x-data="{ darkMode: $persist(true), updateDocument() { this.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark') } }" x-init="updateDocument()" @click="darkMode = !darkMode; updateDocument()" class="p-2 text-light-50 text-xl hover:text-sky-500"> <i class="fa-solid" :class="{ 'fa-sun': darkMode, 'fa-moon': !darkMode }"></i> </button> </div> </div> <h1 class="text-2xl sm:text-3xl sm:w-3/4 sm:mb-10 sm:px-0 sm:mx-auto lg:text-4xl lg:w-1/2 font-bold text-center border-b border-b-gray-400 dark:border-b-gray-800 py-4 mb-4 mx-4"> Embedded development environment in Vim (2019) - Part 2 </h1> <div class="prose dark:prose-invert mx-auto px-4 sm:px-0 sm:text-lg"> <div class="not-prose text-xs italic">
@@ -13,6 +13,7 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span>.</span></span>
 <span class="line"><span>├── compilers</span></span>
 <span class="line"><span>└── projects</span></span>
+<span class="line"><span></span></span>
 <span class="line"><span></span></span></code></pre>
 <p>Download and extract the compiler from ARM - lucky for us we don’t need to compile since binary sources are available. If you prefer a clicky <a href="https://developer.arm.com/open-source/gnu-toolchain/gnu-rm/downloads">link</a>:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Enter into compilers directory</span></span>
@@ -25,7 +26,8 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <span class="line"><span style="color:#6A737D"># Remove tar bz2 file</span></span>
 <span class="line"><span style="color:#B392F0">rm</span><span style="color:#9ECBFF"> gcc-arm-none-eabi-7-2017-q4-major-linux.tar.bz2</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ..</span></span></code></pre>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ..</span></span>
+<span class="line"></span></code></pre>
 <p>Create new project, I used an example file from TI to get the startup and link script to work for TM4C. So we will also need to download TivaWare - which came with Code Composer Studio. I copied mine from where I installed it into the current project:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Create new project</span></span>
 <span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> projects</span></span>
@@ -38,10 +40,12 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <span class="line"></span>
 <span class="line"><span style="color:#6A737D"># Copy the blink program to test it out</span></span>
 <span class="line"><span style="color:#B392F0">mkdir</span><span style="color:#9ECBFF"> src</span></span>
-<span class="line"><span style="color:#B392F0">cp</span><span style="color:#E1E4E8"> $HOME</span><span style="color:#9ECBFF">/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.c</span><span style="color:#9ECBFF"> src/main.c</span></span></code></pre>
+<span class="line"><span style="color:#B392F0">cp</span><span style="color:#E1E4E8"> $HOME</span><span style="color:#9ECBFF">/ti/tivaware_c_series_2_1_4_178/examples/boards/ek-tm4c129exl/blinky/blinky.c</span><span style="color:#9ECBFF"> src/main.c</span></span>
+<span class="line"></span></code></pre>
 <p>Create src folder where all our source files will go inside. We’ll also need to create the CMakeLists.txt file along with a toolchain file since we want to use a custom <code>gcc</code> instead of the machine installed one.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D"># CMakeLists and toolchain files</span></span>
-<span class="line"><span style="color:#B392F0">touch</span><span style="color:#9ECBFF"> CMakeLists.txt</span><span style="color:#9ECBFF"> toolchain.cmake</span></span></code></pre>
+<span class="line"><span style="color:#B392F0">touch</span><span style="color:#9ECBFF"> CMakeLists.txt</span><span style="color:#9ECBFF"> toolchain.cmake</span></span>
+<span class="line"></span></code></pre>
 <p>Let’s start with the toolchain.cmake file.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span># ---</span></span>
 <span class="line"><span># toolchain.cmake</span></span>
@@ -64,7 +68,8 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <span class="line"><span>set(CMAKE_OBJDUMP ${ARM_GCC_PATH}/arm-none-eabi-objdump)</span></span>
 <span class="line"><span>set(CMAKE_SIZE ${ARM_GCC_PATH}/arm-none-eabi-size)</span></span>
 <span class="line"><span>set(CMAKE_DEBUGGER ${ARM_GCC_PATH}/arm-none-eabi-gdb)</span></span>
-<span class="line"><span>set(CMAKE_CPPFILT ${ARM_GCC_PATH}/arm-none-eabi-c++filt)</span></span></code></pre>
+<span class="line"><span>set(CMAKE_CPPFILT ${ARM_GCC_PATH}/arm-none-eabi-c++filt)</span></span>
+<span class="line"><span></span></span></code></pre>
 <p>And now we add content in CMakeLists.txt file. I copied the compiler and linker flags from Code Composer Studio and how they compile the program for TM4C microcontroller.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span># ---</span></span>
 <span class="line"><span># CMakeLists.txt</span></span>
@@ -123,11 +128,13 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <span class="line"><span>	-Dgcc</span></span>
 <span class="line"><span>	-c)</span></span>
 <span class="line"><span></span></span>
-<span class="line"><span>set(CMAKE_EXPORT_COMPILE_COMMANDS ON)</span></span></code></pre>
+<span class="line"><span>set(CMAKE_EXPORT_COMPILE_COMMANDS ON)</span></span>
+<span class="line"><span></span></span></code></pre>
 <p>Now I must mention that this was a quick simple way of getting embedded development setup for vim, there are some parts I will explain that will need a bit of manual modification for this to work for your environment. For our simple blink program, all we needed was the <code>libdriver</code> library that came with TivaWare. I simple linked it from where I had my TivaWare installed on my machine which is show above as <code>TIVAWARE_PATH</code>.</p>
 <p>Finally, everything is assembled and ready for us to compile our program. Let’s create a new folder where all the build files will go into, and change our directory into it.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#B392F0">mkdir</span><span style="color:#9ECBFF"> build</span></span>
-<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> build</span></span></code></pre>
+<span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> build</span></span>
+<span class="line"></span></code></pre>
 <p>Now we want to tell <code>cmake</code> to build the files, but we want it to use the toolchain file we created instead of <code>cmake</code> looking in the machine installed <code>gcc</code>. And once that is successful we can compile our project by calling <code>make</code> after that.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D"># inside the build/ directory</span></span>
 <span class="line"><span style="color:#B392F0">cmake</span><span style="color:#79B8FF"> -DCMAKE_TOOLCHAIN_FILE=../toolchain.cmake</span><span style="color:#9ECBFF"> ..</span></span>
@@ -157,18 +164,21 @@ microcontroller OpenOCD is a great tool to enable that, however I won’t be cov
 <span class="line"><span style="color:#E1E4E8">[ </span><span style="color:#79B8FF">33</span><span style="color:#E1E4E8">%] Building C object CMakeFiles/blinky.out.dir/startup_gcc.c.obj</span></span>
 <span class="line"><span style="color:#E1E4E8">[ </span><span style="color:#79B8FF">66</span><span style="color:#E1E4E8">%] Building C object CMakeFiles/blinky.out.dir/src/main.c.obj</span></span>
 <span class="line"><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">%] Linking C executable blinky.out</span></span>
-<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">%] Built target blinky.out</span></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">[</span><span style="color:#79B8FF">100</span><span style="color:#E1E4E8">%] Built target blinky.out</span></span>
+<span class="line"></span></code></pre>
 <p>If everything went well, then we will have a <code>blinky.out</code> in our <code>build/</code> directory! Congratulate yourself for getting this far!</p>
 <p>Now all that remains is that we are able to open up vim and try to get auto-completion and syntax/error checking working. If you remember from the first part, we had LangaugeClient-neovim as our LSP client to run <code>clangd</code> which is a Langauge Server that will run in the background providing diagnostics and auto-completion just like an IDE. But in order for <code>clangd</code> to provide us IDE-like features we need to provide it with a
 <code>compile_commands.json</code> file that cmake built for us in the <code>build/</code> directory.</p>
 <p>Since we need this file in the root of our project, we could copy the file our to the root and have that solved. The downside to that is when we add new files and recompile our program we end up with the old <code>compile_commands.json</code> file in the root, which we will need to update again manually. The best approach to this is to symbolically link <code>compile_commands.json</code> to the root, so when it updates then we don’t need to worry about manually copying the file to the root.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D"># in the root of project - blinky/</span></span>
-<span class="line"><span style="color:#B392F0">ln</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF"> build/compile_commands.json</span><span style="color:#9ECBFF"> .</span></span></code></pre>
+<span class="line"><span style="color:#B392F0">ln</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF"> build/compile_commands.json</span><span style="color:#9ECBFF"> .</span></span>
+<span class="line"></span></code></pre>
 <p>Open <code>src/main.c</code> in vim and start using the type any of the function that are available. As you type you should be able to get a list of options auto-completion will prompt for completion. You can go to the definition of a function declared by hovering over the function and pressing <code>&lt;F5&gt;</code> to show the LSP options and typing ‘definition’. You can make a key binding for each LSP option. Here is my updated <code>init.vim</code> with individual key bindings.</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#F97583">nnoremap</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#79B8FF">F5</span><span style="color:#E1E4E8">&gt; :</span><span style="color:#F97583">call</span><span style="color:#B392F0"> LanguageClient_contextMenu</span><span style="color:#E1E4E8">()&lt;</span><span style="color:#79B8FF">CR</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#F97583">nnoremap</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#79B8FF">leader</span><span style="color:#E1E4E8">&gt;</span><span style="color:#79B8FF">gd</span><span style="color:#E1E4E8"> :</span><span style="color:#F97583">call</span><span style="color:#B392F0"> LanguageClient#textDocument_definition</span><span style="color:#E1E4E8">()&lt;</span><span style="color:#79B8FF">CR</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#F97583">nnoremap</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#79B8FF">leader</span><span style="color:#E1E4E8">&gt;gf :</span><span style="color:#F97583">call</span><span style="color:#B392F0"> LanguageClient#textDocument_formatting</span><span style="color:#E1E4E8">()&lt;</span><span style="color:#79B8FF">CR</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#F97583">nnoremap</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#79B8FF">leader</span><span style="color:#E1E4E8">&gt;gr :</span><span style="color:#F97583">call</span><span style="color:#B392F0"> LanguageClient#textDocument_rename</span><span style="color:#E1E4E8">()&lt;</span><span style="color:#79B8FF">CR</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
+<span class="line"><span style="color:#F97583">nnoremap</span><span style="color:#E1E4E8"> &lt;</span><span style="color:#79B8FF">leader</span><span style="color:#E1E4E8">&gt;gr :</span><span style="color:#F97583">call</span><span style="color:#B392F0"> LanguageClient#textDocument_rename</span><span style="color:#E1E4E8">()&lt;</span><span style="color:#79B8FF">CR</span><span style="color:#E1E4E8">&gt;</span></span>
+<span class="line"></span></code></pre>
 <p>This concludes the 2nd part of the series - Embedded development environment in Vim - I would like to revist this in the future and keep it up-to-date as much as possible. I hope you enjoyed this guide.</p> </div> </div> <div class="frontpage-divider"></div> <div class="app-footer flex justify-center items-center px-4"> <span>
 2020 - 2024 Arnold Chand (creativenull) |
 <a href="https://astro.build" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
