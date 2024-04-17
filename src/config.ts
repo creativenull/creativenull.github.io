@@ -10,7 +10,7 @@ export interface AppConfig {
 }
 
 export const config: AppConfig = {
-  siteUrl: "https://creativenull.xyz",
+  siteUrl: "https://creativenull.dev",
   siteName: "CreativeNull",
   siteSubtitle: "Random engineering notes and blog",
   author: "Arnold Chand",
