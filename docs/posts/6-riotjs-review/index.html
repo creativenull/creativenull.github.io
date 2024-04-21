@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><title>Riot.js Review Part 1 - CreativeNull</title><link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script><link rel="stylesheet" href="/_astro/index.RizM67QW.css" /><style>.app-footer{height:100px}.frontpage-divider{height:1px;background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
+<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><title>Riot.js Review Part 1 - CreativeNull</title><link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script><link rel="stylesheet" href="/_astro/index.4fhXEj8c.css" /><style>.frontpage-divider{background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
 </style></head> <body class="dark:text-light-50 dark:bg-dark-900 text-dark-900 bg-light-900"> <div class="font-noto">  <div class="min-h-screen"> <div class="app-header text-light-50 bg-dark-800 h-14 md:h-20 w-full flex items-center justify-between"> <div class="flex h-full space-x-4 pl-4"> <a x-data="{ toggleColors: false }" @mouseenter="toggleColors = !toggleColors" @mouseleave="toggleColors = !toggleColors" href="https://creativenull.dev" class="font-righteous flex md:text-2xl flex items-center"> <span id="app-logo-primary" class="transition-color duration-500" :class="{ 'text-light-900': !toggleColors, 'text-blue-600': toggleColors }"> Creative </span> <span id="app-logo-secondary" class="transition-color duration-500" :class="{ 'text-light-900': toggleColors, 'text-blue-600': !toggleColors }"> Null </span> </a> <nav class="h-full flex items-center justify-center md:text-xl"> <a target="_blank" class="h-full flex items-center justify-center font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
 GitHub
 </a> </nav> </div> <div class="pr-4"> <button x-data="{ darkMode: $persist(true), updateDocument() { this.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark') } }" x-init="updateDocument()" @click="darkMode = !darkMode; updateDocument()" class="p-2 text-light-50 text-xl hover:text-sky-500"> <i class="fa-solid" :class="{ 'fa-sun': darkMode, 'fa-moon': !darkMode }"></i> </button> </div> </div> <h1 class="text-2xl sm:text-3xl sm:w-3/4 sm:mb-10 sm:px-0 sm:mx-auto lg:text-4xl lg:w-1/2 font-bold text-center border-b border-b-gray-400 dark:border-b-gray-800 py-4 mb-4 mx-4"> Riot.js Review Part 1 </h1> <div class="prose dark:prose-invert mx-auto px-4 sm:px-0 sm:text-lg"> <div class="not-prose text-xs italic">
@@ -32,8 +32,7 @@ svelte except the fact that you don’t add the custom tag. Below you should the
 <span class="line"><span style="color:#85E89D">h1</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">  color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h3 id="svelte">Svelte</h3>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#F97583">  let</span><span style="color:#E1E4E8"> greeting </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &quot;Hello World&quot;</span><span style="color:#E1E4E8">;</span></span>
@@ -45,8 +44,7 @@ svelte except the fact that you don’t add the custom tag. Below you should the
 <span class="line"><span style="color:#E1E4E8">  }</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h3 id="riot">Riot</h3>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;{greeting}&lt;/</span><span style="color:#85E89D">h1</span><span style="color:#E1E4E8">&gt;</span></span>
@@ -64,8 +62,7 @@ svelte except the fact that you don’t add the custom tag. Below you should the
 <span class="line"><span style="color:#79B8FF">      color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">    }</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">my-component</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <p>Additionally, adding scope in riot is a bit different. Instead of adding an attribute like <code>scoped</code> (in vue), you would
 use native CSS pseudo-selectors to do that. In CSS this is the <code>:host</code> selector and can be used with the example above
 like this:</p>
@@ -73,8 +70,7 @@ like this:</p>
 <span class="line"><span style="color:#B392F0">  :host</span><span style="color:#85E89D"> h1</span><span style="color:#E1E4E8"> {</span></span>
 <span class="line"><span style="color:#79B8FF">    color</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">blue</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#E1E4E8">  } </span><span style="color:#6A737D">/* scoped only to the component above */</span></span>
-<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">style</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <h2 id="no-state-management">No State Management</h2>
 <p>Riot doesn’t come with any state management. You will have to look toward other framework-agnostic state management to
 help you keep global state in your application. While, they do provide one separate from the framework called
@@ -91,8 +87,7 @@ on how I implemented a MobX wrapper with riot. It’s not the best but it does t
 <span class="line"><span style="color:#E1E4E8">  greeting: </span><span style="color:#9ECBFF">&quot;Hello World&quot;</span><span style="color:#E1E4E8">,</span></span>
 <span class="line"><span style="color:#E1E4E8">};</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> observable</span><span style="color:#E1E4E8">(state);</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#F97583">export</span><span style="color:#F97583"> default</span><span style="color:#B392F0"> observable</span><span style="color:#E1E4E8">(state);</span></span></code></pre>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// plugins/mobx.js</span></span>
 <span class="line"><span style="color:#F97583">import</span><span style="color:#79B8FF"> *</span><span style="color:#F97583"> as</span><span style="color:#E1E4E8"> riot </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;riot&quot;</span><span style="color:#E1E4E8">;</span></span>
 <span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> { reaction, toJS } </span><span style="color:#F97583">from</span><span style="color:#9ECBFF"> &quot;mobx&quot;</span><span style="color:#E1E4E8">;</span></span>
@@ -126,8 +121,7 @@ on how I implemented a MobX wrapper with riot. It’s not the best but it does t
 <span class="line"></span>
 <span class="line"><span style="color:#F97583">    return</span><span style="color:#E1E4E8"> component;</span></span>
 <span class="line"><span style="color:#E1E4E8">  });</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
 <p>Just call <code>registerMobxPlugin</code> on the <code>index.js</code> bootstrap file in a riot app:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">// index.js</span></span>
 <span class="line"><span style="color:#F97583">import</span><span style="color:#9ECBFF"> &quot;@riotjs/hot-reload&quot;</span><span style="color:#E1E4E8">;</span></span>
@@ -137,8 +131,7 @@ on how I implemented a MobX wrapper with riot. It’s not the best but it does t
 <span class="line"></span>
 <span class="line"><span style="color:#B392F0">registerMobxPlugin</span><span style="color:#E1E4E8">(store);</span></span>
 <span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;DOMContentLoaded&quot;</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=&gt;</span><span style="color:#B392F0"> component</span><span style="color:#E1E4E8">(App)(document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;app&quot;</span><span style="color:#E1E4E8">)));</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">document.</span><span style="color:#B392F0">addEventListener</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;DOMContentLoaded&quot;</span><span style="color:#E1E4E8">, () </span><span style="color:#F97583">=&gt;</span><span style="color:#B392F0"> component</span><span style="color:#E1E4E8">(App)(document.</span><span style="color:#B392F0">getElementById</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;app&quot;</span><span style="color:#E1E4E8">)));</span></span></code></pre>
 <p>Here is how you’ll retrive data from the store from a component:</p>
 <pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#6A737D">&lt;!-- my-app.riot --&gt;</span></span>
 <span class="line"><span style="color:#E1E4E8">&lt;</span><span style="color:#85E89D">my-app</span><span style="color:#E1E4E8">&gt;</span></span>
@@ -158,8 +151,7 @@ on how I implemented a MobX wrapper with riot. It’s not the best but it does t
 <span class="line"><span style="color:#E1E4E8">      },</span></span>
 <span class="line"><span style="color:#E1E4E8">    };</span></span>
 <span class="line"><span style="color:#E1E4E8">  &lt;/</span><span style="color:#85E89D">script</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">my-app</span><span style="color:#E1E4E8">&gt;</span></span>
-<span class="line"></span></code></pre>
+<span class="line"><span style="color:#E1E4E8">&lt;/</span><span style="color:#85E89D">my-app</span><span style="color:#E1E4E8">&gt;</span></span></code></pre>
 <p>Which takes me to my next point.</p>
 <h2 id="documentation">Documentation</h2>
 <p>It does cover a lot of basics of the framework and guides you on how to extend any capabilities of the framework with
@@ -185,9 +177,9 @@ behaviour in the app.</p>
 <p>This was just some of the things I encountered with riot. Overall, it’s a great framework to get started with, only, if
 you are an intermediate developer coming from a vue/svelte (something similar to these frameworks) background. I am
 still in the process on using this framework. Currently, I’m building a workout app with it and streaming this on
-<a href="https://twitch.tv/creativenull">twitch</a> 🙂. Feel free to join me as I keep making these reviews for other frameworks as well.</p> </div> </div> <div class="frontpage-divider"></div> <div class="app-footer flex justify-center items-center px-4"> <span>
-2020 - 2024 Arnold Chand (creativenull) |
-<a href="https://astro.build" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
+<a href="https://twitch.tv/creativenull">twitch</a> 🙂. Feel free to join me as I keep making these reviews for other frameworks as well.</p> </div> </div> <div class="frontpage-divider h-[1px]"></div> <div class="h-[100px] flex flex-col justify-center items-center gap-2 px-4"> <div class="flex gap-2"> <span>
+2020 - 2024 Arnold Chand (creativenull)
+</span> <div class="flex items-center gap-2"> <a href="https://twitter.com/creativenu11"> <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 256 209"><path fill="#55acee" d="M256 25.45a105.04 105.04 0 0 1-30.166 8.27c10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52c0 4.117.465 8.125 1.36 11.97c-43.65-2.191-82.35-23.1-108.255-54.876c-4.52 7.757-7.11 16.78-7.11 26.404c0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661c0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475c-17.975 14.086-40.622 22.483-65.228 22.483c-4.24 0-8.42-.249-12.529-.734c23.243 14.902 50.85 23.597 80.51 23.597c96.607 0 149.434-80.031 149.434-149.435c0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"></path></svg> </a> <a rel="me" href="https://mastodon.online/@creativenull"> <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 256 274"><path fill="#3088D4" d="M249.874 164.085c-3.753 19.307-33.613 40.438-67.908 44.533c-17.883 2.134-35.49 4.095-54.266 3.234c-30.705-1.407-54.933-7.33-54.933-7.33c0 2.99.184 5.836.553 8.498c3.992 30.302 30.047 32.118 54.728 32.964c24.912.852 47.094-6.142 47.094-6.142l1.023 22.521s-17.425 9.357-48.465 11.078c-17.116.94-38.369-.43-63.122-6.983c-53.686-14.21-62.92-71.436-64.332-129.502c-.43-17.24-.165-33.497-.165-47.094c0-59.375 38.903-76.779 38.903-76.779C58.6 4.074 92.259.286 127.25 0h.86c34.991.286 68.673 4.074 88.287 13.083c0 0 38.901 17.404 38.901 76.78c0 0 .488 43.807-5.425 74.222"></path><path fill="#FFF" d="M209.413 94.469v71.894H180.93V96.582c0-14.71-6.19-22.176-18.57-22.176c-13.687 0-20.547 8.857-20.547 26.37v38.195h-28.315v-38.195c0-17.513-6.862-26.37-20.55-26.37c-12.379 0-18.568 7.466-18.568 22.176v69.78H45.897V94.47c0-14.694 3.741-26.37 11.256-35.009c7.75-8.638 17.898-13.066 30.496-13.066c14.575 0 25.613 5.602 32.911 16.808l7.095 11.893l7.096-11.893c7.296-11.206 18.334-16.808 32.911-16.808c12.597 0 22.745 4.428 30.496 13.066c7.513 8.639 11.255 20.315 11.255 35.009"></path></svg> </a> </div> </div> <div> <a href="https://astro.build" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
 astro.build
 </a>
 +
@@ -199,4 +191,4 @@ alpinejs.dev
 unocss.dev
 </a>
 &equals; ♥
-</span> </div>   </div> </body></html>
+</div> </div>   </div> </body></html>
