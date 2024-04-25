@@ -14,7 +14,6 @@ const { title } = Astro.props as BaseProps;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <meta name="theme-color" content="#1E3A8A" />
-    <title>{title} - {config.siteName}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net" />
     <link
@@ -33,6 +32,10 @@ const { title } = Astro.props as BaseProps;
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"
     ></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
+
+    <title>{title} - {config.siteName}</title>
   </head>
   <body class="dark:(text-light-50 bg-dark-900) text-dark-900 bg-light-900">
     <div class="font-noto">
