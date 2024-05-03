@@ -19,6 +19,18 @@ export default defineConfig({
           display: "inline-block",
           "padding-left": "5px",
         },
+        "section[data-footnotes]": {
+          "font-size": "0.85rem"
+        },
+        "p sup": {
+          "padding-left": "0.1rem"
+        },
+        "p sup::before": {
+          content: '"\\005B"'
+        },
+        "p sup::after": {
+          content: '"\\005D"'
+        }
       },
     }),
   ],
