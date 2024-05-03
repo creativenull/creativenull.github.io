@@ -20,7 +20,7 @@ export default defineConfig({
           "padding-left": "5px",
         },
         "section[data-footnotes]": {
-          "font-size": "0.85rem"
+          "font-size": "0.75rem"
         },
         "p sup": {
           "padding-left": "0.1rem"
