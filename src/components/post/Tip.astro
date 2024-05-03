@@ -10,20 +10,20 @@ const { type = "note" } = Astro.props;
 function tipBg(t: TipType) {
   switch (t) {
     case "outdated":
-      return "bg-rose-800 border-rose-900";
+      return "border-l-red-500 dark:border-l-red-800";
 
     case "warning":
-      return "bg-yellow-800 border-yellow-900";
+      return "border-l-amber-500 dark:border-l-amber-800";
 
     case "note":
     default:
-      return "bg-emerald-800 border-emerald-900";
+      return "border-l-emerald-500 dark:border-l-emerald-800";
   }
 }
 ---
 
-<div class={`${tipBg(type)} text-light-900 border-l border-l-10 py-2 px-2 md:my-8`}>
-  <p class="italic capitalize">{type}</p>
+<div class={`${tipBg(type)} border-l border-l-10 py-2 px-2 md:my-8`}>
+  <h4 class="capitalize m-0">{type}</h4>
   <div class="text-xs md:text-base">
     <slot />
   </div>
