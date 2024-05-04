@@ -10,7 +10,7 @@ export interface AppConfig {
 }
 
 export const config: AppConfig = {
-  siteUrl: "https://creativenull.dev",
+  siteUrl: import.meta.env.DEV ? "http://localhost:4321" : "https://creativenull.dev",
   siteName: "CreativeNull",
   siteSubtitle: "Random engineering notes and blog",
   author: "Arnold Chand",
