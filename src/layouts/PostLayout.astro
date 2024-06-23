@@ -2,7 +2,11 @@
 import AppHeader from "@components/AppHeader.astro";
 import AppFooter from "@components/AppFooter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { config } from "@config";
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  content: CollectionEntry<"posts">["data"];
+}
 
 const { content } = Astro.props;
 
