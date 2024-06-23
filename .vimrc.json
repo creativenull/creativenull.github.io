@@ -1,0 +1,9 @@
+{
+  "projectlocal": {
+    "efmls": {
+      "typescript": ["prettier"],
+      "javascript": ["prettier"]
+    }
+  }
+}
+
