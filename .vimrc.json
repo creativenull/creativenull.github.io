@@ -1,8 +1,10 @@
 {
   "projectlocal": {
     "efmls": {
+      "astro": ["prettier"],
       "typescript": ["prettier"],
-      "javascript": ["prettier"]
+      "javascript": ["prettier"],
+      "json": ["prettier"]
     }
   }
 }
