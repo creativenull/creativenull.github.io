@@ -5,6 +5,14 @@ import BaseLayout from "@layouts/BaseLayout.astro";
 import { config } from "@config";
 
 const { content } = Astro.props;
+
+function publishDate(date: Date) {
+  return new Date(date).toLocaleDateString("en-TT", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+}
 ---
 
 <BaseLayout title={content.title}>
@@ -17,12 +25,12 @@ const { content } = Astro.props;
       {content.title}
     </h1>
 
-    <div class="prose dark:prose-invert mx-auto px-4 sm:(px-0 text-lg)">
-      <div class="not-prose text-xs italic">
-        Posted on {content.date} by {config.author}
-      </div>
-
+    <div class="prose dark:prose-invert mx-auto px-4 pb-8 sm:(px-0 text-lg)">
       <slot />
+
+      <div class="not-prose text-xs border-t border-t-gray-400 dark:border-t-gray-800 pt-8">
+        Published on {publishDate(content.date)}
+      </div>
     </div>
   </div>
 
