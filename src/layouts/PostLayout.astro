@@ -33,8 +33,14 @@ function publishDate(date: Date) {
       </div>
       <slot />
 
-      <div class="not-prose text-sm border-t border-t-gray-400 dark:border-t-gray-800 pt-8">
-        Published on {publishDate(content.date)}
+      <div
+        class="not-prose text-sm border-t border-t-gray-400 dark:border-t-gray-800 space-y-2 pt-8"
+      >
+        {content.categories && <div>Categories: {content.categories?.join(", ")}</div>}
+        {content.tags && <div>Tags: {content.tags?.map((t) => `#${t}`).join(" ")}</div>}
+        <div>
+          Published on {publishDate(content.date)}
+        </div>
       </div>
     </div>
   </div>
