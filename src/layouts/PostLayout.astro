@@ -1,4 +1,5 @@
 ---
+import { config } from "@config";
 import AppHeader from "@components/AppHeader.astro";
 import AppFooter from "@components/AppFooter.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -9,14 +10,6 @@ interface Props {
 }
 
 const { content } = Astro.props;
-
-function publishDate(date: Date) {
-  return new Date(date).toLocaleDateString("en-TT", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
-}
 ---
 
 <BaseLayout title={content.title}>
@@ -34,13 +27,16 @@ function publishDate(date: Date) {
       <slot />
 
       <div
-        class="not-prose text-sm border-t border-t-gray-400 dark:border-t-gray-800 space-y-2 pt-8"
+        class="not-prose font-jetbrains text-sm border-t border-t-gray-400 dark:border-t-gray-800 space-y-2 pt-8"
       >
-        {content.categories && <div>Categories: {content.categories?.join(", ")}</div>}
-        {content.tags && <div>Tags: {content.tags?.map((t) => `#${t}`).join(" ")}</div>}
-        <div>
-          Published on {publishDate(content.date)}
-        </div>
+        <div>author = "{config.author}"</div>
+        <div>publishDate = {new Date(content.date).toLocaleDateString()}</div>
+        {
+          content.categories && (
+            <div>categories = [{content.categories?.map((c) => `"${c}"`).join(", ")}]</div>
+          )
+        }
+        {content.tags && <div>tags = [{content.tags?.map((t) => `"${t}"`).join(", ")}]</div>}
       </div>
     </div>
   </div>
