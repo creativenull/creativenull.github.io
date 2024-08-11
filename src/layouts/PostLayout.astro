@@ -10,6 +10,14 @@ interface Props {
 }
 
 const { content } = Astro.props;
+
+function publishDate(date: Date) {
+  const year = new Date(date).getFullYear();
+  const month = new Date(date).getMonth() + 1;
+  const day = new Date(date).getDate();
+
+  return `${year}-${month}-${day}`;
+}
 ---
 
 <BaseLayout title={content.title}>
@@ -30,7 +38,7 @@ const { content } = Astro.props;
         class="not-prose font-jetbrains text-sm border-t border-t-gray-400 dark:border-t-gray-800 space-y-2 pt-8"
       >
         <div>author = "{config.author}"</div>
-        <div>publishDate = {new Date(content.date).toLocaleDateString()}</div>
+        <div>publishDate = {publishDate(content.date)}</div>
         {
           content.categories && (
             <div>categories = [{content.categories?.map((c) => `"${c}"`).join(", ")}]</div>
