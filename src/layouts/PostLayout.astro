@@ -11,10 +11,10 @@ interface Props {
 
 const { content } = Astro.props;
 
-function publishDate(date: string) {
-  const dateTimeFormat = new Intl.DateTimeFormat("en-TT");
+function publishDate(dateStr: string) {
+  const dateTimeFormat = new Intl.DateTimeFormat(config.dateTime.locale, config.dateTime.options);
 
-  return dateTimeFormat.format(new Date(date));
+  return dateTimeFormat.format(new Date(dateStr));
 }
 ---
 
