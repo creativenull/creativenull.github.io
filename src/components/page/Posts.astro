@@ -1,5 +1,6 @@
 ---
 import truncate from "lodash.truncate";
+import { config } from "@config";
 
 const { posts } = Astro.props;
 const truncateOptions = {
@@ -7,12 +8,16 @@ const truncateOptions = {
   separator: " ",
 };
 
-function publishDate(date: Date) {
-  return new Date(date).toLocaleDateString("en-TT", {
-    year: "numeric",
-    month: "short",
-    day: "numeric",
-  });
+function publishDate(date: string) {
+  const dateTimeFormat = new Intl.DateTimeFormat(config.dateTime.locale, config.dateTime.options);
+
+  return dateTimeFormat.format(new Date(date));
+
+  // return new Date(date).toLocaleDateString("en-TT", {
+  //   year: "numeric",
+  //   month: "short",
+  //   day: "numeric",
+  // });
 }
 ---
 
