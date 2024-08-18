@@ -7,6 +7,15 @@ export interface AppConfig {
     primaryTitleText: string;
     secondaryTitleText: string;
   };
+  dateTime: {
+    locale: string;
+    options: {
+      timeZone: string;
+      dateStyle: string;
+      timeStyle: string;
+      hour12: boolean;
+    };
+  };
 }
 
 export const config: AppConfig = {
@@ -17,5 +26,14 @@ export const config: AppConfig = {
   siteBannerConfig: {
     primaryTitleText: "Creative",
     secondaryTitleText: "Null",
+  },
+  dateTime: {
+    locale: "en-TT",
+    options: {
+      timeZone: "America/Port_of_Spain",
+      dateStyle: "short",
+      timeStyle: "short",
+      hour12: false,
+    },
   },
 };
