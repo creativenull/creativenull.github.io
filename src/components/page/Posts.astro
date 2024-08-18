@@ -12,12 +12,6 @@ function publishDate(date: string) {
   const dateTimeFormat = new Intl.DateTimeFormat(config.dateTime.locale, config.dateTime.options);
 
   return dateTimeFormat.format(new Date(date));
-
-  // return new Date(date).toLocaleDateString("en-TT", {
-  //   year: "numeric",
-  //   month: "short",
-  //   day: "numeric",
-  // });
 }
 ---
 
