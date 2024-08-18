@@ -22,7 +22,7 @@ const postCollection = defineCollection({
     layout: z.string(),
     title: z.string(),
     description: z.string(),
-    date: z.date(),
+    date: z.string(),
     draft: z.boolean().optional(),
     tags: z.array(z.string()).optional(),
     categories: z.array(z.string()).optional(),
