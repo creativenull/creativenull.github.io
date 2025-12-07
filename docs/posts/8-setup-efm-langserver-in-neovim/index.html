@@ -1,227 +1,26 @@
-<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><link rel="preconnect" href="https://fonts.bunny.net"><link href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer"><script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script><link rel="shortcut icon" type="image/ico" href="/favicon.ico"><title>Setup efm-langserver in neovim - CreativeNull</title><link rel="stylesheet" href="/_astro/index.yJnwpSTZ.css"><style>.frontpage-divider{background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
-</style></head> <body class="dark:text-white dark:bg-dark-900 text-dark-900 bg-white"> <div class="font-noto">  <div class="min-h-screen"> <div class="app-header text-light-50 bg-dark-800 h-14 md:h-20 w-full flex items-center justify-between"> <div class="flex h-full space-x-4 pl-4"> <a x-data="{ toggleColors: false }" @mouseenter="toggleColors = !toggleColors" @mouseleave="toggleColors = !toggleColors" href="https://creativenull.dev" class="font-righteous flex md:text-2xl items-center"> <span id="app-logo-primary" class="transition-color duration-500" :class="{ 'text-light-900': !toggleColors, 'text-blue-600': toggleColors }"> Creative </span> <span id="app-logo-secondary" class="transition-color duration-500" :class="{ 'text-light-900': toggleColors, 'text-blue-600': !toggleColors }"> Null </span> </a> <nav class="h-full flex items-center justify-center md:text-xl"> <a target="_blank" class="h-full flex items-center justify-center font-bold transition-all duration-300 px-4 hover:bg-light-50 hover:text-dark-700" href="https://github.com/creativenull">
-GitHub
-</a> </nav> </div> <div class="pr-4"> <button x-data="{ darkMode: $persist(true), updateDocument() { this.darkMode ? document.documentElement.classList.add('dark') : document.documentElement.classList.remove('dark') } }" x-init="updateDocument()" @click="darkMode = !darkMode; updateDocument()" class="p-2 text-light-50 text-xl hover:text-sky-500"> <i class="fa-solid" :class="{ 'fa-sun': darkMode, 'fa-moon': !darkMode }"></i> </button> </div> </div> <div class="prose dark:prose-invert mx-auto px-4 pb-8 sm:px-0 sm:text-lg"> <div class="sm:text-center not-prose border-b border-b-gray-400 dark:border-b-gray-800 pb-4 px-4 my-8"> <h1 class="text-2xl sm:text-3xl lg:text-4xl"> Setup efm-langserver in neovim </h1> </div> <p>With the <a href="https://github.com/jose-elias-alvarez/null-ls.nvim/issues/1621">news of null-ls being archived</a> there are concerns as to what other options users now have to run linters
-and formatters within an LSP-centric workflow.</p>
-<p>While I wouldn’t look for an alternative for a while (maybe in a year?)
-there are some great options out there. In this post I will cover one alternative to null-ls called <a href="https://github.com/mattn/efm-langserver">efm-langserver</a>
-along with a helper plugin I created to help ease its setup.</p>
-<div class="border-l-emerald-500 dark:border-l-emerald-800 border-l border-l-10 py-2 px-2 md:my-8"> <h4 class="text-emerald-500 dark:text-emerald-800 capitalize m-0"> note </h4> <div class="text-xs md:text-base"> <p>There are also other options out there like: <a href="https://github.com/mfussenegger/nvim-lint">nvim-lint</a>, <a href="https://github.com/mhartington/formatter.nvim">formatter.nvim</a>,
-<a href="https://github.com/nvimdev/guard.nvim">guard.nvim</a>, <a href="https://github.com/iamcco/diagnostic-languageserver">diagnostic-languageserver</a> and many more that I’m not aware of. However,
-the focus here is only on efm-langserver.</p> </div> </div>
-<h2 id="table-of-contents">Table of Contents</h2>
-<ol>
-<li><a href="#what-is-efm-langserver">What is efm-langserver</a></li>
-<li><a href="#installation">Installation</a></li>
-<li><a href="#setup">Setup</a></li>
-<li><a href="#migrating-from-null-ls-to-efm-langserver">Migrating from null-ls to efm-langserver</a></li>
-<li><a href="#final-thoughts">Final Thoughts</a></li>
-</ol>
-<h2 id="what-is-efm-langserver">What is efm-langserver?</h2>
-<p>From the repository readme:</p>
-<blockquote>
-<p>General purpose Language Server that can use specified error message format generated from specified command.
-This is useful for editing code with linter.</p>
-</blockquote>
-<p>It is written in Go and it uses the <code>errorformat</code> (<code>:help errorformat</code>) interface to parse messages/output from stdout
-into neovim diagnostic. This allows you to call CLI tools such as eslint or prettier and then channels them into neovim
-using the LSP protocol. It can also do hover, document symbol search, code actions and completion, but not something I
-would cover in this post.</p>
-<p>First let’s install the language server. I’ll show two ways: the manual way and the mason.nvim way.</p>
-<h2 id="installation">Installation</h2>
-<h3 id="manual-installation">Manual Installation</h3>
-<p>The simplest way would be to just download from the efm-langserver repository and then extract it to a location added
-to your <code>PATH</code>. I usually add this to <code>~/.local/bin</code> since I’ve added this to my <code>PATH</code> variable, but you can add this
-anywhere you prefer, as long as it is globally available.</p>
-<ol>
-<li>Download the latest <a href="https://github.com/mattn/efm-langserver/releases">language server from the releases page</a>.</li>
-</ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#6A737D"># Example to download to ~/.local/bin directory</span></span>
-<span class="line"><span style="color:#B392F0">wget</span><span style="color:#79B8FF"> -O</span><span style="color:#9ECBFF"> ~/.local/bin/efm-langserver.tar.gz</span><span style="color:#9ECBFF"> https://github.com/mattn/efm-langserver/releases/download/v0.0.48/efm-langserver_v0.0.48_linux_amd64.tar.gz</span></span>
-<span class="line"></span></code></pre>
-<ol start="2">
-<li>Extract the file.</li>
-</ol>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/.local/bin</span></span>
-<span class="line"><span style="color:#B392F0">tar</span><span style="color:#79B8FF"> -xzf</span><span style="color:#9ECBFF"> efm-langserver.tar.gz</span><span style="color:#E1E4E8"> &amp;&amp; </span><span style="color:#B392F0">rm</span><span style="color:#79B8FF"> -f</span><span style="color:#9ECBFF"> efm-langserver.tar.gz</span></span>
-<span class="line"></span></code></pre>
-<p>Now you should have <code>efm-langserver</code> binary globally available.</p>
-<h3 id="masonnvim-installation">Mason.nvim Installation</h3>
-<p>Now the above example can be tedious every time there is a new version of <code>efm-langserver</code>, of course you can also
-automate this with a script but then again you will have to write one or find someone who already has written a small
-script.</p>
-<p>Instead we can make use of <a href="https://github.com/williamboman/mason.nvim">mason.nvim</a> and its companion <a href="https://github.com/williamboman/mason-lspconfig.nvim">mason-lspconfig.nvim</a>.</p>
-<p>Just run <code>:MasonInstall efm</code> and it will take care of the installation for you.</p>
-<p>In addition to that, with mason-lspconfig.nvim you can add it to your <code>ensure_installed</code> so it will be automatically
-installed the next time you re-open neovim. Below is the example code to do just that.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;mason&quot;</span><span style="color:#E1E4E8">).</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">()</span></span>
-<span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;mason-lspconfig&quot;</span><span style="color:#E1E4E8">).</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">  ensure_installed </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#6A737D">    -- ... other lsp servers</span></span>
-<span class="line"><span style="color:#9ECBFF">    &#39;efm&#39;</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">})</span></span>
-<span class="line"></span></code></pre>
-<h2 id="setup">Setup</h2>
-<h3 id="the-easy-way">The easy way?</h3>
-<p>The setup is quite straight forward.</p>
-<ol>
-<li>Create the configuration for a linter/formatter for efm-langserver.</li>
-<li>Add the options to <code>filetypes</code> and <code>settings</code> of the nvim-lspconfig <code>setup()</code>.</li>
-</ol>
-<p>Following the <a href="https://github.com/mattn/efm-langserver/blob/master/schema.md">efm-langserver schema</a>, we can then proceed to create configurations for any CLI tool. Let’s do that
-and start with an example to setup <code>eslint</code> for linting and <code>prettier</code> for formatting.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> eslint </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  prefix </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#39;eslint&#39;</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  lintCommand </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#39;eslint --no-color --format visualstudio --stdin-filename ${INPUT} --stdin&#39;</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  lintStdin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  lintIgnoreExitCode </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  lintFormats </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;%f(%l,%c): %trror %m&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;%f(%l,%c): %tarning %m&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">  rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.eslintrc&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  formatCommand </span><span style="color:#F97583">=</span><span style="color:#9ECBFF"> &#39;prettier --stdin --stdin-filename ${INPUT}&#39;</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  formatStdin </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.prettierrc&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span></code></pre>
-<p>With the following configuration we can now attach them to the language of our choice. In this case we’ll go for
-JavaScript and JSX files.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascript </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint, prettier },</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascriptreact </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint, prettier },</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span></code></pre>
-<p>Note that <code>eslint</code>, and <code>prettier</code> are lua tables which in turn makes <code>javascript = { ... }</code>
-(or <code>javascriptreact = { ... }</code>) a table of tables, which is the required format by efm-langserver.</p>
-<p>Finally, we can add the following to our nvim-lspconfig <code>setup()</code>.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;lspconfig&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">efm</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">  init_options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentRangeFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">  filetypes </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vim.</span><span style="color:#79B8FF">tbl_keys</span><span style="color:#E1E4E8">(languages),</span></span>
-<span class="line"><span style="color:#E1E4E8">  settings </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.git/&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">    languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> languages,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">})</span></span>
-<span class="line"></span></code></pre>
-<p>Couple things to note here:</p>
-<ul>
-<li><code>rootMarkers</code> is required by efm-langserver to attach to the <code>languages</code> provided.</li>
-<li><code>filetypes</code> is required by nvim-lspconfig to let the language server attach to a neovim buffer.</li>
-</ul>
-<p>Now I did mention that it was an easy task, it definitely was not 🫤. In fact, we first have to know how to even
-construct the configuration by first reading the schema.</p>
-<p>Next, we need to parse the messages (if the config is a linter this will be the <code>lintFormats</code> option) to an <code>efm</code>
-friendly format so that neovim can properly display the diagnostics. I did not go over this in detail however this is a
-different beast of it’s own and trying to learn this is a pain in the a**.</p>
-<p>So let’s take a look at a more simpler method using my plugin.</p>
-<h3 id="the-easy-way-for-real-this-time">The easy way, for real this time!</h3>
-<p>Using the plugin I created: <a href="https://github.com/creativenull/efmls-configs-nvim">creativenull/efmls-configs-nvim</a>, we can get rid of the configurations all together.
-Since I’ve already done the heavy work for you, everything stays except for the <code>eslint</code> and <code>prettier</code> variables.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> eslint </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.linters.eslint&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.formatters.prettier&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"></span></code></pre>
-<p>That’s it. That’s all my plugin does 😅. Here is the complete code after integrating this plugin.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> eslint </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.linters.eslint&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.formatters.prettier&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascript </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint, prettier },</span></span>
-<span class="line"><span style="color:#E1E4E8">  javascriptreact </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { eslint, prettier },</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;lspconfig&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">efm</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">  init_options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentRangeFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">  filetypes </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vim.</span><span style="color:#79B8FF">tbl_keys</span><span style="color:#E1E4E8">(languages),</span></span>
-<span class="line"><span style="color:#E1E4E8">  settings </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.git/&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">    languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> languages,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">})</span></span>
-<span class="line"></span></code></pre>
-<p>This is much cleaner!</p>
-<p>We can even go one step further and omit assigning each linter/formatter to a language and just use the defaults
-included in this plugin.</p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.defaults&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#79B8FF">languages</span><span style="color:#E1E4E8">()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;lspconfig&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">efm</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">  init_options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentRangeFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">  filetypes </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vim.</span><span style="color:#79B8FF">tbl_keys</span><span style="color:#E1E4E8">(languages),</span></span>
-<span class="line"><span style="color:#E1E4E8">  settings </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.git/&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">    languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> languages,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">})</span></span>
-<span class="line"></span></code></pre>
-<p>Even better! Now you won’t need to keep defining for each language just use the recommended defaults provided.</p>
-<h2 id="migrating-from-null-ls-to-efm-langserver">Migrating from null-ls to efm-langserver</h2>
-<p>With all the information I’ve provided above, it’s still not very helpful for a user to migrate from null-ls to
-efm-langserver. So here are some examples of null-ls code and it’s equivalent efm-langserver + efmls-configs code.</p>
-<p><strong>Simple null-ls setup code</strong></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#6A737D">-- Taken from BUILTIN_CONFIG.md</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> null_ls </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&quot;null-ls&quot;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">-- register any number of sources simultaneously</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> sources </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    null_ls.</span><span style="color:#B392F0">builtins</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">formatting</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">prettier</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">    null_ls.</span><span style="color:#B392F0">builtins</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">diagnostics</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">write_good</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">null_ls.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({ sources </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> sources })</span></span>
-<span class="line"></span></code></pre>
-<p><strong>Equivalent efm-langserver setup code</strong></p>
-<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="lua"><code><span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.formatters.prettier&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> prettier_languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;javascript&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;javascriptreact&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;typescript&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;typescriptreact&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;vue&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;css&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;scss&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;less&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;html&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;json&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;jsonc&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;yaml&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;markdown&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;markdown.mdx&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;graphql&#39;</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">&#39;handlebars&#39; </span><span style="color:#E1E4E8">}</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> write_good </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;efmls-configs.linters.write_good&#39;</span><span style="color:#E1E4E8">)</span></span>
-<span class="line"><span style="color:#F97583">local</span><span style="color:#E1E4E8"> languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#F97583">for</span><span style="color:#E1E4E8"> _,pl </span><span style="color:#F97583">in</span><span style="color:#79B8FF"> pairs</span><span style="color:#E1E4E8">(prettier_languages) </span><span style="color:#F97583">do</span></span>
-<span class="line"><span style="color:#E1E4E8">  languages[pl] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { prettier }</span></span>
-<span class="line"><span style="color:#F97583">end</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#E1E4E8">languages[</span><span style="color:#9ECBFF">&#39;markdown&#39;</span><span style="color:#E1E4E8">] </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { write_good }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#79B8FF">require</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">&#39;lspconfig&#39;</span><span style="color:#E1E4E8">).</span><span style="color:#B392F0">efm</span><span style="color:#E1E4E8">.</span><span style="color:#79B8FF">setup</span><span style="color:#E1E4E8">({</span></span>
-<span class="line"><span style="color:#E1E4E8">  init_options </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">    documentRangeFormatting </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> true</span><span style="color:#E1E4E8">,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">  filetypes </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> vim.</span><span style="color:#79B8FF">tbl_keys</span><span style="color:#E1E4E8">(languages),</span></span>
-<span class="line"><span style="color:#E1E4E8">  settings </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span></span>
-<span class="line"><span style="color:#E1E4E8">    rootMarkers </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> { </span><span style="color:#9ECBFF">&#39;.git/&#39; </span><span style="color:#E1E4E8">},</span></span>
-<span class="line"><span style="color:#E1E4E8">    languages </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> languages,</span></span>
-<span class="line"><span style="color:#E1E4E8">  },</span></span>
-<span class="line"><span style="color:#E1E4E8">})</span></span>
-<span class="line"></span></code></pre>
-<p>This is a bit verbose. But to be pedantic to null-ls, the above will be the equivalent. However, I would highly
-recommend you to use the defaults (<code>require(&#39;efmls-configs.defaults&#39;).languages()</code>) as it already sets up the languages
-for the tools for you.</p>
-<h2 id="final-thoughts">Final Thoughts</h2>
-<p>This post ended up being longer that I thought it would. But in conclusion, there are alternatives to null-ls like
-efm-langserver and can provide the same features. I plan to make more posts like this for other alternatives like
-the diagnostic-languageserver which is the same as efm-langserver but written in TypeScript. I also made a plugin for
-diagnostic-languageserver called <a href="https://github.com/creativenull/diagnosticls-configs-nvim">creativenull/diagnosticls-configs-nvim</a>.</p>
-<hr/> <div class="not-prose font-jetbrains text-sm border-t border-t-gray-400 dark:border-t-gray-800 space-y-2 pt-8"> <div>author = "Arnold Chand"</div> <div>publishDate = 20/08/2023, 08:00</div> <div>categories = [&quot;Guide&quot;]</div> <div>tags = [&quot;neovim&quot;, &quot;notes&quot;, &quot;tutorial&quot;]</div> </div> </div> </div> <div class="frontpage-divider h-[1px]"></div> <div class="h-[100px] flex flex-col justify-center items-center text-xs md:text-sm gap-2 px-4"> <div class="flex gap-2"> <span>
-2020 - 2024 Arnold Chand (creativenull)
-</span> <div class="flex items-center gap-2"> <a href="https://twitter.com/creativenu11"> <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 256 209"><path fill="#55acee" d="M256 25.45a105.04 105.04 0 0 1-30.166 8.27c10.845-6.5 19.172-16.793 23.093-29.057a105.183 105.183 0 0 1-33.351 12.745C205.995 7.201 192.346.822 177.239.822c-29.006 0-52.523 23.516-52.523 52.52c0 4.117.465 8.125 1.36 11.97c-43.65-2.191-82.35-23.1-108.255-54.876c-4.52 7.757-7.11 16.78-7.11 26.404c0 18.222 9.273 34.297 23.365 43.716a52.312 52.312 0 0 1-23.79-6.57c-.003.22-.003.44-.003.661c0 25.447 18.104 46.675 42.13 51.5a52.592 52.592 0 0 1-23.718.9c6.683 20.866 26.08 36.05 49.062 36.475c-17.975 14.086-40.622 22.483-65.228 22.483c-4.24 0-8.42-.249-12.529-.734c23.243 14.902 50.85 23.597 80.51 23.597c96.607 0 149.434-80.031 149.434-149.435c0-2.278-.05-4.543-.152-6.795A106.748 106.748 0 0 0 256 25.45"></path></svg> </a> <a rel="me" href="https://mastodon.online/@creativenull"> <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 256 274"><path fill="#3088D4" d="M249.874 164.085c-3.753 19.307-33.613 40.438-67.908 44.533c-17.883 2.134-35.49 4.095-54.266 3.234c-30.705-1.407-54.933-7.33-54.933-7.33c0 2.99.184 5.836.553 8.498c3.992 30.302 30.047 32.118 54.728 32.964c24.912.852 47.094-6.142 47.094-6.142l1.023 22.521s-17.425 9.357-48.465 11.078c-17.116.94-38.369-.43-63.122-6.983c-53.686-14.21-62.92-71.436-64.332-129.502c-.43-17.24-.165-33.497-.165-47.094c0-59.375 38.903-76.779 38.903-76.779C58.6 4.074 92.259.286 127.25 0h.86c34.991.286 68.673 4.074 88.287 13.083c0 0 38.901 17.404 38.901 76.78c0 0 .488 43.807-5.425 74.222"></path><path fill="#FFF" d="M209.413 94.469v71.894H180.93V96.582c0-14.71-6.19-22.176-18.57-22.176c-13.687 0-20.547 8.857-20.547 26.37v38.195h-28.315v-38.195c0-17.513-6.862-26.37-20.55-26.37c-12.379 0-18.568 7.466-18.568 22.176v69.78H45.897V94.47c0-14.694 3.741-26.37 11.256-35.009c7.75-8.638 17.898-13.066 30.496-13.066c14.575 0 25.613 5.602 32.911 16.808l7.095 11.893l7.096-11.893c7.296-11.206 18.334-16.808 32.911-16.808c12.597 0 22.745 4.428 30.496 13.066c7.513 8.639 11.255 20.315 11.255 35.009"></path></svg> </a> </div> </div> <div> <a href="https://astro.build" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
-astro.build
-</a>
-+
-<a href="https://alpinejs.dev" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
-alpinejs.dev
-</a>
-+
-<a href="https://unocss.dev" target="_blank" class="text-blue-700 font-bold underline hover:no-underline dark:text-blue-500">
-unocss.dev
-</a>
-&equals; ♥
-</div> </div>   </div> </body></html>
+<!DOCTYPE html><html lang="en" class="dark"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0"><meta name="theme-color" content="#1E3A8A"><meta http-equiv="refresh" content="0; url=https://creativenull.dev/"><link rel="canonical" href="https://creativenull.dev/"><!--
+    <link rel="preconnect" href="https://fonts.bunny.net" />
+    <link
+      href="https://fonts.bunny.net/css?family=jetbrains-mono:200,200i|noto-sans:300,300i,700,700i|righteous:400"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.13.3/dist/cdn.min.js"
+    ></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.3/dist/cdn.min.js"></script>
+    --><link rel="shortcut icon" type="image/ico" href="/favicon.ico"><title>Setup efm-langserver in neovim - CreativeNull</title><link rel="stylesheet" href="/_astro/index.yJnwpSTZ.css"><style>.frontpage-divider{background-image:linear-gradient(to left,transparent,#4a4a4a 50%,transparent)}
+</style></head> <body> <p>This page has moved to <a href="https://creativenull.dev">creativenull.dev</a>.</p> </body><!--
+  <body class="dark:text-white dark:bg-dark-900 text-dark-900 bg-white">
+    <div class="font-noto">
+      <slot />
+    </div>
+  </body>
+  --></html>
